@@ -60,8 +60,11 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
                public_key_type(active_value), registrar_account_value, referrer_account_value, referrer_percent_value, false);
 
          if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm create account?"),
-                                      wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION | wxMAXIMIZE_BOX, this)) {
+            wxRichMessageDialog confirm(this, _("Please double check and confirm operation below"),
+                  _("Confirm create account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION);
+            confirm.ShowDetailedText(fc::json::to_pretty_string(result_obj.operations[0]));
+
+            if (wxID_YES == confirm.ShowModal()) {
                wxTheApp->Yield(true);
                result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(name_value, public_key_type(owner_value),
                      public_key_type(active_value), registrar_account_value, referrer_account_value, referrer_percent_value, true);

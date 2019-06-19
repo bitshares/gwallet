@@ -2,6 +2,7 @@
 #include <wx/srchctrl.h>
 #include <wx/treectrl.h>
 #include <wx/spinctrl.h>
+#include <wx/richmsgdlg.h>
 #include <wx/xrc/xmlres.h>
 
 class GWallet;
