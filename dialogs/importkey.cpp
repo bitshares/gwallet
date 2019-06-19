@@ -31,7 +31,6 @@ void ImportKeyDialog::OnOk(wxCommandEvent &WXUNUSED(event)) {
       p_GWallet->config->Flush();
 
       p_GWallet->DoAccounts();
-      p_GWallet->DoAssets(acct.ToStdString());
 
       p_GWallet->bitshares.wallet_api_ptr->save_wallet_file();
 

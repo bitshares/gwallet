@@ -362,6 +362,8 @@ void GWallet::DoAccounts()
    const auto& accounts = bitshares.wallet_api_ptr->list_my_accounts();
    int n = 0;
 
+   strings.accounts.Empty();
+
    for(auto& account : accounts) {
       auto name = account.name;
       if(n == 0) strings.first_account_name = name;
