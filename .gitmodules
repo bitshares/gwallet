@@ -1,0 +1,4 @@
+[submodule "bitshares-core"]
+	path = bitshares-core
+	url = https://github.com/bitshares/bitshares-core
+	branch = master

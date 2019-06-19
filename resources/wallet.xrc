@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxPanel" name="Wallet">
+        <style>wxBORDER_SUNKEN|wxTAB_TRAVERSAL</style>
+        <exstyle>wxWS_EX_VALIDATE_RECURSIVELY</exstyle>
+        <size>500,300</size>
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxALL</flag>
+                <border>5</border>
+                <object class="wxStaticText" name="locked_msg">
+                    <fg>#f01b1b</fg>
+                    <label>Please unlock your wallet</label>
+                    <wrap>-1</wrap>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>1</option>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxTreeCtrl" name="wallet_tree">
+                    <style>wxTR_DEFAULT_STYLE|wxBORDER_NONE</style>
+                </object>
+            </object>
+        </object>
+    </object>
+</resource>

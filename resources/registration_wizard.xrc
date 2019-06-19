@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxWizard" name="Registration">
+        <style>wxDEFAULT_DIALOG_STYLE</style>
+        <title>Setup wizard</title>
+        <centered>1</centered>
+        <bitmap>../icons/wizard.png</bitmap>
+        <object class="wxWizardPageSimple" name="page1">
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>5</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText5">
+                        <label>This wizard will help you set up a new wallet.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText6">
+                        <label>Click Next to get started.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText8">
+                        <label>Click Cancel to exit the wizard.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+            </object>
+        </object>
+        <object class="wxWizardPageSimple" name="page2">
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText4">
+                        <label>First step to start using G-Wallet is to create a \nwallet file.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText51">
+                        <label>This file is used to store configuration options \nthat will be used to start the application next \ntime you use it.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>0</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>20,20</size>
+                </object>
+                <object class="sizeritem">
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxBoxSizer">
+                        <orient>wxVERTICAL</orient>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="m_staticText61">
+                                <label>Select wallet path and name:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxEXPAND</flag>
+                            <border>5</border>
+                            <object class="wxBoxSizer">
+                                <orient>wxHORIZONTAL</orient>
+                                <object class="sizeritem">
+                                    <option>10</option>
+                                    <flag>wxALL</flag>
+                                    <border>5</border>
+                                    <object class="wxTextCtrl" name="path">
+                                        <value></value>
+                                    </object>
+                                </object>
+                                <object class="sizeritem">
+                                    <option>2</option>
+                                    <flag>wxALL</flag>
+                                    <border>5</border>
+                                    <object class="wxBitmapButton" name="path_button">
+                                        <bitmap>../icons/folder-find.png</bitmap>
+                                        <default>0</default>
+                                    </object>
+                                </object>
+                            </object>
+                        </object>
+                    </object>
+                </object>
+            </object>
+        </object>
+        <object class="wxWizardPageSimple" name="page3">
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText10">
+                        <label>Next step is to insert your API endpoint and \ncreate a wallet password.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText11">
+                        <label>Introduce your API endpoint:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxBoxSizer">
+                        <orient>wxHORIZONTAL</orient>
+                        <object class="sizeritem">
+                            <option>10</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxTextCtrl" name="endpoint">
+                                <value translate="0">wss://node.bitshares.eu</value>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>2</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxBitmapButton" name="endpoint_button">
+                                <bitmap>../icons/network-connect-3.png</bitmap>
+                                <default>0</default>
+                            </object>
+                        </object>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>0</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>0,0</size>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText12">
+                        <label>Wallet password:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL|wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxTextCtrl" name="password">
+                        <style>wxTE_PASSWORD</style>
+                        <value></value>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText13">
+                        <label>Repeat password:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL|wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxTextCtrl" name="repeat_password">
+                        <style>wxTE_PASSWORD</style>
+                        <value></value>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>0,0</size>
+                </object>
+            </object>
+        </object>
+        <object class="wxWizardPageSimple" name="page4">
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText24">
+                        <label>If you already have an account in Bitshares \nand have a private key use the Import account option. </label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText25">
+                        <label>To register a new account please use the \nCreate account option.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>0</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>10,10</size>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText26">
+                        <label>Registration options:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxRadioButton" name="import_account_radio">
+                        <label>Import account - Need private key and \naccount name pair.</label>
+                        <value>0</value>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxRadioButton" name="create_account_radio">
+                        <enabled>0</enabled>
+                        <label>Create account - Will connect to a faucet \nservice.</label>
+                        <value>0</value>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>0,0</size>
+                </object>
+            </object>
+        </object>
+        <object class="wxWizardPageSimple" name="page5">
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText36">
+                        <label>Import your Bitshares account to G-Wallet.</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>0</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>10,10</size>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText37">
+                        <label>Account:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL|wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxSearchCtrl" name="account">
+                        <value></value>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL</flag>
+                    <border>5</border>
+                    <object class="wxStaticText" name="m_staticText38">
+                        <label>Private key:</label>
+                        <wrap>-1</wrap>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <option>0</option>
+                    <flag>wxALL|wxEXPAND</flag>
+                    <border>5</border>
+                    <object class="wxTextCtrl" name="private_key">
+                        <value></value>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                    <border>5</border>
+                    <size>0,0</size>
+                </object>
+            </object>
+        </object>
+    </object>
+</resource>

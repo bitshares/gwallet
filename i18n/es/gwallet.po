@@ -1,0 +1,1339 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-06-11 16:05-0300\n"
+"PO-Revision-Date: 2019-06-11 21:09-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: dialogs/importkey.cpp:37
+msgid "Account imported"
+msgstr "Cuenta importada"
+
+#: dialogs/importkey.cpp:37 gwallet.cpp:637 wizards/registration.cpp:48
+msgid "Success"
+msgstr "Exito"
+
+#: dialogs/importkey.cpp:41
+msgid "Account and key can not be empty"
+msgstr "Cuenta y llave no pueden estar vacias"
+
+#: dialogs/importkey.cpp:41 gwallet.cpp:604 wizards/registration.cpp:54
+#: wizards/registration.cpp:83 wizards/registration.cpp:101
+#: wizards/registration.cpp:109 wizards/registration.cpp:152
+#: wizards/registration.cpp:169
+msgid "Error"
+msgstr "Error"
+
+#: dialogs/importkey.cpp:56 panels/getaccounthistory.cpp:28
+#: panels/getcommitteemember.cpp:26 panels/setproxy.cpp:33
+#: panels/transfer.cpp:39 wizards/registration.cpp:72
+msgid "Accounts found"
+msgstr "Cuentas encontradas"
+
+#: dialogs/importkey.cpp:56 panels/getaccounthistory.cpp:28
+#: panels/getcommitteemember.cpp:26 panels/setproxy.cpp:33
+#: panels/transfer.cpp:39 wizards/registration.cpp:72
+msgid "Please select an account"
+msgstr "Porfavor elije una cuenta"
+
+#: gwallet.cpp:45 gwallet.cpp:76
+msgid "Open a saved wallet"
+msgstr "Abrir una billetera guardada"
+
+#: gwallet.cpp:88
+msgid "Enter server"
+msgstr "Ingresa servidor"
+
+#: gwallet.cpp:88
+msgid "Websocket endpoint"
+msgstr "Url del websocket"
+
+#: gwallet.cpp:117
+msgid "Please wait, connecting ..."
+msgstr "Porfavor aguarde, conectando ..."
+
+#: gwallet.cpp:122
+msgid ""
+"Problem connecting to: \n"
+"\n"
+msgstr ""
+"Problema conectando a: \n"
+"\n"
+
+#: gwallet.cpp:167
+msgid "Some problem when disconnecting, try again ..."
+msgstr "Algun problema con la desconeccion, prueba nuevamante ..."
+
+#: gwallet.cpp:169 gwallet.cpp:771
+msgid "Disconnected"
+msgstr "Desconectado"
+
+#: gwallet.cpp:177
+msgid "Enter password"
+msgstr "Ingresa contraseña"
+
+#: gwallet.cpp:183 gwallet.cpp:723
+msgid "Connected | Locked"
+msgstr "Conectado | Bloqueado"
+
+#: gwallet.cpp:198
+#, c-format
+msgid "Secure and simple bitshares wallet build with %s"
+msgstr "Billetera de Bitshares simple y segura hecho con %s"
+
+#: gwallet.cpp:199
+msgid "About G-Wallet"
+msgstr "Acerca de G-Wallet"
+
+#: gwallet.cpp:210
+msgid "Some problem when locking, try again ..."
+msgstr "Algun problema bloqueando, prueba nuevamente ..."
+
+#: gwallet.cpp:219 panels/wallet.cpp:52
+msgid "Please double click a command from below"
+msgstr "Porfavor haga doble click algun comando de abajo"
+
+#: gwallet.cpp:224
+msgid "Unlock wallet"
+msgstr "Desbloquear billetera"
+
+#: gwallet.cpp:234
+msgid "Password is incorrect, please try again."
+msgstr ""
+
+#: gwallet.cpp:391 resources/info.xrc:32 panels/wallet.cpp:160
+msgid "Blockchain information"
+msgstr ""
+
+#: gwallet.cpp:392 resources/about.xrc:32
+msgid "Software information"
+msgstr ""
+
+#: gwallet.cpp:410 resources/main.xrc:40 resources/main.xrc:86
+msgid "Wallet"
+msgstr ""
+
+#: gwallet.cpp:439 resources/main.xrc:79
+msgid "Commands"
+msgstr ""
+
+#: gwallet.cpp:468
+msgid "Cli"
+msgstr ""
+
+#: gwallet.cpp:615
+msgid "Chinese"
+msgstr ""
+
+#: gwallet.cpp:617
+msgid "Spanish"
+msgstr ""
+
+#: gwallet.cpp:619
+msgid "English"
+msgstr ""
+
+#: gwallet.cpp:620
+msgid "Select language:"
+msgstr ""
+
+#: gwallet.cpp:620
+msgid "Language"
+msgstr ""
+
+#: gwallet.cpp:636
+msgid ""
+"Language changed, however you need to restart G-Wallet for changes to take "
+"effect"
+msgstr ""
+
+#: gwallet.cpp:677
+msgid "No Config"
+msgstr ""
+
+#: gwallet.cpp:714 gwallet.cpp:718
+msgid "Connected | New"
+msgstr ""
+
+#: gwallet.cpp:733
+msgid "Connected | Unlocked"
+msgstr ""
+
+#: resources/about.xrc:50
+msgid "Client version:"
+msgstr ""
+
+#: resources/about.xrc:76
+msgid "Graphene revision:"
+msgstr ""
+
+#: resources/about.xrc:102
+msgid "Revision age:"
+msgstr ""
+
+#: resources/about.xrc:128
+msgid "FC revision:"
+msgstr ""
+
+#: resources/about.xrc:154
+msgid "FC revision age:"
+msgstr ""
+
+#: resources/about.xrc:180
+msgid "Compile date:"
+msgstr ""
+
+#: resources/about.xrc:206
+msgid "Boost version:"
+msgstr ""
+
+#: resources/about.xrc:232
+msgid "OpenSSL version:"
+msgstr ""
+
+#: resources/about.xrc:258
+msgid "OS build:"
+msgstr ""
+
+#: resources/borrowasset.xrc:25
+msgid ""
+"This is the first step in shorting an asset.  Call sell_asset() to complete "
+"the short."
+msgstr ""
+
+#: resources/borrowasset.xrc:26
+msgid "Borrow an asset or update the debt/collateral ratio for the loan."
+msgstr ""
+
+#: resources/borrowasset.xrc:49
+msgid "Borrower name"
+msgstr ""
+
+#: resources/borrowasset.xrc:79
+msgid "The name or id of the account associated with the transaction."
+msgstr ""
+
+#: resources/borrowasset.xrc:115
+msgid "Amount to borrow"
+msgstr ""
+
+#: resources/borrowasset.xrc:144
+msgid ""
+"The amount of the asset being borrowed.  Make this value negative to pay "
+"back debt."
+msgstr ""
+
+#: resources/borrowasset.xrc:154
+msgid "The symbol or id of the asset being borrowed."
+msgstr ""
+
+#: resources/borrowasset.xrc:189
+msgid "Amount of collateral"
+msgstr ""
+
+#: resources/borrowasset.xrc:218
+msgid ""
+"The amount of the backing asset to add to your collateral position.  Make "
+"this negative to claim back some of your collateral.\n"
+"The backing asset is defined in the bitasset_options for the asset being "
+"borrowed."
+msgstr ""
+
+#: resources/borrowasset.xrc:228
+msgid " BTS"
+msgstr ""
+
+#: resources/borrowasset.xrc:263 resources/cancelorder.xrc:113
+msgid "Check to broadcast the transaction on the network."
+msgstr ""
+
+#: resources/borrowasset.xrc:264 resources/cancelorder.xrc:114
+#: resources/sellasset.xrc:351 resources/setproxy.xrc:180
+msgid "Broadcast transaction"
+msgstr ""
+
+#: resources/borrowasset.xrc:273 resources/cancelorder.xrc:123
+#: resources/getaccounthistory.xrc:287 resources/getcommitteemember.xrc:117
+#: resources/getorderbook.xrc:256 resources/sellasset.xrc:360
+#: resources/setproxy.xrc:189 resources/transfer.xrc:331
+msgid "Show output in CLI mode"
+msgstr ""
+
+#: resources/borrowasset.xrc:334 resources/cancelorder.xrc:184
+#: resources/getaccounthistory.xrc:348 resources/getcommitteemember.xrc:184
+#: resources/getorderbook.xrc:317 resources/importkey_dialog.xrc:189
+#: resources/sellasset.xrc:421 resources/setproxy.xrc:250
+#: resources/transfer.xrc:392
+msgid "&OK"
+msgstr ""
+
+#: resources/cancelorder.xrc:25
+msgid "Cancel an existing order"
+msgstr ""
+
+#: resources/cancelorder.xrc:48
+msgid "Order to cancel"
+msgstr ""
+
+#: resources/cancelorder.xrc:78
+msgid " Select order to be cancelled."
+msgstr ""
+
+#: resources/cli.xrc:20
+msgid "about"
+msgstr ""
+
+#: resources/cli.xrc:28
+msgid "Run command"
+msgstr ""
+
+#: resources/cli.xrc:36
+msgid "Clear console"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:31
+msgid "Returns the most recent operations on the named account."
+msgstr ""
+
+#: resources/getaccounthistory.xrc:60
+msgid "Account name"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:122 resources/getorderbook.xrc:141
+msgid "Limit"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:153 resources/getorderbook.xrc:172
+msgid "1"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:154 resources/getorderbook.xrc:173
+msgid "2"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:155 resources/getorderbook.xrc:174
+msgid "3"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:156 resources/getorderbook.xrc:175
+msgid "4"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:157 resources/getorderbook.xrc:176
+msgid "5"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:158 resources/getorderbook.xrc:177
+msgid "6"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:159 resources/getorderbook.xrc:178
+msgid "7"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:160 resources/getorderbook.xrc:179
+msgid "8"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:161 resources/getorderbook.xrc:180
+msgid "9"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:162 resources/getorderbook.xrc:181
+msgid "10"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:163 resources/getorderbook.xrc:182
+msgid "11"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:164 resources/getorderbook.xrc:183
+msgid "12"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:165 resources/getorderbook.xrc:184
+msgid "13"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:166 resources/getorderbook.xrc:185
+msgid "14"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:167 resources/getorderbook.xrc:186
+msgid "15"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:168 resources/getorderbook.xrc:187
+msgid "16"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:169 resources/getorderbook.xrc:188
+msgid "17"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:170 resources/getorderbook.xrc:189
+msgid "18"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:171 resources/getorderbook.xrc:190
+msgid "19"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:172 resources/getorderbook.xrc:191
+msgid "20"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:173 resources/getorderbook.xrc:192
+msgid "21"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:174 resources/getorderbook.xrc:193
+msgid "22"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:175 resources/getorderbook.xrc:194
+msgid "23"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:176 resources/getorderbook.xrc:195
+msgid "24"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:177 resources/getorderbook.xrc:196
+msgid "25"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:178 resources/getorderbook.xrc:197
+msgid "26"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:179 resources/getorderbook.xrc:198
+msgid "27"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:180 resources/getorderbook.xrc:199
+msgid "28"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:181 resources/getorderbook.xrc:200
+msgid "29"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:182 resources/getorderbook.xrc:201
+msgid "30"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:183 resources/getorderbook.xrc:202
+msgid "31"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:184 resources/getorderbook.xrc:203
+msgid "32"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:185 resources/getorderbook.xrc:204
+msgid "33"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:186 resources/getorderbook.xrc:205
+msgid "34"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:187 resources/getorderbook.xrc:206
+msgid "35"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:188 resources/getorderbook.xrc:207
+msgid "36"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:189 resources/getorderbook.xrc:208
+msgid "37"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:190 resources/getorderbook.xrc:209
+msgid "38"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:191 resources/getorderbook.xrc:210
+msgid "39"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:192 resources/getorderbook.xrc:211
+msgid "40"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:193 resources/getorderbook.xrc:212
+msgid "41"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:194 resources/getorderbook.xrc:213
+msgid "42"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:195 resources/getorderbook.xrc:214
+msgid "43"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:196 resources/getorderbook.xrc:215
+msgid "44"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:197 resources/getorderbook.xrc:216
+msgid "45"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:198 resources/getorderbook.xrc:217
+msgid "46"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:199 resources/getorderbook.xrc:218
+msgid "47"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:200 resources/getorderbook.xrc:219
+msgid "48"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:201 resources/getorderbook.xrc:220
+msgid "49"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:202 resources/getorderbook.xrc:221
+msgid "50"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:203
+msgid "51"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:204
+msgid "52"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:205
+msgid "53"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:206
+msgid "54"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:207
+msgid "55"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:208
+msgid "56"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:209
+msgid "57"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:210
+msgid "58"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:211
+msgid "59"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:212
+msgid "60"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:213
+msgid "61"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:214
+msgid "62"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:215
+msgid "63"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:216
+msgid "64"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:217
+msgid "65"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:218
+msgid "66"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:219
+msgid "67"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:220
+msgid "68"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:221
+msgid "69"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:222
+msgid "70"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:223
+msgid "71"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:224
+msgid "72"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:225
+msgid "73"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:226
+msgid "74"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:227
+msgid "75"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:228
+msgid "76"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:229
+msgid "77"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:230
+msgid "78"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:231
+msgid "79"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:232
+msgid "80"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:233
+msgid "81"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:234
+msgid "82"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:235
+msgid "83"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:236
+msgid "84"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:237
+msgid "85"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:238
+msgid "86"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:239
+msgid "87"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:240
+msgid "88"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:241
+msgid "89"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:242
+msgid "90"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:243
+msgid "91"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:244
+msgid "92"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:245
+msgid "93"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:246
+msgid "94"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:247
+msgid "95"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:248
+msgid "96"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:249
+msgid "97"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:250
+msgid "98"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:251
+msgid "99"
+msgstr ""
+
+#: resources/getaccounthistory.xrc:252
+msgid "100"
+msgstr ""
+
+#: resources/getcommitteemember.xrc:31
+msgid "Returns information about the given committee member."
+msgstr ""
+
+#: resources/getcommitteemember.xrc:60
+msgid "Owner Account"
+msgstr ""
+
+#: resources/getorderbook.xrc:32
+msgid "Return the order book for a given market"
+msgstr ""
+
+#: resources/getorderbook.xrc:61
+msgid "Market"
+msgstr ""
+
+#: resources/getorderbook.xrc:98
+msgid "/"
+msgstr ""
+
+#: resources/importkey_dialog.xrc:7 resources/main.xrc:140
+msgid "Import Key"
+msgstr ""
+
+#: resources/importkey_dialog.xrc:33
+msgid "Account Name"
+msgstr ""
+
+#: resources/importkey_dialog.xrc:92
+msgid "Private Key"
+msgstr ""
+
+#: resources/importkey_dialog.xrc:196
+msgid "&Cancel"
+msgstr ""
+
+#: resources/info.xrc:50
+msgid "Head block number:"
+msgstr ""
+
+#: resources/info.xrc:76
+msgid "Block age:"
+msgstr ""
+
+#: resources/info.xrc:102
+msgid "Next maintenance time:"
+msgstr ""
+
+#: resources/info.xrc:128
+msgid "Participation:"
+msgstr ""
+
+#: resources/info.xrc:154
+msgid "Active witnesses:"
+msgstr ""
+
+#: resources/info.xrc:163 resources/info.xrc:190 resources/main.xrc:68
+msgid "View"
+msgstr ""
+
+#: resources/info.xrc:181
+msgid "Active committee:"
+msgstr ""
+
+#: resources/info.xrc:208
+msgid "Chain ID:"
+msgstr ""
+
+#: resources/info.xrc:234
+msgid "Core asset:"
+msgstr ""
+
+#: resources/info.xrc:260
+msgid "Blockchain name:"
+msgstr ""
+
+#: resources/main.xrc:6 main.cpp:8
+msgid "G-Wallet | Secure Bitshares Wallet"
+msgstr ""
+
+#: resources/main.xrc:12
+msgid "File"
+msgstr ""
+
+#: resources/main.xrc:14
+msgid "New"
+msgstr ""
+
+#: resources/main.xrc:18
+msgid "Open"
+msgstr ""
+
+#: resources/main.xrc:22
+msgid "Save"
+msgstr ""
+
+#: resources/main.xrc:26
+msgid "Connection"
+msgstr ""
+
+#: resources/main.xrc:31
+msgid "Change language"
+msgstr ""
+
+#: resources/main.xrc:35
+msgid "Quit"
+msgstr ""
+
+#: resources/main.xrc:42 resources/main.xrc:116
+msgid "Connect"
+msgstr ""
+
+#: resources/main.xrc:46 resources/main.xrc:122
+msgid "Disconnect"
+msgstr ""
+
+#: resources/main.xrc:51
+msgid "Set password"
+msgstr ""
+
+#: resources/main.xrc:55 resources/main.xrc:128
+msgid "Lock"
+msgstr ""
+
+#: resources/main.xrc:59 resources/main.xrc:134
+msgid "Unlock"
+msgstr ""
+
+#: resources/main.xrc:63
+msgid "Import key"
+msgstr ""
+
+#: resources/main.xrc:71
+msgid "Welcome"
+msgstr ""
+
+#: resources/main.xrc:93
+msgid "CLI"
+msgstr ""
+
+#: resources/main.xrc:101
+msgid "Help"
+msgstr ""
+
+#: resources/main.xrc:103 panels/wallet.cpp:154
+msgid "About"
+msgstr ""
+
+#: resources/main.xrc:149
+msgid "My accounts"
+msgstr ""
+
+#: resources/main.xrc:150
+msgid "MY ACCOUNTS"
+msgstr ""
+
+#: resources/main.xrc:156
+msgid "My assets"
+msgstr ""
+
+#: resources/main.xrc:157
+msgid "MY ASSETS"
+msgstr ""
+
+#: resources/main.xrc:170
+msgid "My balance"
+msgstr ""
+
+#: resources/main.xrc:171
+msgid "0.00 BTS"
+msgstr ""
+
+#: resources/main.xrc:209
+msgid "Welcome to G-Wallet"
+msgstr ""
+
+#: resources/main.xrc:218
+msgid "Version 0.5.0"
+msgstr ""
+
+#: resources/main.xrc:250
+msgid ""
+"Setup a new wallet by following the wizard. Please note you need a created "
+"account and private key in order to use the software."
+msgstr ""
+
+#: resources/main.xrc:287
+msgid ""
+"If you already have a wallet.json file somewhere please use this option to "
+"import it to G-Wallet."
+msgstr ""
+
+#: resources/main.xrc:324
+msgid "If your wallet is all set, connect to Bitshares."
+msgstr ""
+
+#: resources/registration_wizard.xrc:5
+msgid "Setup wizard"
+msgstr ""
+
+#: resources/registration_wizard.xrc:16
+msgid "This wizard will help you set up a new wallet."
+msgstr ""
+
+#: resources/registration_wizard.xrc:25
+msgid "Click Next to get started."
+msgstr ""
+
+#: resources/registration_wizard.xrc:34
+msgid "Click Cancel to exit the wizard."
+msgstr ""
+
+#: resources/registration_wizard.xrc:48
+msgid ""
+"First step to start using G-Wallet is to create a \n"
+"wallet file."
+msgstr ""
+
+#: resources/registration_wizard.xrc:57
+msgid ""
+"This file is used to store configuration options \n"
+"that will be used to start the application next \n"
+"time you use it."
+msgstr ""
+
+#: resources/registration_wizard.xrc:78
+msgid "Select wallet path and name:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:119
+msgid ""
+"Next step is to insert your API endpoint and \n"
+"create a wallet password."
+msgstr ""
+
+#: resources/registration_wizard.xrc:128
+msgid "Introduce your API endpoint:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:143
+msgid "wss://node.bitshares.eu"
+msgstr ""
+
+#: resources/registration_wizard.xrc:168
+msgid "Wallet password:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:186
+msgid "Repeat password:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:215
+msgid ""
+"If you already have an account in Bitshares \n"
+"and have a private key use the Import account option. "
+msgstr ""
+
+#: resources/registration_wizard.xrc:224
+msgid ""
+"To register a new account please use the \n"
+"Create account option."
+msgstr ""
+
+#: resources/registration_wizard.xrc:239
+msgid "Registration options:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:248
+msgid ""
+"Import account - Need private key and \n"
+"account name pair."
+msgstr ""
+
+#: resources/registration_wizard.xrc:258
+msgid ""
+"Create account - Will connect to a faucet \n"
+"service."
+msgstr ""
+
+#: resources/registration_wizard.xrc:278
+msgid "Import your Bitshares account to G-Wallet."
+msgstr ""
+
+#: resources/registration_wizard.xrc:293
+msgid "Account:"
+msgstr ""
+
+#: resources/registration_wizard.xrc:310
+msgid "Private key:"
+msgstr ""
+
+#: resources/sellasset.xrc:25
+msgid ""
+"Buying and selling are the same operation on Graphene; if you want to buy "
+"BTS with USD, you should sell USD for BTS.\n"
+"\n"
+"The blockchain will attempt to sell the symbol_to_sell for as much "
+"symbol_to_receive as possible, as long as the price is at least "
+"min_to_receive / amount_to_sell.\n"
+"       \n"
+"In addition to the transaction fees, market fees will apply as specified by "
+"the issuer of both the selling asset and the receiving asset as a percentage "
+"of the amount exchanged.\n"
+"       \n"
+"If either the selling asset or the receiving asset is whitelist restricted, "
+"the order will only be created if the seller is on the whitelist of the "
+"restricted asset type.\n"
+"       \n"
+" Market orders are matched in the order they are included in the block chain."
+msgstr ""
+
+#: resources/sellasset.xrc:26
+msgid " Place a limit order attempting to sell one asset for another."
+msgstr ""
+
+#: resources/sellasset.xrc:49
+msgid "Seller account"
+msgstr ""
+
+#: resources/sellasset.xrc:79
+msgid ""
+"The account providing the asset being sold, and which will receive the "
+"proceeds of the sale."
+msgstr ""
+
+#: resources/sellasset.xrc:115
+msgid "Amount to sell"
+msgstr ""
+
+#: resources/sellasset.xrc:144
+msgid "The amount of the asset being sold to sell (in nominal units)."
+msgstr ""
+
+#: resources/sellasset.xrc:156
+msgid "The name or id of the asset to sell."
+msgstr ""
+
+#: resources/sellasset.xrc:192
+msgid "Minimum amount to receive"
+msgstr ""
+
+#: resources/sellasset.xrc:221
+msgid ""
+"The minimum amount you are willing to receive in return for selling the "
+"entire amount_to_sell."
+msgstr ""
+
+#: resources/sellasset.xrc:232
+msgid "The name or id of the asset you wish to receive."
+msgstr ""
+
+#: resources/sellasset.xrc:267
+msgid "Timeout"
+msgstr ""
+
+#: resources/sellasset.xrc:297
+msgid ""
+"If the order does not fill immediately, this is the length of  time the "
+"order will remain on the order books before it is cancelled and the un-spent "
+"funds are returned to the seller's account."
+msgstr ""
+
+#: resources/sellasset.xrc:306
+msgid ""
+"If the order does not fill immediately, this is the length of  time the "
+"order will remain on the order books before it is cancelled and the un-spent "
+"funds are returned to the seller's account"
+msgstr ""
+
+#: resources/sellasset.xrc:340
+msgid ""
+"If checked, the order will only be included in the blockchain if it is "
+"filled immediately; if not checked, an open order will be left on the books "
+"to fill any amount that cannot be filled immediately."
+msgstr ""
+
+#: resources/sellasset.xrc:341
+msgid "Fill or Kill"
+msgstr ""
+
+#: resources/sellasset.xrc:350
+msgid "Check to broadcast the transaction on the network"
+msgstr ""
+
+#: resources/setproxy.xrc:25
+msgid ""
+" If a user does not wish to take an active part in voting, they can choose "
+"to allow another account to vote their stake.\n"
+"\n"
+"Setting a vote proxy does not remove your previous votes from the "
+"blockchain, they remain there but are ignored.  If you later null out your "
+"vote proxy, your previous votes will take effect again.\n"
+"\n"
+" This setting can be changed at any time."
+msgstr ""
+
+#: resources/setproxy.xrc:26
+msgid "Set the voting proxy for an account."
+msgstr ""
+
+#: resources/setproxy.xrc:49
+msgid "Account to modify"
+msgstr ""
+
+#: resources/setproxy.xrc:79
+msgid "The name or id of the account to update."
+msgstr ""
+
+#: resources/setproxy.xrc:115
+msgid "Voting account"
+msgstr ""
+
+#: resources/setproxy.xrc:144
+msgid ""
+"The name or id of an account authorized to vote account_to_modify's shares, "
+"or null to vote your own shares."
+msgstr ""
+
+#: resources/setproxy.xrc:179
+msgid "Check if you wish to broadcast the transaction to the network."
+msgstr ""
+
+#: resources/transfer.xrc:25
+msgid "Transfer asset to another bitshares account"
+msgstr ""
+
+#: resources/transfer.xrc:48
+msgid "From"
+msgstr ""
+
+#: resources/transfer.xrc:78
+msgid "The name or id of the account sending the funds"
+msgstr ""
+
+#: resources/transfer.xrc:114
+msgid "To"
+msgstr ""
+
+#: resources/transfer.xrc:177
+msgid "Amount"
+msgstr ""
+
+#: resources/transfer.xrc:206
+msgid ""
+"The amount to send (in nominal units -- to send half of a BTS, specify 0.5)"
+msgstr ""
+
+#: resources/transfer.xrc:218
+msgid "The symbol or id of the asset to send"
+msgstr ""
+
+#: resources/transfer.xrc:254
+msgid "Memo"
+msgstr ""
+
+#: resources/transfer.xrc:285
+msgid ""
+"A memo to attach to the transaction.  The memo will be encrypted in the "
+"transaction and readable for the receiver.  There is no length limit other "
+"than the limit imposed by maximum transaction size, but transaction increase "
+"with transaction size"
+msgstr ""
+
+#: resources/transfer.xrc:321
+msgid "Broadcast the transaction on the network"
+msgstr ""
+
+#: resources/transfer.xrc:322
+msgid "Broadcast Transaction"
+msgstr ""
+
+#: resources/wallet.xrc:15
+msgid "Please unlock your wallet"
+msgstr ""
+
+#: panels/active_committee.cpp:9
+msgid "Please wait, updating active committee members info ..."
+msgstr ""
+
+#: panels/active_witnesses.cpp:9
+msgid "Please wait, updating active witnesses info ..."
+msgstr ""
+
+#: panels/borrowasset.cpp:28 panels/getorderbook.cpp:26 panels/sellasset.cpp:31
+msgid "Assets found"
+msgstr ""
+
+#: panels/borrowasset.cpp:28 panels/getorderbook.cpp:26 panels/sellasset.cpp:31
+msgid "Please select an asset"
+msgstr ""
+
+#: panels/borrowasset.cpp:49 panels/sellasset.cpp:65
+msgid "Asset is invalid"
+msgstr ""
+
+#: panels/borrowasset.cpp:75
+msgid "Confirm Borrow Asset?"
+msgstr ""
+
+#: panels/cancelorder.cpp:20
+msgid "No order selected"
+msgstr ""
+
+#: panels/cancelorder.cpp:48
+msgid "Confirm cancel order?"
+msgstr ""
+
+#: panels/getaccounthistory.cpp:36
+msgid "Please wait, getting account history ..."
+msgstr ""
+
+#: panels/getaccounthistory.cpp:51
+msgid "Account not found"
+msgstr ""
+
+#: panels/getcommitteemember.cpp:47
+msgid "Account is not a committee member"
+msgstr ""
+
+#: panels/getorderbook.cpp:53
+msgid "Invalid market"
+msgstr ""
+
+#: panels/info.cpp:30
+msgid "Active witnesses"
+msgstr ""
+
+#: panels/info.cpp:36 panels/wallet.cpp:172
+msgid "Active committee"
+msgstr ""
+
+#: panels/sellasset.cpp:92
+msgid "Confirm Sell Asset?"
+msgstr ""
+
+#: panels/setproxy.cpp:68 panels/transfer.cpp:64
+msgid "Account is invalid"
+msgstr ""
+
+#: panels/setproxy.cpp:94
+msgid "Confirm update of voting account?"
+msgstr ""
+
+#: panels/transfer.cpp:89
+msgid "Confirm transfer?"
+msgstr ""
+
+#: panels/wallet.cpp:100
+msgid "Transfer"
+msgstr ""
+
+#: panels/wallet.cpp:106
+msgid "Sell Asset"
+msgstr ""
+
+#: panels/wallet.cpp:112
+msgid "Borrow Asset"
+msgstr ""
+
+#: panels/wallet.cpp:118
+msgid "Cancel order"
+msgstr ""
+
+#: panels/wallet.cpp:124
+msgid "Set proxy"
+msgstr ""
+
+#: panels/wallet.cpp:130
+msgid "Suggested Brain key"
+msgstr ""
+
+#: panels/wallet.cpp:136
+msgid "Committee member"
+msgstr ""
+
+#: panels/wallet.cpp:142
+msgid "Account history"
+msgstr ""
+
+#: panels/wallet.cpp:148
+msgid "Order book"
+msgstr ""
+
+#: panels/wallet.cpp:166
+msgid "Active witnsses"
+msgstr ""
+
+#: wizards/registration.cpp:27
+msgid "Select your wallet directory"
+msgstr ""
+
+#: wizards/registration.cpp:48
+msgid "Connected to server"
+msgstr ""
+
+#: wizards/registration.cpp:54
+msgid "Some problem connecting"
+msgstr ""
+
+#: wizards/registration.cpp:82
+msgid ""
+"Wallet file exists, please close the welcome wizard and use File->Open from "
+"menu to use it."
+msgstr ""
+
+#: wizards/registration.cpp:100
+msgid "Password and confirmation are not the same"
+msgstr ""
+
+#: wizards/registration.cpp:108
+msgid "Password or confirmation can not be empty"
+msgstr ""
+
+#: wizards/registration.cpp:145
+msgid "Please wait, setting up everything ..."
+msgstr ""
+
+#: wizards/registration.cpp:152
+msgid "Account can't be empty"
+msgstr ""
+
+#: wizards/registration.cpp:169
+msgid "Private key can't be empty"
+msgstr ""

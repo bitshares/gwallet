@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxScrolledWindow" name="Info">
+        <style>wxTAB_TRAVERSAL</style>
+        <size>-1,-1</size>
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <size>0,0</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>22</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <object class="wxStaticBoxSizer">
+                            <orient>wxVERTICAL</orient>
+                            <label>Blockchain information</label>
+                            <object class="spacer">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>2</border>
+                                <size>5,5</size>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText28">
+                                            <label>Head block number:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="head_block_num">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText30">
+                                            <label>Block age:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="head_block_age">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText32">
+                                            <label>Next maintenance time:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="next_maintenance_time">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText34">
+                                            <label>Participation:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="participation">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText36">
+                                            <label>Active witnesses:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>0</border>
+                                        <object class="wxHyperlinkCtrl" name="view_witnesses">
+                                            <label>View</label>
+                                            <url>http://www.wxformbuilder.org</url>
+                                            <style>wxHL_ALIGN_LEFT</style>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText38">
+                                            <label>Active committee:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>0</border>
+                                        <object class="wxHyperlinkCtrl" name="view_committee">
+                                            <label>View</label>
+                                            <url>http://www.wxformbuilder.org</url>
+                                            <style>wxHL_ALIGN_LEFT</style>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText40">
+                                            <label>Chain ID:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="chain_id">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText42">
+                                            <label>Core asset:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="core_asset">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText44">
+                                            <label>Blockchain name:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="blockchain_name">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <size>0,0</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+        </object>
+    </object>
+</resource>

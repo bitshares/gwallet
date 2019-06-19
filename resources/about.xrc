@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxScrolledWindow" name="About">
+        <style>wxTAB_TRAVERSAL</style>
+        <size>-1,-1</size>
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <size>0,0</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>22</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <object class="wxStaticBoxSizer">
+                            <orient>wxVERTICAL</orient>
+                            <label>Software information</label>
+                            <object class="spacer">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>2</border>
+                                <size>5,5</size>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText10">
+                                            <label>Client version:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>7</border>
+                                        <object class="wxStaticText" name="client_version">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText12">
+                                            <label>Graphene revision:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="graphene_revision">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText14">
+                                            <label>Revision age:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="revision_age">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText16">
+                                            <label>FC revision:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="fc_revision">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText18">
+                                            <label>FC revision age:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="fc_revision_age">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText20">
+                                            <label>Compile date:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="compile_date">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText22">
+                                            <label>Boost version:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="boost_version">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText24">
+                                            <label>OpenSSL version:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="openssl_version">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                            <object class="sizeritem">
+                                <option>0</option>
+                                <flag>wxEXPAND</flag>
+                                <border>5</border>
+                                <object class="wxBoxSizer">
+                                    <orient>wxHORIZONTAL</orient>
+                                    <object class="sizeritem">
+                                        <option>3</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="m_staticText26">
+                                            <label>OS build:</label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem">
+                                        <option>7</option>
+                                        <flag>wxALL</flag>
+                                        <border>5</border>
+                                        <object class="wxStaticText" name="os_build">
+                                            <label></label>
+                                            <wrap>-1</wrap>
+                                        </object>
+                                    </object>
+                                </object>
+                            </object>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxEXPAND</flag>
+                        <border>5</border>
+                        <size>0,0</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>1</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+        </object>
+    </object>
+</resource>
