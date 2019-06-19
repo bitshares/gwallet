@@ -35,8 +35,6 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       broadcast_value = "true";
 
-   wxWindow* wnd = p_GWallet->m_mgr.GetPane("Transfer").window;
-
    signed_transaction result_obj;
    wxAny response;
 
@@ -75,7 +73,7 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
          new RegisterAccountResponse(p_GWallet, response);
       }
       catch (const fc::exception &e) {
-         p_GWallet->OnError(wnd, e.to_detail_string());
+         p_GWallet->OnError(this, e.to_detail_string());
       }
    }
 }

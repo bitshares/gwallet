@@ -40,7 +40,6 @@ void GetOrderBook::OnOk(wxCommandEvent& WXUNUSED(event))
    catch(const fc::exception& e)
    {
       p_GWallet->OnError(this, _("Invalid market"));
-      //name->SetFocus();
       return;
    }
 

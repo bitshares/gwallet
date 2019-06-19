@@ -42,8 +42,6 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       broadcast_value = "true";
 
-   wxWindow* wnd = p_GWallet->m_mgr.GetPane("Transfer").window;
-
    signed_transaction result_obj;
    wxAny response;
 
@@ -52,7 +50,8 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "create_account_with_brain_key \"" + brain_key_value + "\" " + account_name_value + " " + registrar_account_value + " " + referrer_account_value + " " + broadcast_value;
+      auto command = "create_account_with_brain_key \"" + brain_key_value + "\" " + account_name_value +
+            " " + registrar_account_value + " " + referrer_account_value + " " + broadcast_value;
       p_GWallet->panels.p_cli->command->SetValue(command);
       wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
       p_GWallet->panels.p_cli->OnCliCommand(event);
@@ -61,13 +60,15 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(brain_key_value, account_name_value, registrar_account_value, referrer_account_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(brain_key_value,
+               account_name_value, registrar_account_value, referrer_account_value, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm create account?"),
                   wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION | wxMAXIMIZE_BOX, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(brain_key_value, account_name_value, registrar_account_value, referrer_account_value, true);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(brain_key_value,
+                     account_name_value, registrar_account_value, referrer_account_value, true);
                p_GWallet->DoAssets(registrar_account_value);
             }
          }
@@ -75,7 +76,7 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
          new CreateAccountWithBrainKeyResponse(p_GWallet, response);
       }
       catch (const fc::exception &e) {
-         p_GWallet->OnError(wnd, e.to_detail_string());
+         p_GWallet->OnError(this, e.to_detail_string());
       }
    }
 }

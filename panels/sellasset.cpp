@@ -41,12 +41,12 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto time_value = (time_hour*3600) + (time_minute*60) + time_second;
    auto now = wxDateTime::Now().ToUTC().GetValue().ToLong()/1000;
    uint32_t expiration_value = date_value + time_value - now;
-   string broadcast_v = "false";
+   string broadcast_value = "false";
    if(broadcast->IsChecked())
-      broadcast_v = "true";
-   string fill_or_kill_v = "false";
+      broadcast_value = "true";
+   string fill_or_kill_value_string = "false";
    if(fill_or_kill->IsChecked())
-      fill_or_kill_v = "true";
+      fill_or_kill_value_string = "true";
 
    try
    {
@@ -69,7 +69,7 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    {
       auto command = "sell_asset " + seller_value + " " + sell_amount_value + " " + sell_asset_value + " " +
             receive_amount_value + " " + receive_asset_value + " " + to_string(expiration_value) + " " +
-            " " + fill_or_kill_v + " " + broadcast_v;
+            " " + fill_or_kill_value_string + " " + broadcast_value;
       p_GWallet->panels.p_cli->command->SetValue(command);
       wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
       p_GWallet->panels.p_cli->OnCliCommand(event);

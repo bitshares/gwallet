@@ -46,9 +46,9 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto account_value = p_GWallet->strings.accounts[account_to_modify->GetCurrentSelection()].ToStdString();
    const auto voting_account_value = voting_account->GetValue().ToStdString();
-   string broadcast_v = "false";
+   string broadcast_value = "false";
    if(broadcast->IsChecked())
-      broadcast_v = "true";
+      broadcast_value = "true";
 
    try
    {
@@ -69,7 +69,7 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "set_voting_proxy " + account_value + " " + voting_account_value + " " + broadcast_v;
+      auto command = "set_voting_proxy " + account_value + " " + voting_account_value + " " + broadcast_value;
       p_GWallet->panels.p_cli->command->SetValue(command);
       wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
       p_GWallet->panels.p_cli->OnCliCommand(event);
