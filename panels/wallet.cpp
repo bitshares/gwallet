@@ -14,6 +14,7 @@
 #include "../include/panels/upgradeaccount.hpp"
 #include "../include/panels/createaccountwithbrainkey.hpp"
 #include "../include/panels/registeraccount.hpp"
+#include "../include/panels/createasset.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -40,6 +41,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.upgrade_account = wallet_tree->AppendItem(root, _("Upgrade account"));
    tree.create_account_with_brain_key = wallet_tree->AppendItem(root, _("Create account with brain key"));
    tree.register_account = wallet_tree->AppendItem(root, _("Register account"));
+   tree.create_asset = wallet_tree->AppendItem(root, _("Create asset"));
 
    wallet_tree->ExpandAll();
 
@@ -101,36 +103,38 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoCreateAccountWithBrainKey();
    else if(selected == tree.register_account)
       DoRegisterAccount();
+   else if(selected == tree.create_asset)
+      DoCreateAsset();
 }
 
 void Wallet::DoTransfer()
 {
    Transfer *transfer = new Transfer(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(transfer, _("Transfer"));
+   p_GWallet->panels.p_commands->notebook->AddPage(transfer, _("Transfer"), true);
 }
 
 void Wallet::DoSellAsset()
 {
    SellAsset *sell_asset = new SellAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(sell_asset, _("Sell Asset"));
+   p_GWallet->panels.p_commands->notebook->AddPage(sell_asset, _("Sell Asset"), true);
 }
 
 void Wallet::DoBorrowAsset()
 {
    BorrowAsset *borrow_asset = new BorrowAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(borrow_asset, _("Borrow Asset"));
+   p_GWallet->panels.p_commands->notebook->AddPage(borrow_asset, _("Borrow Asset"), true);
 }
 
 void Wallet::DoCancelOrder()
 {
    CancelOrder *cancel_order = new CancelOrder(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(cancel_order, _("Cancel order"));
+   p_GWallet->panels.p_commands->notebook->AddPage(cancel_order, _("Cancel order"), true);
 }
 
 void Wallet::DoSetProxy()
 {
    SetProxy *set_proxy = new SetProxy(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(set_proxy, _("Set proxy"));
+   p_GWallet->panels.p_commands->notebook->AddPage(set_proxy, _("Set proxy"), true);
 }
 
 void Wallet::DoSuggestBrainKey()
@@ -142,61 +146,67 @@ void Wallet::DoSuggestBrainKey()
 void Wallet::DoGetCommitteeMember()
 {
    GetCommitteeMember *committee_member = new GetCommitteeMember(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(committee_member, _("Committee member"));
+   p_GWallet->panels.p_commands->notebook->AddPage(committee_member, _("Committee member"), true);
 }
 
 void Wallet::DoGetAccountHistory()
 {
    GetAccountHistory *account_history = new GetAccountHistory(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(account_history, _("Account history"));
+   p_GWallet->panels.p_commands->notebook->AddPage(account_history, _("Account history"), true);
 }
 
 void Wallet::DoGetOrderBook()
 {
    GetOrderBook *order_book = new GetOrderBook(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(order_book, _("Order book"));
+   p_GWallet->panels.p_commands->notebook->AddPage(order_book, _("Order book"), true);
 }
 
 void Wallet::DoAbout()
 {
    About *about = new About(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(about, _("About"));
+   p_GWallet->panels.p_commands->notebook->AddPage(about, _("About"), true);
 }
 
 void Wallet::DoInfo()
 {
    Info *info = new Info(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(info, _("Blockchain information"));
+   p_GWallet->panels.p_commands->notebook->AddPage(info, _("Blockchain information"), true);
 }
 
 void Wallet::DoActiveWitnesses()
 {
    ActiveWitnesses *active_witnesses = new ActiveWitnesses(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_witnesses, _("Active witnsses"));
+   p_GWallet->panels.p_commands->notebook->AddPage(active_witnesses, _("Active witnsses"), true);
 }
 
 void Wallet::DoActiveCommittee()
 {
    ActiveCommittee *active_committee = new ActiveCommittee(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_committee, _("Active committee"));
+   p_GWallet->panels.p_commands->notebook->AddPage(active_committee, _("Active committee"), true);
 }
 
 void Wallet::DoUpgradeAccount()
 {
    UpgradeAccount *upgrade_account = new UpgradeAccount(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(upgrade_account, _("Upgrade account"));
+   p_GWallet->panels.p_commands->notebook->AddPage(upgrade_account, _("Upgrade account"), true);
 }
 
 void Wallet::DoCreateAccountWithBrainKey()
 {
    CreateAccountWithBrainKey *create_account_with_brain_key = new CreateAccountWithBrainKey(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(create_account_with_brain_key, _("Create account with brain key"));
+   p_GWallet->panels.p_commands->notebook->AddPage(create_account_with_brain_key, _("Create account with brain key"), true);
 }
 
 void Wallet::DoRegisterAccount()
 {
    RegisterAccount *register_account = new RegisterAccount(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(register_account, _("Register account"));
+   p_GWallet->panels.p_commands->notebook->AddPage(register_account, _("Register account"), true);
+}
+
+void Wallet::DoCreateAsset()
+{
+   CreateAsset *create_asset = new CreateAsset(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(create_asset, _("Create asset"), true);
 }
 
 void Wallet::OpenCommandsPane()

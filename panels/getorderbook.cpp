@@ -105,5 +105,5 @@ GetOrderBookResponse::GetOrderBookResponse(GWallet* gwallet, wxAny any_response,
    response_grid->ForceRefresh();
    response_grid->EndBatch();
 
-   gwallet->panels.p_commands->notebook->AddPage(this, "Order book "+ response_type +" response");
+   gwallet->panels.p_commands->notebook->AddPage(this, "Order book "+ response_type +" response", true);
 }

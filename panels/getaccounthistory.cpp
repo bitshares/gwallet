@@ -99,5 +99,5 @@ GetAccountHistoryResponse::GetAccountHistoryResponse(GWallet* gwallet, wxAny any
    response_grid->ForceRefresh();
    response_grid->EndBatch();
 
-   gwallet->panels.p_commands->notebook->AddPage(this, "Account history response");
+   gwallet->panels.p_commands->notebook->AddPage(this, "Account history response", true);
 }

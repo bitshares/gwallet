@@ -40,6 +40,7 @@ add_executable( gwallet
     panels/upgradeaccount.cpp
     panels/createaccountwithbrainkey.cpp
     panels/registeraccount.cpp
+	panels/createasset.cpp
 
     wizards/registration.cpp)
 

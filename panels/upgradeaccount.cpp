@@ -65,5 +65,5 @@ UpgradeAccountResponse::UpgradeAccountResponse(GWallet* gwallet, wxAny any_respo
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, "Committee member response");
+   gwallet->panels.p_commands->notebook->AddPage(this, "Committee member response", true);
 }

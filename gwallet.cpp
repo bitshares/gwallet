@@ -399,7 +399,7 @@ void GWallet::DoModes()
    About *about = new About(this);
 
    commands->notebook->AddPage(information, _("Blockchain information"));
-   commands->notebook->AddPage(about, _("Software information"));
+   commands->notebook->AddPage(about, _("About"));
 
    CreateCommandsPane(commands);
 

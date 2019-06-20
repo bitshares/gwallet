@@ -29,11 +29,11 @@ Info::Info(GWallet* gwallet) : wxScrolledWindow()
 void Info::OnWitness(wxHyperlinkEvent& event)
 {
    ActiveWitnesses *active_witnesses = new ActiveWitnesses(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_witnesses, _("Active witnesses"));
+   p_GWallet->panels.p_commands->notebook->AddPage(active_witnesses, _("Active witnesses"), true);
 }
 
 void Info::OnCommittee(wxHyperlinkEvent& event)
 {
    ActiveCommittee *active_committee = new ActiveCommittee(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_committee, _("Active committee"));
+   p_GWallet->panels.p_commands->notebook->AddPage(active_committee, _("Active committee"), true);
 }

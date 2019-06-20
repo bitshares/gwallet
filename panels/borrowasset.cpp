@@ -87,5 +87,5 @@ BorrowAssetResponse::BorrowAssetResponse(GWallet* gwallet, wxAny any_response)
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, "Borrow asset response");
+   gwallet->panels.p_commands->notebook->AddPage(this, "Borrow asset response", true);
 }
