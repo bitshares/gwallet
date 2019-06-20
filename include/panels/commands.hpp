@@ -1,4 +1,5 @@
 #include <wx/wx.h>
+#include <wx/treectrl.h>
 
 #ifndef GWALLET_H
 #include "../gwallet.hpp"
@@ -8,6 +9,8 @@ class Commands : public wxPanel
 {
 public:
    Commands(GWallet* gwallet);
+
+   void DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_transaction result);
 
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);
