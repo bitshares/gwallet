@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-15 18:24-0300\n"
-"PO-Revision-Date: 2019-06-15 18:28-0300\n"
+"POT-Creation-Date: 2019-06-21 20:15-0300\n"
+"PO-Revision-Date: 2019-06-21 20:19-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh\n"
@@ -19,23 +19,23 @@ msgstr ""
 msgid "Account balance imported"
 msgstr "帐户已导入"
 
-#: dialogs/importbalance.cpp:31 dialogs/importkey.cpp:37 gwallet.cpp:644
+#: dialogs/importbalance.cpp:31 dialogs/importkey.cpp:39 gwallet.cpp:648
 #: wizards/registration.cpp:48
 msgid "Success"
 msgstr "成功"
 
-#: dialogs/importbalance.cpp:35 dialogs/importkey.cpp:41
+#: dialogs/importbalance.cpp:35 dialogs/importkey.cpp:43
 msgid "Account and key can not be empty"
 msgstr "帐户和密钥不能为空"
 
-#: dialogs/importbalance.cpp:35 dialogs/importkey.cpp:41 gwallet.cpp:611
+#: dialogs/importbalance.cpp:35 dialogs/importkey.cpp:43 gwallet.cpp:615
 #: wizards/registration.cpp:54 wizards/registration.cpp:83
 #: wizards/registration.cpp:101 wizards/registration.cpp:109
 #: wizards/registration.cpp:152 wizards/registration.cpp:169
 msgid "Error"
 msgstr "错误"
 
-#: dialogs/importkey.cpp:37
+#: dialogs/importkey.cpp:39
 msgid "Account imported"
 msgstr "帐户已导入"
 
@@ -67,7 +67,7 @@ msgstr "请重试或更改服务器。"
 msgid "Some problem when disconnecting, try again ..."
 msgstr "断开连接时出现一些问题，请再试一次......"
 
-#: gwallet.cpp:170 gwallet.cpp:784
+#: gwallet.cpp:170 gwallet.cpp:788
 msgid "Disconnected"
 msgstr "断开的"
 
@@ -75,7 +75,7 @@ msgstr "断开的"
 msgid "Enter password"
 msgstr "输入密码"
 
-#: gwallet.cpp:184 gwallet.cpp:733
+#: gwallet.cpp:184 gwallet.cpp:737
 msgid "Connected | Locked"
 msgstr "连接的 | 锁定"
 
@@ -92,7 +92,7 @@ msgstr "关于G-Wallet"
 msgid "Some problem when locking, try again ..."
 msgstr "锁定时有些问题，请再试一次......"
 
-#: gwallet.cpp:220 panels/wallet.cpp:58
+#: gwallet.cpp:220 panels/wallet.cpp:60
 msgid "Please double click a command from below"
 msgstr "请双击下面的命令"
 
@@ -104,79 +104,84 @@ msgstr "解锁钱包"
 msgid "Password is incorrect, please try again."
 msgstr "密码不正确，请重试。"
 
-#: gwallet.cpp:397 resources/info.xrc:32 panels/wallet.cpp:169
+#: gwallet.cpp:401 resources/info.xrc:32 panels/wallet.cpp:173
 msgid "Blockchain information"
 msgstr "区块链信息"
 
-#: gwallet.cpp:398 resources/about.xrc:32
-msgid "Software information"
-msgstr "软件信息"
+#: gwallet.cpp:402 resources/main.xrc:107 panels/wallet.cpp:37
+#: panels/wallet.cpp:167
+msgid "About"
+msgstr "关于"
 
-#: gwallet.cpp:416 resources/main.xrc:40 resources/main.xrc:90
+#: gwallet.cpp:420 resources/main.xrc:40 resources/main.xrc:90
 msgid "Wallet"
 msgstr "钱包"
 
-#: gwallet.cpp:445 resources/main.xrc:83
+#: gwallet.cpp:449 resources/main.xrc:83
 msgid "Commands"
 msgstr "命令"
 
-#: gwallet.cpp:474
+#: gwallet.cpp:478
 msgid "Cli"
 msgstr "CLI"
 
-#: gwallet.cpp:622
+#: gwallet.cpp:626
 msgid "Chinese"
 msgstr "中文"
 
-#: gwallet.cpp:624
+#: gwallet.cpp:628
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: gwallet.cpp:626
+#: gwallet.cpp:630
 msgid "English"
 msgstr "英语"
 
-#: gwallet.cpp:627
+#: gwallet.cpp:631
 msgid "Select language:"
 msgstr "选择语言："
 
-#: gwallet.cpp:627
+#: gwallet.cpp:631
 msgid "Language"
 msgstr "语言"
 
-#: gwallet.cpp:643
+#: gwallet.cpp:647
 msgid ""
 "Language changed, however you need to restart G-Wallet for changes to take "
 "effect"
 msgstr "语言已更改，但您需要重新启动G-Wallet才能使更改生效"
 
-#: gwallet.cpp:685
+#: gwallet.cpp:689
 msgid "No Config"
 msgstr "没有配置"
 
-#: gwallet.cpp:723 gwallet.cpp:727
+#: gwallet.cpp:727 gwallet.cpp:731
 msgid "Connected | New"
 msgstr "连接的 | 新"
 
-#: gwallet.cpp:744
+#: gwallet.cpp:748
 msgid "Connected | Unlocked"
 msgstr "连接的 | 解锁"
 
-#: gwallet.cpp:795 wizards/registration.cpp:72
+#: gwallet.cpp:799 wizards/registration.cpp:72
 msgid "Accounts found"
 msgstr "找到帐户"
 
-#: gwallet.cpp:795 wizards/registration.cpp:72
+#: gwallet.cpp:799 wizards/registration.cpp:72
 msgid "Please select an account"
 msgstr "帐户和密钥不能为空"
 
-#: gwallet.cpp:809
+#: gwallet.cpp:813
 msgid "Assets found"
 msgstr "找到资产"
 
-#: gwallet.cpp:809
+#: gwallet.cpp:813
 msgid "Please select an asset"
 msgstr "请选择一项资产"
+
+#: resources/about.xrc:32
+msgid "Software information"
+msgstr "软件信息"
 
 #: resources/about.xrc:50
 msgid "Client version:"
@@ -272,18 +277,18 @@ msgid "Broadcast transaction"
 msgstr "广播交易"
 
 #: resources/borrowasset.xrc:273 resources/cancelorder.xrc:123
-#: resources/createaccountwithbrainkey.xrc:340
-#: resources/getaccounthistory.xrc:287 resources/getcommitteemember.xrc:117
-#: resources/getorderbook.xrc:256 resources/registeraccount.xrc:467
+#: resources/createaccountwithbrainkey.xrc:340 resources/createasset.xrc:409
+#: resources/getaccounthistory.xrc:188 resources/getcommitteemember.xrc:117
+#: resources/getorderbook.xrc:207 resources/registeraccount.xrc:467
 #: resources/sellasset.xrc:380 resources/setproxy.xrc:189
 #: resources/transfer.xrc:331 resources/upgradeaccount.xrc:102
 msgid "Show output in CLI mode"
 msgstr "在CLI模式下显示输出"
 
 #: resources/borrowasset.xrc:334 resources/cancelorder.xrc:184
-#: resources/createaccountwithbrainkey.xrc:401
-#: resources/getaccounthistory.xrc:348 resources/getcommitteemember.xrc:172
-#: resources/getorderbook.xrc:317 resources/importbalance_dialog.xrc:189
+#: resources/createaccountwithbrainkey.xrc:401 resources/createasset.xrc:470
+#: resources/getaccounthistory.xrc:249 resources/getcommitteemember.xrc:172
+#: resources/getorderbook.xrc:268 resources/importbalance_dialog.xrc:189
 #: resources/importkey_dialog.xrc:189 resources/registeraccount.xrc:528
 #: resources/sellasset.xrc:441 resources/setproxy.xrc:250
 #: resources/transfer.xrc:392 resources/upgradeaccount.xrc:157
@@ -374,6 +379,85 @@ msgstr ""
 #: resources/upgradeaccount.xrc:101
 msgid "Check to broadcast the transaction on the network"
 msgstr "检查以在网络上广播该事务"
+
+#: resources/createasset.xrc:24
+msgid "Creates a new user-issued or market-issued asset."
+msgstr "创建新的用户发行或市场发行的资产。"
+
+#: resources/createasset.xrc:47
+msgid "Issuer"
+msgstr "发行者"
+
+#: resources/createasset.xrc:77
+msgid ""
+"The name of the account who will pay the fee and become the issuer of the "
+"new asset.  This can be updated later."
+msgstr "将支付费用并成为新资产发行人的帐户名称。 这可以在以后更新。"
+
+#: resources/createasset.xrc:113
+msgid "Symbol"
+msgstr "符号"
+
+#: resources/createasset.xrc:142
+msgid "The ticker symbol of the new asset"
+msgstr "新资产的股票代码"
+
+#: resources/createasset.xrc:177
+msgid "Precision"
+msgstr "精确"
+
+#: resources/createasset.xrc:207
+msgid ""
+"The number of digits of precision to the right of the decimal point, must be "
+"less than or equal to 12"
+msgstr "小数点右侧的精度位数必须小于或等于12"
+
+#: resources/createasset.xrc:244
+msgid "Common asset options"
+msgstr "共同资产选择"
+
+#: resources/createasset.xrc:273
+msgid ""
+"Asset options required for all new assets.\n"
+"\n"
+"Note that core_exchange_rate technically needs to store the asset ID of this "
+"new asset. Since this ID is not known at the time this operation is created, "
+"create this price as though the new asset has instance ID 1, and the chain "
+"will overwrite it with the new asset's ID."
+msgstr ""
+"所有新资产都需要资产选项。\n"
+"\n"
+"请注意，core_exchange_rate在技术上需要存储此新资产的资产ID。 由于在创建此操作"
+"时不知道此ID，因此创建此价格就像新资产具有实例ID 1一样，并且链将使用新资产的"
+"ID覆盖它。"
+
+#: resources/createasset.xrc:284 resources/createasset.xrc:361
+msgid "Generate"
+msgstr "生成"
+
+#: resources/createasset.xrc:321
+msgid "BitAsset options"
+msgstr "BitAsset选项"
+
+#: resources/createasset.xrc:351
+msgid ""
+"Options specific to BitAssets.\n"
+"\n"
+"This may be null unless the market_issued flag is set in common flags."
+msgstr ""
+"BitAssets特有的选项。\n"
+"\n"
+"除非在公共标志中设置market_issued标志，否则这可能为null。"
+
+#: resources/createasset.xrc:399 resources/transfer.xrc:321
+#: resources/upgradeaccount.xrc:91
+msgid "Broadcast the transaction on the network"
+msgstr "在网络上广播交易在网络上广播交易"
+
+#: resources/createasset.xrc:400 resources/transfer.xrc:322
+#: resources/upgradeaccount.xrc:92
+msgid "Broadcast Transaction"
+msgstr "广播交易"
 
 #: resources/getaccounthistory.xrc:31
 msgid "Returns the most recent operations on the named account."
@@ -530,10 +614,6 @@ msgstr "CLI"
 #: resources/main.xrc:105
 msgid "Help"
 msgstr "救命"
-
-#: resources/main.xrc:107 panels/wallet.cpp:36 panels/wallet.cpp:163
-msgid "About"
-msgstr "关于"
 
 #: resources/main.xrc:153
 msgid "My accounts"
@@ -921,14 +1001,6 @@ msgstr ""
 "附加到交易的备忘录。 备忘录将在交易中加密，并为接收者可读。 除了最大事务大小"
 "所施加的限制之外没有长度限制，但事务随着事务大小而增加"
 
-#: resources/transfer.xrc:321 resources/upgradeaccount.xrc:91
-msgid "Broadcast the transaction on the network"
-msgstr "在网络上广播交易在网络上广播交易"
-
-#: resources/transfer.xrc:322 resources/upgradeaccount.xrc:92
-msgid "Broadcast Transaction"
-msgstr "广播交易"
-
 #: resources/upgradeaccount.xrc:31
 msgid "This makes the account holder a 'lifetime member'."
 msgstr "这使得帐户持有人成为“终身会员”。"
@@ -970,13 +1042,17 @@ msgstr "没有选择订单"
 msgid "Confirm cancel order?"
 msgstr "确认取消订单？"
 
-#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:139
+#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:143
 msgid "Suggested Brain key"
 msgstr "建议的脑键"
 
-#: panels/createaccountwithbrainkey.cpp:67 panels/registeraccount.cpp:63
+#: panels/createaccountwithbrainkey.cpp:67 panels/registeraccount.cpp:62
 msgid "Confirm create account?"
 msgstr "确认投票账号的更新？"
+
+#: panels/createasset.cpp:55 panels/transfer.cpp:79
+msgid "Confirm transfer?"
+msgstr "确认转移？"
 
 #: panels/getaccounthistory.cpp:27
 msgid "Please wait, getting account history ..."
@@ -994,19 +1070,23 @@ msgstr "帐户不是委员会成员"
 msgid "Invalid market"
 msgstr "市场无效"
 
-#: panels/info.cpp:32 panels/wallet.cpp:38
+#: panels/info.cpp:32 panels/wallet.cpp:39
 msgid "Active witnesses"
 msgstr "积极的证人"
 
-#: panels/info.cpp:38 panels/wallet.cpp:39 panels/wallet.cpp:181
+#: panels/info.cpp:38 panels/wallet.cpp:40 panels/wallet.cpp:185
 msgid "Active committee"
 msgstr "积极委员会"
+
+#: panels/registeraccount.cpp:61
+msgid "Please double check and confirm operation below"
+msgstr "请仔细检查并确认以下操作"
 
 #: panels/sellasset.cpp:84
 msgid "Confirm Sell Asset?"
 msgstr "确认出售资产？"
 
-#: panels/setproxy.cpp:59 panels/transfer.cpp:54
+#: panels/setproxy.cpp:59 panels/transfer.cpp:52
 msgid "Account is invalid"
 msgstr "帐户无效"
 
@@ -1014,87 +1094,87 @@ msgstr "帐户无效"
 msgid "Confirm update of voting account?"
 msgstr "确认投票账号的更新？"
 
-#: panels/transfer.cpp:79
-msgid "Confirm transfer?"
-msgstr "确认转移？"
-
-#: panels/wallet.cpp:25
+#: panels/wallet.cpp:26
 msgid "Operations"
 msgstr "操作"
 
-#: panels/wallet.cpp:27 panels/wallet.cpp:109
+#: panels/wallet.cpp:28 panels/wallet.cpp:113
 msgid "Transfer"
 msgstr "传递"
 
-#: panels/wallet.cpp:28
+#: panels/wallet.cpp:29
 msgid "Sell asset"
 msgstr "出售资产"
 
-#: panels/wallet.cpp:29
+#: panels/wallet.cpp:30
 msgid "Borrow asset"
 msgstr "借入资产"
 
-#: panels/wallet.cpp:30 panels/wallet.cpp:127
+#: panels/wallet.cpp:31 panels/wallet.cpp:131
 msgid "Cancel order"
 msgstr "取消订单"
 
-#: panels/wallet.cpp:31 panels/wallet.cpp:133
+#: panels/wallet.cpp:32 panels/wallet.cpp:137
 msgid "Set proxy"
 msgstr "设置代理"
 
-#: panels/wallet.cpp:32
+#: panels/wallet.cpp:33
 msgid "Suggest brain key"
 msgstr "建议的脑键"
 
-#: panels/wallet.cpp:33
+#: panels/wallet.cpp:34
 msgid "Get committee member"
 msgstr "委员会成员"
 
-#: panels/wallet.cpp:34
+#: panels/wallet.cpp:35
 msgid "Get account history"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:35
+#: panels/wallet.cpp:36
 msgid "Get order book"
 msgstr "订单"
 
-#: panels/wallet.cpp:37
+#: panels/wallet.cpp:38
 msgid "Info"
 msgstr "信息"
 
-#: panels/wallet.cpp:40 panels/wallet.cpp:187
+#: panels/wallet.cpp:41 panels/wallet.cpp:191
 msgid "Upgrade account"
 msgstr "卖家帐户"
 
-#: panels/wallet.cpp:41 panels/wallet.cpp:193
+#: panels/wallet.cpp:42 panels/wallet.cpp:197
 msgid "Create account with brain key"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:42 panels/wallet.cpp:199
+#: panels/wallet.cpp:43 panels/wallet.cpp:203
 msgid "Register account"
 msgstr "注册账户"
 
-#: panels/wallet.cpp:115
+#: panels/wallet.cpp:44 panels/wallet.cpp:209
+msgid "Create asset"
+msgstr "创建资产"
+
+#: panels/wallet.cpp:119
 msgid "Sell Asset"
 msgstr "出售资产"
 
-#: panels/wallet.cpp:121
+#: panels/wallet.cpp:125
 msgid "Borrow Asset"
 msgstr "借入资产"
 
-#: panels/wallet.cpp:145
+#: panels/wallet.cpp:149
 msgid "Committee member"
 msgstr "委员会成员"
 
-#: panels/wallet.cpp:151
+#: panels/wallet.cpp:155
 msgid "Account history"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:157
+#: panels/wallet.cpp:161
 msgid "Order book"
 msgstr "订单"
 
-#: panels/wallet.cpp:175
+#: panels/wallet.cpp:179
 msgid "Active witnsses"
 msgstr "积极的证人"
 

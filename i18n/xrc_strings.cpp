@@ -94,15 +94,49 @@ _("Broadcast transaction");
 _("Show output in CLI mode");
 #line 401 "resources/createaccountwithbrainkey.xrc"
 _("&OK");
+#line 24 "resources/createasset.xrc"
+_("Creates a new user-issued or market-issued asset.");
+#line 47 "resources/createasset.xrc"
+_("Issuer");
+#line 77 "resources/createasset.xrc"
+_("The name of the account who will pay the fee and become the issuer of the new asset.  This can be updated later.");
+#line 113 "resources/createasset.xrc"
+_("Symbol");
+#line 142 "resources/createasset.xrc"
+_("The ticker symbol of the new asset");
+#line 177 "resources/createasset.xrc"
+_("Precision");
+#line 207 "resources/createasset.xrc"
+_("The number of digits of precision to the right of the decimal point, must be less than or equal to 12");
+#line 244 "resources/createasset.xrc"
+_("Common asset options");
+#line 273 "resources/createasset.xrc"
+_("Asset options required for all new assets.\n\nNote that core_exchange_rate technically needs to store the asset ID of this new asset. Since this ID is not known at the time this operation is created, create this price as though the new asset has instance ID 1, and the chain will overwrite it with the new asset's ID.");
+#line 284 "resources/createasset.xrc"
+_("Generate");
+#line 321 "resources/createasset.xrc"
+_("BitAsset options");
+#line 351 "resources/createasset.xrc"
+_("Options specific to BitAssets.\n\nThis may be null unless the market_issued flag is set in common flags.");
+#line 361 "resources/createasset.xrc"
+_("Generate");
+#line 399 "resources/createasset.xrc"
+_("Broadcast the transaction on the network");
+#line 400 "resources/createasset.xrc"
+_("Broadcast Transaction");
+#line 409 "resources/createasset.xrc"
+_("Show output in CLI mode");
+#line 470 "resources/createasset.xrc"
+_("&OK");
 #line 31 "resources/getaccounthistory.xrc"
 _("Returns the most recent operations on the named account.");
 #line 60 "resources/getaccounthistory.xrc"
 _("Account name");
 #line 122 "resources/getaccounthistory.xrc"
 _("Limit");
-#line 287 "resources/getaccounthistory.xrc"
+#line 188 "resources/getaccounthistory.xrc"
 _("Show output in CLI mode");
-#line 348 "resources/getaccounthistory.xrc"
+#line 249 "resources/getaccounthistory.xrc"
 _("&OK");
 #line 31 "resources/getcommitteemember.xrc"
 _("Returns information about the given committee member.");
@@ -118,9 +152,9 @@ _("Return the order book for a given market");
 _("Market");
 #line 141 "resources/getorderbook.xrc"
 _("Limit");
-#line 256 "resources/getorderbook.xrc"
+#line 207 "resources/getorderbook.xrc"
 _("Show output in CLI mode");
-#line 317 "resources/getorderbook.xrc"
+#line 268 "resources/getorderbook.xrc"
 _("&OK");
 #line 7 "resources/importbalance_dialog.xrc"
 _("Import Balance");
