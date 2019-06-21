@@ -280,6 +280,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxButton" name="generate_common">
+                            <enabled>0</enabled>
                             <label>Generate</label>
                             <default>0</default>
                             <markup>0</markup>
@@ -346,6 +347,7 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>0</border>
                         <object class="wxTextCtrl" name="bitasset_opts">
+                            <enabled>0</enabled>
                             <tooltip>Options specific to BitAssets.\n\nThis may be null unless the market__issued flag is set in common flags.</tooltip>
                             <value></value>
                             <maxlength>0</maxlength>
@@ -357,6 +359,7 @@
                         <border>0</border>
                         <object class="wxButton" name="generate_bitasset">
                             <label>Generate</label>
+                            <enabled>0</enabled>
                             <default>0</default>
                             <markup>0</markup>
                             <bitmap />

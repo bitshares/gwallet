@@ -36,7 +36,7 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "create_asset " + issuer_value + " " + symbol_value + " " + to_string(precision_value) + " " +
-                     common_value + " " + bitasset_opts_value + " " + broadcast_value;
+            common_value + " " + bitasset_opts_value + " " + broadcast_value;
       p_GWallet->panels.p_cli->command->SetValue(command);
       wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
       p_GWallet->panels.p_cli->OnCliCommand(event);
@@ -45,15 +45,18 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    else
    {
       try {
+         auto common_variant = fc::json::from_string(common_value);
+         asset_options ao = common_variant.as<asset_options>(FC_PACK_MAX_DEPTH);
+
          auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-               {}, {}, false);
+               ao, {}, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm transfer?"),
-                                      wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
+                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
                result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-                     {}, {}, true);
+                     ao, {}, true);
                p_GWallet->DoAssets(issuer_value);
             }
          }
