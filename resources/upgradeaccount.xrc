@@ -177,7 +177,7 @@
                 <flag>wxALL|wxEXPAND</flag>
                 <border>5</border>
                 <object class="wxTreeCtrl" name="response_tree">
-                    <style>wxTR_DEFAULT_STYLE|wxBORDER_STATIC</style>
+                    <style>wxTR_DEFAULT_STYLE|wxBORDER_STATIC|wxTR_EDIT_LABELS</style>
                 </object>
             </object>
         </object>

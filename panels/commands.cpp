@@ -10,7 +10,7 @@ Commands::Commands(GWallet* gwallet) : wxPanel()
 
 void Commands::DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_transaction result)
 {
-   response_tree->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
+   response_tree->ShowScrollbars(wxSHOW_SB_DEFAULT,wxSHOW_SB_NEVER);
 
    const auto root = response_tree->AddRoot("Signed Transaction");
 
