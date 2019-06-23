@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-21 20:15-0300\n"
-"PO-Revision-Date: 2019-06-21 20:19-0300\n"
+"POT-Creation-Date: 2019-06-23 20:20-0300\n"
+"PO-Revision-Date: 2019-06-23 20:22-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh\n"
@@ -92,7 +92,7 @@ msgstr "关于G-Wallet"
 msgid "Some problem when locking, try again ..."
 msgstr "锁定时有些问题，请再试一次......"
 
-#: gwallet.cpp:220 panels/wallet.cpp:60
+#: gwallet.cpp:220 panels/wallet.cpp:66
 msgid "Please double click a command from below"
 msgstr "请双击下面的命令"
 
@@ -104,12 +104,12 @@ msgstr "解锁钱包"
 msgid "Password is incorrect, please try again."
 msgstr "密码不正确，请重试。"
 
-#: gwallet.cpp:401 resources/info.xrc:32 panels/wallet.cpp:173
+#: gwallet.cpp:401 resources/info.xrc:32 panels/wallet.cpp:179
 msgid "Blockchain information"
 msgstr "区块链信息"
 
-#: gwallet.cpp:402 resources/main.xrc:107 panels/wallet.cpp:37
-#: panels/wallet.cpp:167
+#: gwallet.cpp:402 resources/main.xrc:107 panels/wallet.cpp:44
+#: panels/wallet.cpp:173
 msgid "About"
 msgstr "关于"
 
@@ -1042,7 +1042,7 @@ msgstr "没有选择订单"
 msgid "Confirm cancel order?"
 msgstr "确认取消订单？"
 
-#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:143
+#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:149
 msgid "Suggested Brain key"
 msgstr "建议的脑键"
 
@@ -1070,11 +1070,11 @@ msgstr "帐户不是委员会成员"
 msgid "Invalid market"
 msgstr "市场无效"
 
-#: panels/info.cpp:32 panels/wallet.cpp:39
+#: panels/info.cpp:32 panels/wallet.cpp:49
 msgid "Active witnesses"
 msgstr "积极的证人"
 
-#: panels/info.cpp:38 panels/wallet.cpp:40 panels/wallet.cpp:185
+#: panels/info.cpp:38 panels/wallet.cpp:50 panels/wallet.cpp:191
 msgid "Active committee"
 msgstr "积极委员会"
 
@@ -1098,85 +1098,101 @@ msgstr "确认投票账号的更新？"
 msgid "Operations"
 msgstr "操作"
 
-#: panels/wallet.cpp:28 panels/wallet.cpp:113
+#: panels/wallet.cpp:28
+msgid "Asset"
+msgstr "Asset"
+
+#: panels/wallet.cpp:29
+msgid "Create"
+msgstr "创建"
+
+#: panels/wallet.cpp:30 panels/wallet.cpp:119
 msgid "Transfer"
 msgstr "传递"
 
-#: panels/wallet.cpp:29
-msgid "Sell asset"
-msgstr "出售资产"
+#: panels/wallet.cpp:31
+msgid "Sell"
+msgstr "卖"
 
-#: panels/wallet.cpp:30
-msgid "Borrow asset"
-msgstr "借入资产"
+#: panels/wallet.cpp:32
+msgid "Borrow"
+msgstr "借"
 
-#: panels/wallet.cpp:31 panels/wallet.cpp:131
+#: panels/wallet.cpp:33 panels/wallet.cpp:137
 msgid "Cancel order"
 msgstr "取消订单"
 
-#: panels/wallet.cpp:32 panels/wallet.cpp:137
+#: panels/wallet.cpp:36
+msgid "Account"
+msgstr "帐户"
+
+#: panels/wallet.cpp:37
+msgid "Register"
+msgstr "寄存器"
+
+#: panels/wallet.cpp:38
+msgid "Create with brain key"
+msgstr "用脑键创建"
+
+#: panels/wallet.cpp:39
+msgid "Upgrade"
+msgstr "升级"
+
+#: panels/wallet.cpp:40 panels/wallet.cpp:143
 msgid "Set proxy"
 msgstr "设置代理"
 
-#: panels/wallet.cpp:33
+#: panels/wallet.cpp:41
 msgid "Suggest brain key"
 msgstr "建议的脑键"
 
-#: panels/wallet.cpp:34
-msgid "Get committee member"
-msgstr "委员会成员"
+#: panels/wallet.cpp:43
+msgid "Getters"
+msgstr "吸气剂"
 
-#: panels/wallet.cpp:35
-msgid "Get account history"
-msgstr "帐户历史记录"
-
-#: panels/wallet.cpp:36
-msgid "Get order book"
-msgstr "订单"
-
-#: panels/wallet.cpp:38
+#: panels/wallet.cpp:45
 msgid "Info"
 msgstr "信息"
 
-#: panels/wallet.cpp:41 panels/wallet.cpp:191
-msgid "Upgrade account"
-msgstr "卖家帐户"
-
-#: panels/wallet.cpp:42 panels/wallet.cpp:197
-msgid "Create account with brain key"
-msgstr "帐户历史记录"
-
-#: panels/wallet.cpp:43 panels/wallet.cpp:203
-msgid "Register account"
-msgstr "注册账户"
-
-#: panels/wallet.cpp:44 panels/wallet.cpp:209
-msgid "Create asset"
-msgstr "创建资产"
-
-#: panels/wallet.cpp:119
-msgid "Sell Asset"
-msgstr "出售资产"
-
-#: panels/wallet.cpp:125
-msgid "Borrow Asset"
-msgstr "借入资产"
-
-#: panels/wallet.cpp:149
+#: panels/wallet.cpp:46 panels/wallet.cpp:155
 msgid "Committee member"
 msgstr "委员会成员"
 
-#: panels/wallet.cpp:155
+#: panels/wallet.cpp:47 panels/wallet.cpp:161
 msgid "Account history"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:161
+#: panels/wallet.cpp:48 panels/wallet.cpp:167
 msgid "Order book"
 msgstr "订单"
 
-#: panels/wallet.cpp:179
+#: panels/wallet.cpp:125
+msgid "Sell Asset"
+msgstr "出售资产"
+
+#: panels/wallet.cpp:131
+msgid "Borrow Asset"
+msgstr "借入资产"
+
+#: panels/wallet.cpp:185
 msgid "Active witnsses"
 msgstr "积极的证人"
+
+#: panels/wallet.cpp:197
+msgid "Upgrade account"
+msgstr "卖家帐户"
+
+#: panels/wallet.cpp:203
+msgid "Create account with brain key"
+msgstr "帐户历史记录"
+
+#: panels/wallet.cpp:209
+msgid "Register account"
+msgstr "注册账户"
+
+#: panels/wallet.cpp:215
+msgid "Create asset"
+msgstr "创建资产"
 
 #: wizards/registration.cpp:27
 msgid "Select your wallet directory"
@@ -1215,6 +1231,18 @@ msgstr "帐户不能为空"
 #: wizards/registration.cpp:169
 msgid "Private key can't be empty"
 msgstr "私钥不能为空"
+
+#~ msgid "Sell asset"
+#~ msgstr "出售资产"
+
+#~ msgid "Get committee member"
+#~ msgstr "委员会成员"
+
+#~ msgid "Get account history"
+#~ msgstr "帐户历史记录"
+
+#~ msgid "Get order book"
+#~ msgstr "订单"
 
 #~ msgid "Upgrade Account"
 #~ msgstr "所有者帐户"

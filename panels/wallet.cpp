@@ -25,25 +25,31 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
 
    const auto root = wallet_tree->AddRoot(_("Operations"));
 
-   tree.transfer = wallet_tree->AppendItem(root, _("Transfer"));
-   tree.sell_asset = wallet_tree->AppendItem(root, _("Sell asset"));
-   tree.borrow_asset = wallet_tree->AppendItem(root, _("Borrow asset"));
-   tree.cancel_order = wallet_tree->AppendItem(root, _("Cancel order"));
-   tree.set_proxy = wallet_tree->AppendItem(root, _("Set proxy"));
-   tree.suggest_brain_key = wallet_tree->AppendItem(root, _("Suggest brain key"));
-   tree.get_committee_member = wallet_tree->AppendItem(root, _("Get committee member"));
-   tree.get_account_history = wallet_tree->AppendItem(root, _("Get account history"));
-   tree.get_order_book = wallet_tree->AppendItem(root, _("Get order book"));
-   tree.about = wallet_tree->AppendItem(root, _("About"));
-   tree.info = wallet_tree->AppendItem(root, _("Info"));
-   tree.active_witnesses = wallet_tree->AppendItem(root, _("Active witnesses"));
-   tree.active_committee = wallet_tree->AppendItem(root, _("Active committee"));
-   tree.upgrade_account = wallet_tree->AppendItem(root, _("Upgrade account"));
-   tree.create_account_with_brain_key = wallet_tree->AppendItem(root, _("Create account with brain key"));
-   tree.register_account = wallet_tree->AppendItem(root, _("Register account"));
-   tree.create_asset = wallet_tree->AppendItem(root, _("Create asset"));
+   const auto asset = wallet_tree->AppendItem(root, _("Asset"));
+   tree.create_asset = wallet_tree->AppendItem(asset, _("Create"));
+   tree.transfer = wallet_tree->AppendItem(asset, _("Transfer"));
+   tree.sell_asset = wallet_tree->AppendItem(asset, _("Sell"));
+   tree.borrow_asset = wallet_tree->AppendItem(asset, _("Borrow"));
+   tree.cancel_order = wallet_tree->AppendItem(asset, _("Cancel order"));
+   wallet_tree->Expand(asset);
 
-   wallet_tree->ExpandAll();
+   const auto account = wallet_tree->AppendItem(root, _("Account"));
+   tree.register_account = wallet_tree->AppendItem(account, _("Register"));
+   tree.create_account_with_brain_key = wallet_tree->AppendItem(account, _("Create with brain key"));
+   tree.upgrade_account = wallet_tree->AppendItem(account, _("Upgrade"));
+   tree.set_proxy = wallet_tree->AppendItem(account, _("Set proxy"));
+   tree.suggest_brain_key = wallet_tree->AppendItem(account, _("Suggest brain key"));
+
+   const auto getter = wallet_tree->AppendItem(root, _("Getters"));
+   tree.about = wallet_tree->AppendItem(getter, _("About"));
+   tree.info = wallet_tree->AppendItem(getter, _("Info"));
+   tree.get_committee_member = wallet_tree->AppendItem(getter, _("Committee member"));
+   tree.get_account_history = wallet_tree->AppendItem(getter, _("Account history"));
+   tree.get_order_book = wallet_tree->AppendItem(getter, _("Order book"));
+   tree.active_witnesses = wallet_tree->AppendItem(getter, _("Active witnesses"));
+   tree.active_committee = wallet_tree->AppendItem(getter, _("Active committee"));
+
+   wallet_tree->Expand(root);
 
    if(p_GWallet->bitshares.wallet_api_ptr->is_locked())
       DisableOperations();
