@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-23 20:20-0300\n"
-"PO-Revision-Date: 2019-06-23 20:22-0300\n"
+"POT-Creation-Date: 2019-06-23 21:21-0300\n"
+"PO-Revision-Date: 2019-06-23 21:24-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh\n"
@@ -1050,9 +1050,17 @@ msgstr "建议的脑键"
 msgid "Confirm create account?"
 msgstr "确认投票账号的更新？"
 
+#: panels/createaccountwithbrainkey.cpp:90
+msgid "Create account with brain key response"
+msgstr "使用大脑键响应创建帐户"
+
 #: panels/createasset.cpp:55 panels/transfer.cpp:79
 msgid "Confirm transfer?"
 msgstr "确认转移？"
+
+#: panels/createasset.cpp:78
+msgid "Create asset response"
+msgstr "创建资产响应"
 
 #: panels/getaccounthistory.cpp:27
 msgid "Please wait, getting account history ..."
@@ -1062,13 +1070,41 @@ msgstr "请稍等，获取帐户历史记录..."
 msgid "Account not found"
 msgstr "找不到帐户"
 
+#: panels/getaccounthistory.cpp:102
+msgid "Account history response"
+msgstr "帐户历史回复"
+
 #: panels/getcommitteemember.cpp:38
 msgid "Account is not a committee member"
 msgstr "帐户不是委员会成员"
 
+#: panels/getcommitteemember.cpp:82 panels/upgradeaccount.cpp:68
+msgid "Committee member response"
+msgstr "委员会成员回应"
+
 #: panels/getorderbook.cpp:42
 msgid "Invalid market"
 msgstr "市场无效"
+
+#: panels/getorderbook.cpp:73
+msgid "Price"
+msgstr "价钱"
+
+#: panels/getorderbook.cpp:74
+msgid "Quote"
+msgstr "引用"
+
+#: panels/getorderbook.cpp:75
+msgid "Base"
+msgstr "基础"
+
+#: panels/getorderbook.cpp:108
+msgid "Order book "
+msgstr "订单"
+
+#: panels/getorderbook.cpp:108
+msgid " response"
+msgstr "响应"
 
 #: panels/info.cpp:32 panels/wallet.cpp:49
 msgid "Active witnesses"
@@ -1082,9 +1118,17 @@ msgstr "积极委员会"
 msgid "Please double check and confirm operation below"
 msgstr "请仔细检查并确认以下操作"
 
+#: panels/registeraccount.cpp:87
+msgid "Register account response"
+msgstr "注册帐户响应"
+
 #: panels/sellasset.cpp:84
 msgid "Confirm Sell Asset?"
 msgstr "确认出售资产？"
+
+#: panels/sellasset.cpp:107
+msgid "Sell asset response"
+msgstr "出售资产回应"
 
 #: panels/setproxy.cpp:59 panels/transfer.cpp:52
 msgid "Account is invalid"
@@ -1093,6 +1137,14 @@ msgstr "帐户无效"
 #: panels/setproxy.cpp:85 panels/upgradeaccount.cpp:47
 msgid "Confirm update of voting account?"
 msgstr "确认投票账号的更新？"
+
+#: panels/setproxy.cpp:106
+msgid "Set proxy response"
+msgstr "设置代理响应"
+
+#: panels/transfer.cpp:102
+msgid "Transfer response"
+msgstr "转移回复"
 
 #: panels/wallet.cpp:26
 msgid "Operations"
@@ -1231,9 +1283,6 @@ msgstr "帐户不能为空"
 #: wizards/registration.cpp:169
 msgid "Private key can't be empty"
 msgstr "私钥不能为空"
-
-#~ msgid "Sell asset"
-#~ msgstr "出售资产"
 
 #~ msgid "Get committee member"
 #~ msgstr "委员会成员"

@@ -79,6 +79,6 @@ GetCommitteeMemberResponse::GetCommitteeMemberResponse(GWallet* gwallet, wxAny a
 
    response_tree->ExpandAll();
 
-   gwallet->panels.p_commands->notebook->AddPage(this, "Committee member response", true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Committee member response"), true);
 }
 

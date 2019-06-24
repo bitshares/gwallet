@@ -87,5 +87,5 @@ CreateAccountWithBrainKeyResponse::CreateAccountWithBrainKeyResponse(GWallet* gw
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, "Create account with brain key response", true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Create account with brain key response"), true);
 }

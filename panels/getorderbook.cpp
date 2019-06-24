@@ -70,9 +70,9 @@ GetOrderBookResponse::GetOrderBookResponse(GWallet* gwallet, wxAny any_response,
    response_grid->EnableDragGridSize();
    response_grid->EnableDragRowSize();
 
-   response_grid->SetColLabelValue(0, "Price");
-   response_grid->SetColLabelValue(1, "Quote");
-   response_grid->SetColLabelValue(2, "Base");
+   response_grid->SetColLabelValue(0, _("Price"));
+   response_grid->SetColLabelValue(1, _("Quote"));
+   response_grid->SetColLabelValue(2, _("Base"));
 
    auto results = any_response.As<order_book>();
    auto z = 0;
@@ -105,5 +105,5 @@ GetOrderBookResponse::GetOrderBookResponse(GWallet* gwallet, wxAny any_response,
    response_grid->ForceRefresh();
    response_grid->EndBatch();
 
-   gwallet->panels.p_commands->notebook->AddPage(this, "Order book "+ response_type +" response", true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Order book ") + response_type + _(" response"), true);
 }

@@ -84,5 +84,5 @@ RegisterAccountResponse::RegisterAccountResponse(GWallet* gwallet, wxAny any_res
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, "Register account response", true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Register account response"), true);
 }

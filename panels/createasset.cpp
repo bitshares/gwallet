@@ -75,5 +75,5 @@ CreateAssetResponse::CreateAssetResponse(GWallet* gwallet, wxAny any_response)
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, "Create asset response", true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Create asset response"), true);
 }
