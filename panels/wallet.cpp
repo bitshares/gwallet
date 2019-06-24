@@ -15,6 +15,9 @@
 #include "../include/panels/createaccountwithbrainkey.hpp"
 #include "../include/panels/registeraccount.hpp"
 #include "../include/panels/createasset.hpp"
+#include "../include/panels/getwitness.hpp"
+#include "../include/panels/getaccount.hpp"
+#include "../include/panels/getasset.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -44,7 +47,10 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.about = wallet_tree->AppendItem(getter, _("About"));
    tree.info = wallet_tree->AppendItem(getter, _("Info"));
    tree.get_committee_member = wallet_tree->AppendItem(getter, _("Committee member"));
+   tree.get_witness = wallet_tree->AppendItem(getter, _("Witness"));
+   tree.get_account = wallet_tree->AppendItem(getter, _("Account"));
    tree.get_account_history = wallet_tree->AppendItem(getter, _("Account history"));
+   tree.get_asset = wallet_tree->AppendItem(getter, _("Asset"));
    tree.get_order_book = wallet_tree->AppendItem(getter, _("Order book"));
    tree.active_witnesses = wallet_tree->AppendItem(getter, _("Active witnesses"));
    tree.active_committee = wallet_tree->AppendItem(getter, _("Active committee"));
@@ -111,6 +117,12 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoRegisterAccount();
    else if(selected == tree.create_asset)
       DoCreateAsset();
+   else if(selected == tree.get_witness)
+      DoGetWitness();
+   else if(selected == tree.get_account)
+      DoGetAccount();
+   else if(selected == tree.get_asset)
+      DoGetAsset();
 }
 
 void Wallet::DoTransfer()
@@ -213,6 +225,24 @@ void Wallet::DoCreateAsset()
 {
    CreateAsset *create_asset = new CreateAsset(p_GWallet);
    p_GWallet->panels.p_commands->notebook->AddPage(create_asset, _("Create asset"), true);
+}
+
+void Wallet::DoGetWitness()
+{
+   GetWitness *get_witness = new GetWitness(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(get_witness, _("Get witness"), true);
+}
+
+void Wallet::DoGetAccount()
+{
+   GetAccount *get_account = new GetAccount(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(get_account, _("Get account"), true);
+}
+
+void Wallet::DoGetAsset()
+{
+   GetAsset *get_asset = new GetAsset(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(get_asset, _("Get asset"), true);
 }
 
 void Wallet::OpenCommandsPane()

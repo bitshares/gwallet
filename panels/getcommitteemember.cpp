@@ -60,18 +60,18 @@ GetCommitteeMemberResponse::GetCommitteeMemberResponse(GWallet* gwallet, wxAny a
 
    committee_member_object result = any_response.As<committee_member_object>();
 
-   const auto root = response_tree->AddRoot("Committee member object");
+   const auto root = response_tree->AddRoot(_("Committee member object"));
 
    const auto id = response_tree->AppendItem(root, "ID");
    response_tree->AppendItem(id, string(object_id_type(result.id)));
 
-   const auto committee_member_account = response_tree->AppendItem(root, "Committee member account");
+   const auto committee_member_account = response_tree->AppendItem(root, _("Committee member account"));
    response_tree->AppendItem(committee_member_account, string(object_id_type(result.committee_member_account)));
 
-   const auto vote_id = response_tree->AppendItem(root, "Vote ID");
+   const auto vote_id = response_tree->AppendItem(root, _("Vote ID"));
    response_tree->AppendItem(vote_id, fc::json::to_string(result.vote_id));
 
-   const auto total_votes = response_tree->AppendItem(root, "Total votes");
+   const auto total_votes = response_tree->AppendItem(root, _("Total votes"));
    response_tree->AppendItem(total_votes, wxNumberFormatter::ToString((long)(result.total_votes/pow(10, 5))));
 
    const auto url = response_tree->AppendItem(root, "Url");
@@ -81,4 +81,3 @@ GetCommitteeMemberResponse::GetCommitteeMemberResponse(GWallet* gwallet, wxAny a
 
    gwallet->panels.p_commands->notebook->AddPage(this, _("Committee member response"), true);
 }
-

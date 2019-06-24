@@ -26,6 +26,10 @@ struct treeItems
    wxTreeItemId create_account_with_brain_key;
    wxTreeItemId register_account;
    wxTreeItemId create_asset;
+   wxTreeItemId get_witness;
+   wxTreeItemId get_account;
+   wxTreeItemId get_asset;
+
 };
 
 class Wallet : public wxPanel
@@ -73,6 +77,9 @@ private:
    void DoCreateAccountWithBrainKey();
    void DoRegisterAccount();
    void DoCreateAsset();
+   void DoGetWitness();
+   void DoGetAccount();
+   void DoGetAsset();
 
    void OpenCommandsPane();
 };

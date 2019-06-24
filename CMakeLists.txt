@@ -41,8 +41,11 @@ add_executable( gwallet
     panels/createaccountwithbrainkey.cpp
     panels/registeraccount.cpp
 	panels/createasset.cpp
+    panels/getwitness.cpp
+	panels/getaccount.cpp
+	panels/getasset.cpp
 
-    wizards/registration.cpp)
+	wizards/registration.cpp)
 
 find_package(wxWidgets COMPONENTS core base adv xrc aui REQUIRED)
 include(${wxWidgets_USE_FILE})
