@@ -23,9 +23,9 @@ ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
    response_grid->EnableDragRowSize();
 
    response_grid->SetColLabelValue(0, "ID");
-   response_grid->SetColLabelValue(1, "Account");
-   response_grid->SetColLabelValue(2, "Votes");
-   response_grid->SetColLabelValue(3, "Last block");
+   response_grid->SetColLabelValue(1, _("Account"));
+   response_grid->SetColLabelValue(2, _("Votes"));
+   response_grid->SetColLabelValue(3, _("Last block"));
 
    response_grid->BeginBatch();
    response_grid->ClearSelection();

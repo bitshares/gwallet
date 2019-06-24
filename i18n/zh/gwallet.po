@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-23 21:21-0300\n"
-"PO-Revision-Date: 2019-06-23 21:24-0300\n"
+"POT-Creation-Date: 2019-06-23 21:33-0300\n"
+"PO-Revision-Date: 2019-06-23 21:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh\n"
@@ -1022,9 +1022,22 @@ msgid "Please wait, updating active committee members info ..."
 msgstr ""
 "请稍等，更新活跃的委员会成员信息......请稍等，更新活跃的委员会成员信息......"
 
+#: panels/active_committee.cpp:26 panels/active_witnesses.cpp:26
+#: panels/wallet.cpp:36
+msgid "Account"
+msgstr "帐户"
+
+#: panels/active_committee.cpp:27 panels/active_witnesses.cpp:27
+msgid "Votes"
+msgstr "投票"
+
 #: panels/active_witnesses.cpp:9
 msgid "Please wait, updating active witnesses info ..."
 msgstr "请稍等，更新有效的证人信息..."
+
+#: panels/active_witnesses.cpp:28
+msgid "Last block"
+msgstr "最后一块"
 
 #: panels/borrowasset.cpp:41 panels/sellasset.cpp:57
 msgid "Asset is invalid"
@@ -1041,6 +1054,34 @@ msgstr "没有选择订单"
 #: panels/cancelorder.cpp:50
 msgid "Confirm cancel order?"
 msgstr "确认取消订单？"
+
+#: panels/commands.cpp:15
+msgid "Signed Transaction"
+msgstr "签署交易"
+
+#: panels/commands.cpp:17
+msgid "Reference block number"
+msgstr "参考块号"
+
+#: panels/commands.cpp:20
+msgid "Reference block prefix"
+msgstr "参考块前缀"
+
+#: panels/commands.cpp:23
+msgid "Expiration"
+msgstr "呼气"
+
+#: panels/commands.cpp:26 panels/wallet.cpp:26
+msgid "Operations"
+msgstr "操作"
+
+#: panels/commands.cpp:29
+msgid "Extensions"
+msgstr "扩展"
+
+#: panels/commands.cpp:32
+msgid "Signatures"
+msgstr "签名"
 
 #: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:149
 msgid "Suggested Brain key"
@@ -1146,10 +1187,6 @@ msgstr "设置代理响应"
 msgid "Transfer response"
 msgstr "转移回复"
 
-#: panels/wallet.cpp:26
-msgid "Operations"
-msgstr "操作"
-
 #: panels/wallet.cpp:28
 msgid "Asset"
 msgstr "Asset"
@@ -1173,10 +1210,6 @@ msgstr "借"
 #: panels/wallet.cpp:33 panels/wallet.cpp:137
 msgid "Cancel order"
 msgstr "取消订单"
-
-#: panels/wallet.cpp:36
-msgid "Account"
-msgstr "帐户"
 
 #: panels/wallet.cpp:37
 msgid "Register"
