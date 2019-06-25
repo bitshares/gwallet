@@ -61,11 +61,7 @@ GetOrderBookResponse::GetOrderBookResponse(GWallet* gwallet, wxAny any_response,
    SetScrollRate(1,1);
    response_grid->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
 
-   response_grid->EnableDragCell();
-   response_grid->EnableDragColMove();
-   response_grid->EnableDragColSize();
-   response_grid->EnableDragGridSize();
-   response_grid->EnableDragRowSize();
+   gwallet->panels.p_commands->DoGridProperties(response_grid);
 
    response_grid->SetColLabelValue(0, _("Price"));
    response_grid->SetColLabelValue(1, _("Quote"));

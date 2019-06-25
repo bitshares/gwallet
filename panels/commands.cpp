@@ -39,3 +39,12 @@ void Commands::Wait()
    wxBusyCursor wait;
    wxTheApp->Yield(true);
 }
+
+void Commands::DoGridProperties(wxGrid* grid)
+{
+   grid->EnableDragCell();
+   grid->EnableDragColMove();
+   grid->EnableDragColSize();
+   grid->EnableDragGridSize();
+   grid->EnableDragRowSize();
+}

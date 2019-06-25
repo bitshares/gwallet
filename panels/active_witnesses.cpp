@@ -1,5 +1,6 @@
 #include "../include/panels/active_witnesses.hpp"
 #include "../include/panels/wallet.hpp"
+#include "../include/panels/commands.hpp"
 
 ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
 {
@@ -16,11 +17,7 @@ ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
 
    response_grid->CreateGrid(0, 4);
 
-   response_grid->EnableDragCell();
-   response_grid->EnableDragColMove();
-   response_grid->EnableDragColSize();
-   response_grid->EnableDragGridSize();
-   response_grid->EnableDragRowSize();
+   gwallet->panels.p_commands->DoGridProperties(response_grid);
 
    response_grid->SetColLabelValue(0, "ID");
    response_grid->SetColLabelValue(1, _("Account"));

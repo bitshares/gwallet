@@ -1,5 +1,6 @@
 #include "../include/panels/active_committee.hpp"
 #include "../include/panels/wallet.hpp"
+#include "../include/panels/commands.hpp"
 
 ActiveCommittee::ActiveCommittee(GWallet* gwallet) : wxScrolledWindow()
 {
@@ -16,11 +17,7 @@ ActiveCommittee::ActiveCommittee(GWallet* gwallet) : wxScrolledWindow()
    SetScrollRate(1,1);
    response_grid->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
 
-   response_grid->EnableDragCell();
-   response_grid->EnableDragColMove();
-   response_grid->EnableDragColSize();
-   response_grid->EnableDragGridSize();
-   response_grid->EnableDragRowSize();
+   p_GWallet->panels.p_commands->DoGridProperties(response_grid);
 
    response_grid->SetColLabelValue(0, "ID");
    response_grid->SetColLabelValue(1, _("Account"));

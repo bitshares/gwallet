@@ -12,6 +12,7 @@ public:
 
    void DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_transaction result);
    void Wait();
+   void DoGridProperties(wxGrid* grid);
 
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);
