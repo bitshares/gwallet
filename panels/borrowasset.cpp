@@ -32,30 +32,16 @@ void BorrowAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       broadcast_v = "true";
 
-   try
-   {
-      p_GWallet->bitshares.wallet_api_ptr->get_asset(borrow_asset_value);
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Asset is invalid"));
-      borrow_asset->SetFocus();
-      return;
-   }
-
    signed_transaction result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    if(cli->IsChecked())
    {
       auto command = "borrow_asset " + seller_value + " " + borrow_amount_value + " " + borrow_asset_value + " " +
             collateral_amount_value + " " + broadcast_v;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(seller_value);
    }
    else

@@ -25,8 +25,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    asset_object result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    try
    {
@@ -45,9 +44,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "get_asset " + asset;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
 
@@ -61,7 +58,7 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
    asset_object result = any_response.As<asset_object>();
 
    // Todo: Too much code just to have the benefit of keys of objects translated
-   // Probably better to loop throw the object and build the tree 
+   // Probably better to loop throw the object and build the tree
 
    const auto root = response_tree->AddRoot(_("Asset object"));
 

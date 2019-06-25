@@ -11,6 +11,7 @@ public:
    Commands(GWallet* gwallet);
 
    void DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_transaction result);
+   void Wait();
 
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);

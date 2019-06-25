@@ -26,15 +26,12 @@ void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    if(cli->IsChecked())
    {
       auto command = "upgrade_account " + account + " " + broadcast_value;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(account);
    }
    else

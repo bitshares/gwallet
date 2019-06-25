@@ -4,7 +4,6 @@
 Commands::Commands(GWallet* gwallet) : wxPanel()
 {
    p_GWallet = gwallet;
-
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 }
 
@@ -33,4 +32,10 @@ void Commands::DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_tran
    response_tree->AppendItem(signatures, fc::json::to_string(result.signatures));
 
    response_tree->ExpandAll();
+}
+
+void Commands::Wait()
+{
+   wxBusyCursor wait;
+   wxTheApp->Yield(true);
 }

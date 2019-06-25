@@ -29,8 +29,7 @@ void GetOrderBook::OnOk(wxCommandEvent& WXUNUSED(event))
    order_book result;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    try
    {
@@ -49,9 +48,7 @@ void GetOrderBook::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "get_order_book " + base_value + " " + quote_value + " " + to_string(limit_value);
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
 

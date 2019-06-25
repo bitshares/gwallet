@@ -31,15 +31,12 @@ void CancelOrder::OnOk(wxCommandEvent& WXUNUSED(event))
       signed_transaction result_obj;
       wxAny response;
 
-      wxBusyCursor wait;
-      wxTheApp->Yield(true);
+      p_GWallet->panels.p_commands->Wait();
 
       if(cli->IsChecked())
       {
          auto command = "cancel_order " + std::string(object_id_type(order_id)) + " " + broadcast_v;
-         p_GWallet->panels.p_cli->command->SetValue(command);
-         wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-         p_GWallet->panels.p_cli->OnCliCommand(event);
+         p_GWallet->panels.p_cli->DoCommand(command);
          p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
       }
       else

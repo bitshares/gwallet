@@ -62,17 +62,14 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    signed_transaction result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    if(cli->IsChecked())
    {
       auto command = "sell_asset " + seller_value + " " + sell_amount_value + " " + sell_asset_value + " " +
             receive_amount_value + " " + receive_asset_value + " " + to_string(expiration_value) + " " +
             " " + fill_or_kill_value_string + " " + broadcast_value;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(seller_value);
    }
    else

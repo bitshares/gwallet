@@ -25,8 +25,7 @@ void GetAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    account_object result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    try
    {
@@ -45,9 +44,7 @@ void GetAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "get_account " + account;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
 

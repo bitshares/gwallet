@@ -14,6 +14,7 @@ public:
       InitWidgetsFromXRC((wxWindow *)parent);
    }
    void OnCliCommand(wxCommandEvent& event);
+   void DoCommand(string command);
 
    GWallet* p_GWallet;
    wxComboBox* command;

@@ -11,7 +11,8 @@ GetCommitteeMember::GetCommitteeMember(GWallet* gwallet)
    SetScrollRate(1,1);
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(GetCommitteeMember::OnOk));
-   Connect(XRCID("owner_account"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(GetCommitteeMember::OnSearchAccount), NULL, this);
+   Connect(XRCID("owner_account"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(GetCommitteeMember::OnSearchAccount),
+         NULL, this);
 }
 
 void GetCommitteeMember::OnSearchAccount(wxCommandEvent& event)
@@ -25,8 +26,7 @@ void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
    committee_member_object result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    try
    {
@@ -45,9 +45,7 @@ void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "get_committee_member " + account;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
 

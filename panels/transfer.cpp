@@ -57,16 +57,13 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
    signed_transaction result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    if(cli->IsChecked())
    {
       auto command = "transfer " + from_value + " " + to_value + " " + amount_value + " " + asset_value +
             " \"" + memo_value + "\" " + broadcast_value;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(from_value);
    }
    else

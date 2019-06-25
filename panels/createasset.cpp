@@ -30,16 +30,13 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    signed_transaction result_obj;
    wxAny response;
 
-   wxBusyCursor wait;
-   wxTheApp->Yield(true);
+   p_GWallet->panels.p_commands->Wait();
 
    if(cli->IsChecked())
    {
       auto command = "create_asset " + issuer_value + " " + symbol_value + " " + to_string(precision_value) + " " +
             common_value + " " + bitasset_opts_value + " " + broadcast_value;
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(issuer_value);
    }
    else

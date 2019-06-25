@@ -23,15 +23,14 @@ void GetAccountHistory::OnSearchAccount(wxCommandEvent& event)
 
 void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   wxWindowDisabler disableAll;
-   wxBusyInfo wait(_("Please wait, getting account history ..."));
-   wxTheApp->Yield();
-
    const auto name_value = name->GetValue().ToStdString();
    const auto limit_value = limit->GetValue();
 
    vector<graphene::wallet::operation_detail> result;
    wxAny response;
+
+   p_GWallet->panels.p_commands->Wait();
+
    try
    {
       result = p_GWallet->bitshares.wallet_api_ptr->get_account_history(name_value, limit_value);
@@ -49,9 +48,7 @@ void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
    if(cli->IsChecked())
    {
       auto command = "get_account_history " + name_value + " " + to_string(limit_value);
-      p_GWallet->panels.p_cli->command->SetValue(command);
-      wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
-      p_GWallet->panels.p_cli->OnCliCommand(event);
+      p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
 
@@ -71,9 +68,9 @@ GetAccountHistoryResponse::GetAccountHistoryResponse(GWallet* gwallet, wxAny any
    response_grid->EnableDragRowSize();
 
    response_grid->SetColLabelValue(0, "ID");
-   response_grid->SetColLabelValue(1, "Date");
-   response_grid->SetColLabelValue(2, "Block");
-   response_grid->SetColLabelValue(3, "Text");
+   response_grid->SetColLabelValue(1, _("Date"));
+   response_grid->SetColLabelValue(2, _("Block"));
+   response_grid->SetColLabelValue(3, _("Text"));
 
    auto results = any_response.As<vector<graphene::wallet::operation_detail>>();
 

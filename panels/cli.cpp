@@ -77,3 +77,10 @@ void Cli::ReadCommands()
       command->Append(commands_log.GetNextLine());
    }
 }
+
+void Cli::DoCommand(string command)
+{
+   p_GWallet->panels.p_cli->command->SetValue(command);
+   wxCommandEvent event(wxEVT_COMMAND_BUTTON_CLICKED, XRCID("run"));
+   p_GWallet->panels.p_cli->OnCliCommand(event);
+}
