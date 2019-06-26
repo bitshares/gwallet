@@ -34,13 +34,7 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto receive_asset_value = receive_asset->GetValue().ToStdString();
    const auto fill_or_kill_value = fill_or_kill->GetValue() ? true : false;
 
-   const auto date_value = date->GetValue().ToUTC().GetValue().ToLong()/1000;
-   const auto time_second = time->GetValue().ToUTC().GetSecond();
-   const auto time_minute = time->GetValue().ToUTC().GetMinute();
-   const auto time_hour = time->GetValue().ToUTC().GetHour();
-   const auto time_value = (time_hour*3600) + (time_minute*60) + time_second;
-   auto now = wxDateTime::Now().ToUTC().GetValue().ToLong()/1000;
-   uint32_t expiration_value = date_value + time_value - now;
+   uint32_t expiration_value = p_GWallet->panels.p_commands->DoDateToSeconds(date, time);
    string broadcast_value = "false";
    if(broadcast->IsChecked())
       broadcast_value = "true";

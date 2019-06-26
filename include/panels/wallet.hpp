@@ -29,7 +29,8 @@ struct treeItems
    wxTreeItemId get_witness;
    wxTreeItemId get_account;
    wxTreeItemId get_asset;
-
+   wxTreeItemId issue_asset;
+   wxTreeItemId htlc_create;
 };
 
 class Wallet : public wxPanel
@@ -80,6 +81,8 @@ private:
    void DoGetWitness();
    void DoGetAccount();
    void DoGetAsset();
+   void DoIssueAsset();
+   void DoCreateHtlc();
 
    void OpenCommandsPane();
 };

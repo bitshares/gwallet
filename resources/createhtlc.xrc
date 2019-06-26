@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxScrolledWindow" name="CreateHtlc">
+        <style>wxTAB_TRAVERSAL</style>
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="sizeritem">
+                        <option>0</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Create a hashed time lock contract</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Source</label>
+                            <wrap>0</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxComboBox" name="source">
+                            <style>wxCB_READONLY</style>
+                            <tooltip>The account that will reserve the funds (and pay the fee)</tooltip>
+                            <value></value>
+                            <content />
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Destination</label>
+                            <wrap>0</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxSearchCtrl" name="destination">
+                            <tooltip>The account that will receive the funds if the preimage is presented</tooltip>
+                            <value></value>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>7</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Amount</label>
+                            <wrap>0</wrap>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>3</option>
+                        <flag>wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="m_staticText9">
+                            <label>Asset</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>7</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTextCtrl" name="amount">
+                            <tooltip>The amount of the asset that is to be traded</tooltip>
+                            <value></value>
+                            <maxlength>0</maxlength>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>3</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxComboBox" name="asset_symbol">
+                            <style>wxCB_READONLY</style>
+                            <size>100,-1</size>
+                            <tooltip>The asset that is to be traded</tooltip>
+                            <value></value>
+                            <content />
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Hash algorithm</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="m_staticText10">
+                            <label>Preimage size in bytes</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxChoice" name="hash_algorithm">
+                            <tooltip>The algorithm used to generate the hash from the preimage.</tooltip>
+                            <selection>0</selection>
+                            <content>
+                                <item>RIPEMD160</item>
+                                <item>SHA1</item>
+                                <item>SHA256</item>
+                                <item></item>
+                            </content>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTextCtrl" name="preimage_size">
+                            <tooltip>The size of the preimage in bytes</tooltip>
+                            <value></value>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC1">
+                            <label>Preimage hash</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTextCtrl" name="preimage_hash">
+                            <tooltip>The hash of the preimage</tooltip>
+                            <value></value>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag></flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag></flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC111">
+                            <label>Claim period</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxDatePickerCtrl" name="date">
+                            <style>wxDP_DEFAULT</style>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTimePickerCtrl" name="time">
+                            <style>wxTP_DEFAULT</style>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag></flag>
+                <border>2</border>
+                <size>5,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxCheckBox" name="broadcast">
+                            <tooltip>Broadcast the transaction on the network</tooltip>
+                            <label>Broadcast Transaction</label>
+                            <checked>1</checked>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>5</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxCheckBox" name="cli">
+                            <label>Show output in CLI mode</label>
+                            <checked>0</checked>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxEXPAND|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxStaticLine" name="wxID_STATIC">
+                            <style>wxLI_HORIZONTAL</style>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>5</border>
+                <object class="wxStdDialogButtonSizer">
+                    <object class="button">
+                        <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxButton" name="wxID_OK">
+                            <label>&amp;OK</label>
+                        </object>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+        </object>
+    </object>
+    <object class="wxScrolledWindow" name="CreateHtlcResponse">
+        <style>wxTAB_TRAVERSAL</style>
+        <size>-1,-1</size>
+        <object class="wxBoxSizer">
+            <orient>wxHORIZONTAL</orient>
+            <object class="sizeritem">
+                <option>1</option>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxTreeCtrl" name="response_tree">
+                    <style>wxTR_DEFAULT_STYLE|wxBORDER_STATIC|wxTR_EDIT_LABELS|wxHSCROLL</style>
+                </object>
+            </object>
+        </object>
+    </object>
+</resource>

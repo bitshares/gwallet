@@ -18,6 +18,9 @@
 #include "../include/panels/getwitness.hpp"
 #include "../include/panels/getaccount.hpp"
 #include "../include/panels/getasset.hpp"
+#include "../include/panels/issueasset.hpp"
+#include "../include/panels/createhtlc.hpp"
+
 
 #include "../include/panels/commands.hpp"
 
@@ -30,6 +33,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
 
    const auto asset = wallet_tree->AppendItem(root, _("Asset"));
    tree.create_asset = wallet_tree->AppendItem(asset, _("Create"));
+   tree.issue_asset = wallet_tree->AppendItem(asset, _("Issue"));
    tree.transfer = wallet_tree->AppendItem(asset, _("Transfer"));
    tree.sell_asset = wallet_tree->AppendItem(asset, _("Sell"));
    tree.borrow_asset = wallet_tree->AppendItem(asset, _("Borrow"));
@@ -54,6 +58,9 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.get_order_book = wallet_tree->AppendItem(getter, _("Order book"));
    tree.active_witnesses = wallet_tree->AppendItem(getter, _("Active witnesses"));
    tree.active_committee = wallet_tree->AppendItem(getter, _("Active committee"));
+
+   const auto htlc = wallet_tree->AppendItem(root, _("HTLC"));
+   tree.htlc_create = wallet_tree->AppendItem(htlc, _("Create"));
 
    wallet_tree->Expand(root);
 
@@ -123,6 +130,10 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoGetAccount();
    else if(selected == tree.get_asset)
       DoGetAsset();
+   else if(selected == tree.issue_asset)
+      DoIssueAsset();
+   else if(selected == tree.htlc_create)
+      DoCreateHtlc();
 }
 
 void Wallet::DoTransfer()
@@ -243,6 +254,18 @@ void Wallet::DoGetAsset()
 {
    GetAsset *get_asset = new GetAsset(p_GWallet);
    p_GWallet->panels.p_commands->notebook->AddPage(get_asset, _("Get asset"), true);
+}
+
+void Wallet::DoIssueAsset()
+{
+   IssueAsset *issue_asset = new IssueAsset(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(issue_asset, _("Issue asset"), true);
+}
+
+void Wallet::DoCreateHtlc()
+{
+   CreateHtlc *create_htlc = new CreateHtlc(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(create_htlc, _("Create HTLC"), true);
 }
 
 void Wallet::OpenCommandsPane()

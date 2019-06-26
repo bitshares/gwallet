@@ -48,3 +48,16 @@ void Commands::DoGridProperties(wxGrid* grid)
    grid->EnableDragGridSize();
    grid->EnableDragRowSize();
 }
+
+uint32_t Commands::DoDateToSeconds(wxDatePickerCtrl* date, wxTimePickerCtrl* time)
+{
+   const auto date_value = date->GetValue().ToUTC().GetValue().ToLong()/1000;
+   const auto time_second = time->GetValue().ToUTC().GetSecond();
+   const auto time_minute = time->GetValue().ToUTC().GetMinute();
+   const auto time_hour = time->GetValue().ToUTC().GetHour();
+   const auto time_value = (time_hour*3600) + (time_minute*60) + time_second;
+
+   auto now = wxDateTime::Now().ToUTC().GetValue().ToLong()/1000;
+   uint32_t seconds = date_value + time_value - now;
+   return seconds;
+}
