@@ -40,18 +40,19 @@ void Registration::OnEndpoint(wxCommandEvent& WXUNUSED(event))
    wxString path;
    if ( p_GWallet->config->Read("WalletPath", &path) ) {
       wxCommandEvent event_connect(wxEVT_COMMAND_MENU_SELECTED, XRCID("t_connect"));
-      try
+
+      p_GWallet->ProcessWindowEvent(event_connect);
+      if(p_GWallet->state.is_connected)
       {
-         p_GWallet->ProcessWindowEvent(event_connect);
          p_GWallet->bitshares.wallet_api_ptr->get_global_properties();
 
          wxMessageDialog dialog(NULL, _("Connected to server"), _("Success"), wxNO_DEFAULT | wxOK | wxICON_INFORMATION);
          if (dialog.ShowModal() == wxID_OK)
             return;
       }
-      catch(const fc::exception& e)
+      else
       {
-         wxMessageDialog dialog(NULL, _("Some problem connecting"), _("Error"), wxNO_DEFAULT|wxOK|wxICON_ERROR);
+         wxMessageDialog dialog(NULL, _("Not connected"), _("Error"), wxNO_DEFAULT|wxOK|wxICON_ERROR);
          if ( dialog.ShowModal() == wxID_OK )
             return;
       }
@@ -119,6 +120,13 @@ void Registration::PageChanging(wxWizardEvent& event)
       if (!p_GWallet->state.is_connected) {
          wxCommandEvent event_connect(wxEVT_COMMAND_MENU_SELECTED, XRCID("t_connect"));
          p_GWallet->ProcessWindowEvent(event_connect);
+         if (!p_GWallet->state.is_connected) {
+            wxMessageDialog dialog(NULL, _("Not connected"),_("Error"), wxNO_DEFAULT | wxOK | wxICON_ERROR);
+            if (dialog.ShowModal() == wxID_OK) {
+               event.Veto();
+               return;
+            }
+         }
       }
 
       try {

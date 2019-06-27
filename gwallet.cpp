@@ -4,6 +4,7 @@
 #endif
 #include "include/dialogs/importkey.hpp"
 #include "include/dialogs/importbalance.hpp"
+#include "include/dialogs/settings.hpp"
 
 #include "include/wizards/registration.hpp"
 
@@ -146,7 +147,9 @@ void GWallet::OnConnect(wxCommandEvent& WXUNUSED(event))
          DoAssets(strings.first_account_name.ToStdString());
 
          strings.selected_account = strings.first_account_name;
-         strings.selected_asset = strings.assets[0];
+
+         if(strings.assets.size() > 0)
+            strings.selected_asset = strings.assets[0];
 
          if(!state.modes_created) {
             DoModes();
@@ -250,6 +253,11 @@ void GWallet::OnImportKey(wxCommandEvent& WXUNUSED(event))
 void GWallet::OnImportBalance(wxCommandEvent& WXUNUSED(event))
 {
    ImportBalanceDialog importBalanceDialog( this );
+}
+
+void GWallet::OnSettings(wxCommandEvent& WXUNUSED(event))
+{
+   Settings settings( this );
 }
 
 void GWallet::OnChangeAccount(wxCommandEvent& WXUNUSED(event))
@@ -579,6 +587,7 @@ void GWallet::CreateEvents()
    Connect(wxID_NETWORK, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnNetwork));
    Connect(wxID_EXIT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnQuit));
    Connect(wxID_ABOUT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnAbout));
+   Connect(wxID_PREFERENCES, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnSettings));
 
    Connect(XRCID("m_view_welcome"), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnViewWelcome));
    Connect(XRCID("m_view_commands"), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(GWallet::OnViewCommands));

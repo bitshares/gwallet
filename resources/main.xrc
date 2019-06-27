@@ -31,6 +31,10 @@
                     <label>Change language</label>
                     <help></help>
                 </object>
+                <object class="wxMenuItem" name="wxID_PREFERENCES">
+                    <label>Settings</label>
+                    <help></help>
+                </object>
                 <object class="wxMenuItem" name="wxID_EXIT">
                     <label>Quit</label>
                     <help></help>
@@ -179,7 +183,7 @@
         <object class="wxPanel" name="main_panel">
             <style>wxTAB_TRAVERSAL</style>
             <exstyle>wxWS_EX_VALIDATE_RECURSIVELY</exstyle>
-            <size>1200,800</size>
+            <size>-1,-1</size>
             <object class="wxBoxSizer">
                 <orient>wxVERTICAL</orient>
                 <object class="spacer">
@@ -219,7 +223,7 @@
                     <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
                     <border>5</border>
                     <object class="wxStaticText" name="wxID_STATIC">
-                        <label>Version 0.6.0</label>
+                        <label>Version 0.7.0</label>
                         <wrap>-1</wrap>
                     </object>
                 </object>
@@ -251,7 +255,7 @@
                             <border>5</border>
                             <object class="wxStaticText" name="wxID_STATIC">
                                 <size>600,-1</size>
-                                <label>Setup a new wallet by following the wizard. Please note you need a created account and private key in order to use the software.</label>
+                                <label>Setup a new wallet by following the wizard. Please note you need a created account and private key.</label>
                                 <wrap>-1</wrap>
                             </object>
                         </object>

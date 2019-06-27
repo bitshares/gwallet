@@ -128,4 +128,5 @@ private:
    void CreateWalletPane(Wallet* wallet);
    void CreateCliPane(Cli* cli);
    void OnPanelClose(wxAuiManagerEvent& event);
+   void OnSettings(wxCommandEvent& event);
 };
