@@ -22,6 +22,7 @@
 #include "../include/panels/createhtlc.hpp"
 #include "../include/panels/redeemhtlc.hpp"
 #include "../include/panels/extendhtlc.hpp"
+#include "../include/panels/gethtlc.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -59,6 +60,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.get_order_book = wallet_tree->AppendItem(getter, _("Order book"));
    tree.active_witnesses = wallet_tree->AppendItem(getter, _("Active witnesses"));
    tree.active_committee = wallet_tree->AppendItem(getter, _("Active committee"));
+   tree.get_htlc = wallet_tree->AppendItem(getter, _("HTLC"));
 
    const auto htlc = wallet_tree->AppendItem(root, _("HTLC"));
    tree.htlc_create = wallet_tree->AppendItem(htlc, _("Create"));
@@ -141,6 +143,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoRedeemHtlc();
    else if(selected == tree.htlc_extend)
       DoExtendHtlc();
+   else if(selected == tree.get_htlc)
+      DoGetHtlc();
 }
 
 void Wallet::DoTransfer()
@@ -285,6 +289,12 @@ void Wallet::DoExtendHtlc()
 {
    ExtendHtlc *extend_htlc = new ExtendHtlc(p_GWallet);
    p_GWallet->panels.p_commands->notebook->AddPage(extend_htlc, _("Extend HTLC"), true);
+}
+
+void Wallet::DoGetHtlc()
+{
+   GetHtlc *get_htlc = new GetHtlc(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(get_htlc, _("Get HTLC"), true);
 }
 
 void Wallet::OpenCommandsPane()
