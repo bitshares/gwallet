@@ -21,6 +21,7 @@
 #include "../include/panels/issueasset.hpp"
 #include "../include/panels/createhtlc.hpp"
 #include "../include/panels/redeemhtlc.hpp"
+#include "../include/panels/extendhtlc.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -62,6 +63,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    const auto htlc = wallet_tree->AppendItem(root, _("HTLC"));
    tree.htlc_create = wallet_tree->AppendItem(htlc, _("Create"));
    tree.htlc_redeem = wallet_tree->AppendItem(htlc, _("Redeem"));
+   tree.htlc_extend = wallet_tree->AppendItem(htlc, _("Extend"));
 
    wallet_tree->Expand(root);
 
@@ -137,6 +139,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoCreateHtlc();
    else if(selected == tree.htlc_redeem)
       DoRedeemHtlc();
+   else if(selected == tree.htlc_extend)
+      DoExtendHtlc();
 }
 
 void Wallet::DoTransfer()
@@ -275,6 +279,12 @@ void Wallet::DoRedeemHtlc()
 {
    RedeemHtlc *redeem_htlc = new RedeemHtlc(p_GWallet);
    p_GWallet->panels.p_commands->notebook->AddPage(redeem_htlc, _("Redeem HTLC"), true);
+}
+
+void Wallet::DoExtendHtlc()
+{
+   ExtendHtlc *extend_htlc = new ExtendHtlc(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(extend_htlc, _("Extend HTLC"), true);
 }
 
 void Wallet::OpenCommandsPane()
