@@ -31,6 +31,7 @@ struct treeItems
    wxTreeItemId get_asset;
    wxTreeItemId issue_asset;
    wxTreeItemId htlc_create;
+   wxTreeItemId htlc_redeem;
 };
 
 class Wallet : public wxPanel
@@ -83,6 +84,7 @@ private:
    void DoGetAsset();
    void DoIssueAsset();
    void DoCreateHtlc();
+   void DoRedeemHtlc();
 
    void OpenCommandsPane();
 };

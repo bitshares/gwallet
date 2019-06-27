@@ -19,6 +19,7 @@ add_executable( gwallet
 
     dialogs/importkey.cpp
     dialogs/importbalance.cpp
+    dialogs/settings.cpp
 
     panels/transfer.cpp
     panels/sellasset.cpp
@@ -46,6 +47,7 @@ add_executable( gwallet
     panels/getasset.cpp
     panels/issueasset.cpp
     panels/createhtlc.cpp
+    panels/redeemhtlc.cpp
 
     wizards/registration.cpp)
 
