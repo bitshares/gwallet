@@ -96,85 +96,55 @@ void Wallet::OnCommand(wxTreeEvent& event)
    OpenCommandsPane();
 
    if(selected == tree.transfer)
-      DoTransfer();
+      DoOperation<Transfer>(_("Transfer"));
    else if(selected == tree.sell_asset)
-      DoSellAsset();
+      DoOperation<SellAsset>(_("Sell asset"));
    else if(selected == tree.borrow_asset)
-      DoBorrowAsset();
+      DoOperation<BorrowAsset>(_("Borrow asset"));
    else if(selected == tree.cancel_order)
-      DoCancelOrder();
+      DoOperation<CancelOrder>(_("Cancel order"));
    else if(selected == tree.set_proxy)
-      DoSetProxy();
+      DoOperation<SetProxy>(_("Set proxy"));
    else if(selected == tree.suggest_brain_key)
       DoSuggestBrainKey();
    else if(selected == tree.get_committee_member)
-      DoGetCommitteeMember();
+      DoOperation<GetCommitteeMember>(_("Get committee member"));
    else if(selected == tree.get_account_history)
-      DoGetAccountHistory();
+      DoOperation<GetAccountHistory>(_("Get account history"));
    else if(selected == tree.get_order_book)
-      DoGetOrderBook();
+      DoOperation<GetOrderBook>(_("Get order book"));
    else if(selected == tree.about)
-      DoAbout();
+      DoOperation<About>(_("About"));
    else if(selected == tree.info)
-      DoInfo();
+      DoOperation<Info>(_("Info"));
    else if(selected == tree.active_witnesses)
-      DoActiveWitnesses();
+      DoOperation<ActiveWitnesses>(_("Get active witnesses"));
    else if(selected == tree.active_committee)
-      DoActiveCommittee();
+      DoOperation<ActiveCommittee>(_("Get active committee"));
    else if(selected == tree.upgrade_account)
-      DoUpgradeAccount();
+      DoOperation<UpgradeAccount>(_("Upgrade account"));
    else if(selected == tree.create_account_with_brain_key)
-      DoCreateAccountWithBrainKey();
+      DoOperation<CreateAccountWithBrainKey>(_("Create account with brain key"));
    else if(selected == tree.register_account)
-      DoRegisterAccount();
+      DoOperation<RegisterAccount>(_("Register account"));
    else if(selected == tree.create_asset)
-      DoCreateAsset();
+      DoOperation<CreateAsset>(_("Create asset"));
    else if(selected == tree.get_witness)
-      DoGetWitness();
+      DoOperation<GetWitness>(_("Get witness"));
    else if(selected == tree.get_account)
-      DoGetAccount();
+      DoOperation<GetAccount>(_("Get account"));
    else if(selected == tree.get_asset)
-      DoGetAsset();
+      DoOperation<GetAsset>(_("Get asset"));
    else if(selected == tree.issue_asset)
-      DoIssueAsset();
+      DoOperation<IssueAsset>(_("Issue asset"));
    else if(selected == tree.htlc_create)
-      DoCreateHtlc();
+      DoOperation<CreateHtlc>(_("Create HTLC"));
    else if(selected == tree.htlc_redeem)
-      DoRedeemHtlc();
+      DoOperation<RedeemHtlc>(_("Redeem HTLC"));
    else if(selected == tree.htlc_extend)
-      DoExtendHtlc();
+      DoOperation<ExtendHtlc>(_("Extend HTLC"));
    else if(selected == tree.get_htlc)
-      DoGetHtlc();
-}
-
-void Wallet::DoTransfer()
-{
-   Transfer *transfer = new Transfer(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(transfer, _("Transfer"), true);
-}
-
-void Wallet::DoSellAsset()
-{
-   SellAsset *sell_asset = new SellAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(sell_asset, _("Sell Asset"), true);
-}
-
-void Wallet::DoBorrowAsset()
-{
-   BorrowAsset *borrow_asset = new BorrowAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(borrow_asset, _("Borrow Asset"), true);
-}
-
-void Wallet::DoCancelOrder()
-{
-   CancelOrder *cancel_order = new CancelOrder(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(cancel_order, _("Cancel order"), true);
-}
-
-void Wallet::DoSetProxy()
-{
-   SetProxy *set_proxy = new SetProxy(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(set_proxy, _("Set proxy"), true);
+      DoOperation<GetHtlc>(_("Get HTLC"));
 }
 
 void Wallet::DoSuggestBrainKey()
@@ -183,118 +153,11 @@ void Wallet::DoSuggestBrainKey()
    wxMessageBox(result.brain_priv_key, _("Suggested Brain key"), wxNO_DEFAULT|wxOK|wxICON_INFORMATION, this);
 }
 
-void Wallet::DoGetCommitteeMember()
+template<typename T>
+void Wallet::DoOperation(wxString title)
 {
-   GetCommitteeMember *committee_member = new GetCommitteeMember(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(committee_member, _("Committee member"), true);
-}
-
-void Wallet::DoGetAccountHistory()
-{
-   GetAccountHistory *account_history = new GetAccountHistory(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(account_history, _("Account history"), true);
-}
-
-void Wallet::DoGetOrderBook()
-{
-   GetOrderBook *order_book = new GetOrderBook(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(order_book, _("Order book"), true);
-}
-
-void Wallet::DoAbout()
-{
-   About *about = new About(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(about, _("About"), true);
-}
-
-void Wallet::DoInfo()
-{
-   Info *info = new Info(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(info, _("Blockchain information"), true);
-}
-
-void Wallet::DoActiveWitnesses()
-{
-   ActiveWitnesses *active_witnesses = new ActiveWitnesses(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_witnesses, _("Active witnsses"), true);
-}
-
-void Wallet::DoActiveCommittee()
-{
-   ActiveCommittee *active_committee = new ActiveCommittee(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(active_committee, _("Active committee"), true);
-}
-
-void Wallet::DoUpgradeAccount()
-{
-   UpgradeAccount *upgrade_account = new UpgradeAccount(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(upgrade_account, _("Upgrade account"), true);
-}
-
-void Wallet::DoCreateAccountWithBrainKey()
-{
-   CreateAccountWithBrainKey *create_account_with_brain_key = new CreateAccountWithBrainKey(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(create_account_with_brain_key, _("Create account with brain key"), true);
-}
-
-void Wallet::DoRegisterAccount()
-{
-   RegisterAccount *register_account = new RegisterAccount(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(register_account, _("Register account"), true);
-}
-
-void Wallet::DoCreateAsset()
-{
-   CreateAsset *create_asset = new CreateAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(create_asset, _("Create asset"), true);
-}
-
-void Wallet::DoGetWitness()
-{
-   GetWitness *get_witness = new GetWitness(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(get_witness, _("Get witness"), true);
-}
-
-void Wallet::DoGetAccount()
-{
-   GetAccount *get_account = new GetAccount(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(get_account, _("Get account"), true);
-}
-
-void Wallet::DoGetAsset()
-{
-   GetAsset *get_asset = new GetAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(get_asset, _("Get asset"), true);
-}
-
-void Wallet::DoIssueAsset()
-{
-   IssueAsset *issue_asset = new IssueAsset(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(issue_asset, _("Issue asset"), true);
-}
-
-void Wallet::DoCreateHtlc()
-{
-   CreateHtlc *create_htlc = new CreateHtlc(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(create_htlc, _("Create HTLC"), true);
-}
-
-void Wallet::DoRedeemHtlc()
-{
-   RedeemHtlc *redeem_htlc = new RedeemHtlc(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(redeem_htlc, _("Redeem HTLC"), true);
-}
-
-void Wallet::DoExtendHtlc()
-{
-   ExtendHtlc *extend_htlc = new ExtendHtlc(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(extend_htlc, _("Extend HTLC"), true);
-}
-
-void Wallet::DoGetHtlc()
-{
-   GetHtlc *get_htlc = new GetHtlc(p_GWallet);
-   p_GWallet->panels.p_commands->notebook->AddPage(get_htlc, _("Get HTLC"), true);
+   T *operation = new T(p_GWallet);
+   p_GWallet->panels.p_commands->notebook->AddPage(operation, title, true);
 }
 
 void Wallet::OpenCommandsPane()

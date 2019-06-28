@@ -64,31 +64,10 @@ private:
 
    void OnCommand(wxTreeEvent& event);
 
-   void DoTransfer();
-   void DoSellAsset();
-   void DoBorrowAsset();
-   void DoCancelOrder();
-   void DoSetProxy();
    void DoSuggestBrainKey();
-   void DoGetCommitteeMember();
-   void DoGetAccountHistory();
-   void DoGetOrderBook();
-   void DoAbout();
-   void DoInfo();
-   void DoActiveWitnesses();
-   void DoActiveCommittee();
-   void DoUpgradeAccount();
-   void DoCreateAccountWithBrainKey();
-   void DoRegisterAccount();
-   void DoCreateAsset();
-   void DoGetWitness();
-   void DoGetAccount();
-   void DoGetAsset();
-   void DoIssueAsset();
-   void DoCreateHtlc();
-   void DoRedeemHtlc();
-   void DoExtendHtlc();
-   void DoGetHtlc();
+   
+   template<typename T>
+   void DoOperation(wxString title);
 
    void OpenCommandsPane();
 };

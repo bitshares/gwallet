@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-06-27 20:47-0300\n"
-"PO-Revision-Date: 2019-06-27 21:10-0300\n"
+"POT-Creation-Date: 2019-06-28 14:37-0300\n"
+"PO-Revision-Date: 2019-06-28 14:38-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh\n"
@@ -105,12 +105,12 @@ msgstr "解锁钱包"
 msgid "Password is incorrect, please try again."
 msgstr "密码不正确，请重试。"
 
-#: gwallet.cpp:409 resources/info.xrc:32 panels/wallet.cpp:213
+#: gwallet.cpp:409 resources/info.xrc:32
 msgid "Blockchain information"
 msgstr "区块链信息"
 
 #: gwallet.cpp:410 resources/main.xrc:111 panels/wallet.cpp:53
-#: panels/wallet.cpp:207
+#: panels/wallet.cpp:117
 msgid "About"
 msgstr "关于"
 
@@ -1278,7 +1278,7 @@ msgstr "扩展"
 msgid "Signatures"
 msgstr "签名"
 
-#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:183
+#: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:153
 msgid "Suggested Brain key"
 msgstr "建议的脑键"
 
@@ -1580,7 +1580,7 @@ msgstr "最后确认的块号"
 msgid "Active witnesses"
 msgstr "积极的证人"
 
-#: panels/info.cpp:38 panels/wallet.cpp:62 panels/wallet.cpp:225
+#: panels/info.cpp:38 panels/wallet.cpp:62
 msgid "Active committee"
 msgstr "积极委员会"
 
@@ -1644,7 +1644,7 @@ msgstr "创建"
 msgid "Issue"
 msgstr "问题"
 
-#: panels/wallet.cpp:39 panels/wallet.cpp:153
+#: panels/wallet.cpp:39 panels/wallet.cpp:99
 msgid "Transfer"
 msgstr "传递"
 
@@ -1656,7 +1656,7 @@ msgstr "卖"
 msgid "Borrow"
 msgstr "借"
 
-#: panels/wallet.cpp:42 panels/wallet.cpp:171
+#: panels/wallet.cpp:42 panels/wallet.cpp:105
 msgid "Cancel order"
 msgstr "取消订单"
 
@@ -1672,7 +1672,7 @@ msgstr "用脑键创建"
 msgid "Upgrade"
 msgstr "升级"
 
-#: panels/wallet.cpp:49 panels/wallet.cpp:177
+#: panels/wallet.cpp:49 panels/wallet.cpp:107
 msgid "Set proxy"
 msgstr "设置代理"
 
@@ -1684,11 +1684,11 @@ msgstr "建议的脑键"
 msgid "Getters"
 msgstr "吸气剂"
 
-#: panels/wallet.cpp:54
+#: panels/wallet.cpp:54 panels/wallet.cpp:119
 msgid "Info"
 msgstr "信息"
 
-#: panels/wallet.cpp:55 panels/wallet.cpp:189
+#: panels/wallet.cpp:55
 msgid "Committee member"
 msgstr "委员会成员"
 
@@ -1696,11 +1696,11 @@ msgstr "委员会成员"
 msgid "Witness"
 msgstr "见证人"
 
-#: panels/wallet.cpp:58 panels/wallet.cpp:195
+#: panels/wallet.cpp:58
 msgid "Account history"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:60 panels/wallet.cpp:201
+#: panels/wallet.cpp:60
 msgid "Order book"
 msgstr "订单"
 
@@ -1716,63 +1716,79 @@ msgstr "赎回"
 msgid "Extend"
 msgstr "延伸"
 
-#: panels/wallet.cpp:159
-msgid "Sell Asset"
+#: panels/wallet.cpp:101
+msgid "Sell asset"
 msgstr "出售资产"
 
-#: panels/wallet.cpp:165
-msgid "Borrow Asset"
+#: panels/wallet.cpp:103
+msgid "Borrow asset"
 msgstr "借入资产"
 
-#: panels/wallet.cpp:219
-msgid "Active witnsses"
-msgstr "积极的证人"
+#: panels/wallet.cpp:111
+msgid "Get committee member"
+msgstr "委员会成员"
 
-#: panels/wallet.cpp:231
+#: panels/wallet.cpp:113
+msgid "Get account history"
+msgstr "帐户历史记录"
+
+#: panels/wallet.cpp:115
+msgid "Get order book"
+msgstr "订单"
+
+#: panels/wallet.cpp:121
+msgid "Get active witnesses"
+msgstr "积极见证"
+
+#: panels/wallet.cpp:123
+msgid "Get active committee"
+msgstr "积极参与委员会"
+
+#: panels/wallet.cpp:125
 msgid "Upgrade account"
 msgstr "卖家帐户"
 
-#: panels/wallet.cpp:237
+#: panels/wallet.cpp:127
 msgid "Create account with brain key"
 msgstr "帐户历史记录"
 
-#: panels/wallet.cpp:243
+#: panels/wallet.cpp:129
 msgid "Register account"
 msgstr "注册账户"
 
-#: panels/wallet.cpp:249
+#: panels/wallet.cpp:131
 msgid "Create asset"
 msgstr "创建资产"
 
-#: panels/wallet.cpp:255
+#: panels/wallet.cpp:133
 msgid "Get witness"
 msgstr "见证"
 
-#: panels/wallet.cpp:261
+#: panels/wallet.cpp:135
 msgid "Get account"
 msgstr "获取帐户"
 
-#: panels/wallet.cpp:267
+#: panels/wallet.cpp:137
 msgid "Get asset"
 msgstr "获得资产"
 
-#: panels/wallet.cpp:273
+#: panels/wallet.cpp:139
 msgid "Issue asset"
 msgstr "发行资产"
 
-#: panels/wallet.cpp:279
+#: panels/wallet.cpp:141
 msgid "Create HTLC"
 msgstr "创建HTLC"
 
-#: panels/wallet.cpp:285
+#: panels/wallet.cpp:143
 msgid "Redeem HTLC"
 msgstr "兑换HTLC"
 
-#: panels/wallet.cpp:291
+#: panels/wallet.cpp:145
 msgid "Extend HTLC"
 msgstr "扩展HTLC"
 
-#: panels/wallet.cpp:297
+#: panels/wallet.cpp:147
 msgid "Get HTLC"
 msgstr "获取HTLC"
 
@@ -1814,20 +1830,14 @@ msgstr "帐户不能为空"
 msgid "Private key can't be empty"
 msgstr "私钥不能为空"
 
+#~ msgid "Active witnsses"
+#~ msgstr "积极的证人"
+
 #~ msgid "Please wait, getting account history ..."
 #~ msgstr "请稍等，获取帐户历史记录..."
 
 #~ msgid "Some problem connecting"
 #~ msgstr "连接有些问题"
-
-#~ msgid "Get committee member"
-#~ msgstr "委员会成员"
-
-#~ msgid "Get account history"
-#~ msgstr "帐户历史记录"
-
-#~ msgid "Get order book"
-#~ msgstr "订单"
 
 #~ msgid "Upgrade Account"
 #~ msgstr "所有者帐户"
