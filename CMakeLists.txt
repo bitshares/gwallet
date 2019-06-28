@@ -49,6 +49,7 @@ add_executable( gwallet
     panels/createhtlc.cpp
     panels/redeemhtlc.cpp
     panels/extendhtlc.cpp
+    panels/gethtlc.cpp
 
     wizards/registration.cpp)
 

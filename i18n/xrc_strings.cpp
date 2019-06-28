@@ -128,6 +128,74 @@ _("Broadcast Transaction");
 _("Show output in CLI mode");
 #line 470 "resources/createasset.xrc"
 _("&OK");
+#line 24 "resources/createhtlc.xrc"
+_("Create a hashed time lock contract");
+#line 47 "resources/createhtlc.xrc"
+_("Source");
+#line 77 "resources/createhtlc.xrc"
+_("The account that will reserve the funds (and pay the fee)");
+#line 113 "resources/createhtlc.xrc"
+_("Destination");
+#line 142 "resources/createhtlc.xrc"
+_("The account that will receive the funds if the preimage is presented");
+#line 177 "resources/createhtlc.xrc"
+_("Amount");
+#line 186 "resources/createhtlc.xrc"
+_("Asset");
+#line 215 "resources/createhtlc.xrc"
+_("The amount of the asset that is to be traded");
+#line 227 "resources/createhtlc.xrc"
+_("The asset that is to be traded");
+#line 263 "resources/createhtlc.xrc"
+_("Hash algorithm");
+#line 272 "resources/createhtlc.xrc"
+_("Preimage size in bytes");
+#line 301 "resources/createhtlc.xrc"
+_("The algorithm used to generate the hash from the preimage.");
+#line 304 "resources/createhtlc.xrc"
+_("RIPEMD160");
+#line 305 "resources/createhtlc.xrc"
+_("SHA1");
+#line 306 "resources/createhtlc.xrc"
+_("SHA256");
+#line 316 "resources/createhtlc.xrc"
+_("The size of the preimage in bytes");
+#line 351 "resources/createhtlc.xrc"
+_("Preimage hash");
+#line 380 "resources/createhtlc.xrc"
+_("The hash of the preimage");
+#line 421 "resources/createhtlc.xrc"
+_("Claim period");
+#line 492 "resources/createhtlc.xrc"
+_("Broadcast the transaction on the network");
+#line 493 "resources/createhtlc.xrc"
+_("Broadcast Transaction");
+#line 502 "resources/createhtlc.xrc"
+_("Show output in CLI mode");
+#line 563 "resources/createhtlc.xrc"
+_("&OK");
+#line 24 "resources/extendhtlc.xrc"
+_("Increase the timelock on an existing HTLC");
+#line 47 "resources/extendhtlc.xrc"
+_("Issuer");
+#line 77 "resources/extendhtlc.xrc"
+_("Who is performing this operation (and paying the fee)");
+#line 113 "resources/extendhtlc.xrc"
+_("HTLC ID");
+#line 142 "resources/extendhtlc.xrc"
+_("The account that will receive the funds if the preimage is presented");
+#line 177 "resources/extendhtlc.xrc"
+_("Minutes to add");
+#line 207 "resources/extendhtlc.xrc"
+_("How many minutes to add to the exiting timelock");
+#line 250 "resources/extendhtlc.xrc"
+_("Broadcast the transaction on the network");
+#line 251 "resources/extendhtlc.xrc"
+_("Broadcast Transaction");
+#line 260 "resources/extendhtlc.xrc"
+_("Show output in CLI mode");
+#line 321 "resources/extendhtlc.xrc"
+_("&OK");
 #line 31 "resources/getaccounthistory.xrc"
 _("Returns the most recent operations on the named account.");
 #line 60 "resources/getaccounthistory.xrc"
@@ -138,6 +206,22 @@ _("Limit");
 _("Show output in CLI mode");
 #line 249 "resources/getaccounthistory.xrc"
 _("&OK");
+#line 31 "resources/getaccount.xrc"
+_(" Returns information about the given account.");
+#line 60 "resources/getaccount.xrc"
+_("Account name");
+#line 117 "resources/getaccount.xrc"
+_("Show output in CLI mode");
+#line 172 "resources/getaccount.xrc"
+_("&OK");
+#line 31 "resources/getasset.xrc"
+_("Returns information about the given asset.");
+#line 60 "resources/getasset.xrc"
+_("Asset name");
+#line 117 "resources/getasset.xrc"
+_("Show output in CLI mode");
+#line 172 "resources/getasset.xrc"
+_("&OK");
 #line 31 "resources/getcommitteemember.xrc"
 _("Returns information about the given committee member.");
 #line 60 "resources/getcommitteemember.xrc"
@@ -145,6 +229,14 @@ _("Owner Account");
 #line 117 "resources/getcommitteemember.xrc"
 _("Show output in CLI mode");
 #line 172 "resources/getcommitteemember.xrc"
+_("&OK");
+#line 31 "resources/gethtlc.xrc"
+_("Returns information about the given HTLC object.");
+#line 60 "resources/gethtlc.xrc"
+_("HTLC ID");
+#line 117 "resources/gethtlc.xrc"
+_("Show output in CLI mode");
+#line 172 "resources/gethtlc.xrc"
 _("&OK");
 #line 32 "resources/getorderbook.xrc"
 _("Return the order book for a given market");
@@ -155,6 +247,14 @@ _("Limit");
 #line 207 "resources/getorderbook.xrc"
 _("Show output in CLI mode");
 #line 268 "resources/getorderbook.xrc"
+_("&OK");
+#line 31 "resources/getwitness.xrc"
+_("Returns information about the given witness.");
+#line 60 "resources/getwitness.xrc"
+_("Owner Account");
+#line 117 "resources/getwitness.xrc"
+_("Show output in CLI mode");
+#line 172 "resources/getwitness.xrc"
 _("&OK");
 #line 7 "resources/importbalance_dialog.xrc"
 _("Import Balance");
@@ -200,6 +300,30 @@ _("Chain ID:");
 _("Core asset:");
 #line 260 "resources/info.xrc"
 _("Blockchain name:");
+#line 24 "resources/issueasset.xrc"
+_(" Issue new shares of an asset.");
+#line 53 "resources/issueasset.xrc"
+_("To account");
+#line 82 "resources/issueasset.xrc"
+_("The name or id of the account to receive the new shares");
+#line 117 "resources/issueasset.xrc"
+_("Amount");
+#line 146 "resources/issueasset.xrc"
+_("The amount to issue, in nominal units");
+#line 156 "resources/issueasset.xrc"
+_("The ticker symbol of the asset to issue");
+#line 191 "resources/issueasset.xrc"
+_("Memo");
+#line 221 "resources/issueasset.xrc"
+_("A memo to include in the transaction, readable by the recipient");
+#line 257 "resources/issueasset.xrc"
+_("Broadcast the transaction on the network");
+#line 258 "resources/issueasset.xrc"
+_("Broadcast Transaction");
+#line 267 "resources/issueasset.xrc"
+_("Show output in CLI mode");
+#line 328 "resources/issueasset.xrc"
+_("&OK");
 #line 6 "resources/main.xrc"
 _("G-Wallet | Secure Bitshares Wallet");
 #line 12 "resources/main.xrc"
@@ -215,67 +339,91 @@ _("Connection");
 #line 31 "resources/main.xrc"
 _("Change language");
 #line 35 "resources/main.xrc"
+_("Settings");
+#line 39 "resources/main.xrc"
 _("Quit");
-#line 40 "resources/main.xrc"
+#line 44 "resources/main.xrc"
 _("Wallet");
-#line 42 "resources/main.xrc"
-_("Connect");
 #line 46 "resources/main.xrc"
-_("Disconnect");
-#line 51 "resources/main.xrc"
-_("Set password");
-#line 55 "resources/main.xrc"
-_("Lock");
-#line 59 "resources/main.xrc"
-_("Unlock");
-#line 63 "resources/main.xrc"
-_("Import key");
-#line 67 "resources/main.xrc"
-_("Import balance");
-#line 72 "resources/main.xrc"
-_("View");
-#line 75 "resources/main.xrc"
-_("Welcome");
-#line 83 "resources/main.xrc"
-_("Commands");
-#line 90 "resources/main.xrc"
-_("Wallet");
-#line 97 "resources/main.xrc"
-_("CLI");
-#line 105 "resources/main.xrc"
-_("Help");
-#line 107 "resources/main.xrc"
-_("About");
-#line 120 "resources/main.xrc"
 _("Connect");
-#line 126 "resources/main.xrc"
+#line 50 "resources/main.xrc"
 _("Disconnect");
-#line 132 "resources/main.xrc"
+#line 55 "resources/main.xrc"
+_("Set password");
+#line 59 "resources/main.xrc"
 _("Lock");
-#line 138 "resources/main.xrc"
+#line 63 "resources/main.xrc"
 _("Unlock");
-#line 144 "resources/main.xrc"
+#line 67 "resources/main.xrc"
+_("Import key");
+#line 71 "resources/main.xrc"
+_("Import balance");
+#line 76 "resources/main.xrc"
+_("View");
+#line 79 "resources/main.xrc"
+_("Welcome");
+#line 87 "resources/main.xrc"
+_("Commands");
+#line 94 "resources/main.xrc"
+_("Wallet");
+#line 101 "resources/main.xrc"
+_("CLI");
+#line 109 "resources/main.xrc"
+_("Help");
+#line 111 "resources/main.xrc"
+_("About");
+#line 124 "resources/main.xrc"
+_("Connect");
+#line 130 "resources/main.xrc"
+_("Disconnect");
+#line 136 "resources/main.xrc"
+_("Lock");
+#line 142 "resources/main.xrc"
+_("Unlock");
+#line 148 "resources/main.xrc"
 _("Import Key");
-#line 153 "resources/main.xrc"
+#line 157 "resources/main.xrc"
 _("My accounts");
-#line 154 "resources/main.xrc"
+#line 158 "resources/main.xrc"
 _("MY ACCOUNTS");
-#line 160 "resources/main.xrc"
+#line 164 "resources/main.xrc"
 _("My assets");
-#line 161 "resources/main.xrc"
+#line 165 "resources/main.xrc"
 _("MY ASSETS");
-#line 174 "resources/main.xrc"
+#line 178 "resources/main.xrc"
 _("My balance");
-#line 213 "resources/main.xrc"
+#line 217 "resources/main.xrc"
 _("Welcome to G-Wallet");
-#line 222 "resources/main.xrc"
-_("Version 0.6.0");
-#line 254 "resources/main.xrc"
-_("Setup a new wallet by following the wizard. Please note you need a created account and private key in order to use the software.");
-#line 291 "resources/main.xrc"
+#line 226 "resources/main.xrc"
+_("Version 0.7.0");
+#line 258 "resources/main.xrc"
+_("Setup a new wallet by following the wizard. Please note you need a created account and private key.");
+#line 295 "resources/main.xrc"
 _("If you already have a wallet.json file somewhere please use this option to import it to G-Wallet.");
-#line 328 "resources/main.xrc"
+#line 332 "resources/main.xrc"
 _("If your wallet is all set, connect to Bitshares.");
+#line 24 "resources/redeemhtlc.xrc"
+_("Update a hashed time lock contract");
+#line 47 "resources/redeemhtlc.xrc"
+_("Issuer");
+#line 77 "resources/redeemhtlc.xrc"
+_("Who is performing this operation (and paying the fee)");
+#line 113 "resources/redeemhtlc.xrc"
+_("HTLC ID");
+#line 142 "resources/redeemhtlc.xrc"
+_("The account that will receive the funds if the preimage is presented");
+#line 177 "resources/redeemhtlc.xrc"
+_("Preimage hash");
+#line 206 "resources/redeemhtlc.xrc"
+_("the preimage that should evaluate to the preimage_hash");
+#line 247 "resources/redeemhtlc.xrc"
+_("Broadcast the transaction on the network");
+#line 248 "resources/redeemhtlc.xrc"
+_("Broadcast Transaction");
+#line 257 "resources/redeemhtlc.xrc"
+_("Show output in CLI mode");
+#line 318 "resources/redeemhtlc.xrc"
+_("&OK");
 #line 31 "resources/registeraccount.xrc"
 _("This function is used to register an account for which you do not own the private keys. \n\n When acting as a registrar, an end user will generate their own private keys and send you the public keys. \n\n The registrar will use this function to register the account on behalf of the end user.");
 #line 32 "resources/registeraccount.xrc"
@@ -406,6 +554,26 @@ _("Broadcast transaction");
 _("Show output in CLI mode");
 #line 250 "resources/setproxy.xrc"
 _("&OK");
+#line 5 "resources/settings_dialog.xrc"
+_("Settings");
+#line 14 "resources/settings_dialog.xrc"
+_("Change program settings. Use with caution.");
+#line 36 "resources/settings_dialog.xrc"
+_("Internal config");
+#line 48 "resources/settings_dialog.xrc"
+_("Wallet Path:");
+#line 74 "resources/settings_dialog.xrc"
+_("Server:");
+#line 100 "resources/settings_dialog.xrc"
+_("Language:");
+#line 133 "resources/settings_dialog.xrc"
+_("Are accounts imported to this wallet?");
+#line 150 "resources/settings_dialog.xrc"
+_("Clear everything");
+#line 162 "resources/settings_dialog.xrc"
+_("Save");
+#line 173 "resources/settings_dialog.xrc"
+_("Cancel");
 #line 25 "resources/transfer.xrc"
 _("Transfer asset to another bitshares account");
 #line 48 "resources/transfer.xrc"

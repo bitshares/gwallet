@@ -204,7 +204,7 @@
                         <border>0</border>
                         <object class="wxSpinCtrl" name="minutes_to_add">
                             <style>wxSP_ARROW_KEYS</style>
-                            <tooltip>How many minutes to add to the exihow many seconds to add to the existing timelocksting timelock</tooltip>
+                            <tooltip>How many minutes to add to the exiting timelock</tooltip>
                             <value>60</value>
                             <min>1</min>
                             <max>1440</max>
