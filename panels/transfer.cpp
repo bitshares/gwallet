@@ -8,15 +8,12 @@ Transfer::Transfer(GWallet* gwallet) : wxScrolledWindow()
    p_GWallet = gwallet;
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
-   wxTextValidator* numeric_validator = new wxTextValidator(wxFILTER_EMPTY|wxFILTER_NUMERIC);
-   wxTextValidator* empty_validator = new wxTextValidator(wxFILTER_EMPTY);
-
    from->Append(p_GWallet->strings.accounts);
    from->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
-   to->SetValidator(*empty_validator);
+   to->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
 
-   amount->SetValidator(*numeric_validator);
+   amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
    asset->Append(p_GWallet->strings.assets);
    asset->SetSelection(p_GWallet->strings.assets.Index(p_GWallet->strings.selected_asset));

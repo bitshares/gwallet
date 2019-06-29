@@ -14,6 +14,9 @@ SellAsset::SellAsset(GWallet* gwallet) : wxScrolledWindow()
    sell_asset->Append(p_GWallet->strings.assets);
    sell_asset->SetSelection(p_GWallet->strings.assets.Index(p_GWallet->strings.selected_asset));
 
+   sell_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+   receive_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SellAsset::OnOk));
    Connect(XRCID("receive_asset"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(SellAsset::OnSearchAsset), NULL, this);
 

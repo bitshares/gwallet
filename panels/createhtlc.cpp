@@ -14,6 +14,8 @@ CreateHtlc::CreateHtlc(GWallet* gwallet) : wxScrolledWindow()
    asset_symbol->Append(p_GWallet->strings.assets);
    asset_symbol->SetSelection(p_GWallet->strings.assets.Index(p_GWallet->strings.selected_asset));
 
+   amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateHtlc::OnOk));
    Connect(XRCID("destination"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(CreateHtlc::OnSearchAccount), NULL, this);
 

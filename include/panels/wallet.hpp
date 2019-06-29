@@ -65,7 +65,7 @@ private:
    void OnCommand(wxTreeEvent& event);
 
    void DoSuggestBrainKey();
-   
+
    template<typename T>
    void DoOperation(wxString title);
 

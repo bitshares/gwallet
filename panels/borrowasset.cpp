@@ -11,6 +11,9 @@ BorrowAsset::BorrowAsset(GWallet* gwallet) : wxScrolledWindow()
    seller->Append(p_GWallet->strings.accounts);
    seller->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
+   borrow_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+   collateral_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(BorrowAsset::OnOk));
    Connect(XRCID("borrow_asset"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(BorrowAsset::OnSearchAsset), NULL, this);
 

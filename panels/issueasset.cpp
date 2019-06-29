@@ -8,6 +8,8 @@ IssueAsset::IssueAsset(GWallet* gwallet) : wxScrolledWindow()
    p_GWallet = gwallet;
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
+   amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(IssueAsset::OnOk));
    Connect(XRCID("to_account"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(IssueAsset::OnSearchAccount), NULL, this);
    Connect(XRCID("symbol"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(IssueAsset::OnSearchAsset), NULL, this);

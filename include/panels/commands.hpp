@@ -24,6 +24,9 @@ public:
    GWallet* p_GWallet;
    wxAuiNotebook* notebook;
 
+   wxTextValidator* numeric_validator = new wxTextValidator(wxFILTER_EMPTY|wxFILTER_NUMERIC);
+   wxTextValidator* empty_validator = new wxTextValidator(wxFILTER_EMPTY);
+
 private:
    void InitWidgetsFromXRC(wxWindow *parent){
       wxXmlResource::Get()->AddHandler(new wxAuiNotebookXmlHandler);
