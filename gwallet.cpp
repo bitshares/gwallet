@@ -338,6 +338,8 @@ void GWallet::DoAssets(std::string account)
 {
    t_assets->Clear();
    strings.assets.Clear();
+   strings.balances.Clear();
+   strings.precisions.Clear();
 
    int n = 0;
 
