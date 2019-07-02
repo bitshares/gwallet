@@ -44,16 +44,20 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
       try {
          auto common_variant = fc::json::from_string(common_value);
          asset_options ao = common_variant.as<asset_options>(FC_PACK_MAX_DEPTH);
+         auto bitasset_variant = fc::json::from_string(bitasset_opts_value);
+         bitasset_options bo = bitasset_variant.as<bitasset_options>(FC_PACK_MAX_DEPTH);
 
          auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-               ao, {}, false);
+               ao, bo, false);
 
          if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm transfer?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
+            wxRichMessageDialog confirm(this, _("Please double check and confirm operation below"),
+                  _("Confirm create asset?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION);
+            confirm.ShowDetailedText(fc::json::to_pretty_string(result_obj.operations[0]));
+            if (wxID_YES == confirm.ShowModal()) {
                wxTheApp->Yield(true);
                result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-                     ao, {}, true);
+                     ao, bo, true);
                p_GWallet->DoAssets(issuer_value);
             }
          }
