@@ -174,7 +174,7 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>5</border>
                         <object class="wxStaticText" name="Pre Image">
-                            <label>Preimage hash</label>
+                            <label>Preimage</label>
                             <wrap>-1</wrap>
                         </object>
                     </object>
@@ -203,7 +203,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxTextCtrl" name="preimage">
-                            <tooltip>the preimage that should evaluate to the preimage__hash</tooltip>
+                            <tooltip>The preimage that should evaluate to the preimage hash</tooltip>
                             <value></value>
                         </object>
                     </object>

@@ -91,5 +91,5 @@ GetWitnessResponse::GetWitnessResponse(GWallet* gwallet, wxAny any_response)
 
    response_tree->ExpandAll();
 
-   gwallet->panels.p_commands->notebook->AddPage(this, _("Committee member response"), true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Witness response"), true);
 }
