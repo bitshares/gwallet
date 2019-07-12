@@ -23,8 +23,8 @@ void GetAccountHistory::OnSearchAccount(wxCommandEvent& event)
 
 void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto name_value = name->GetValue().ToStdString();
-   const auto limit_value = limit->GetValue();
+   const auto _name = name->GetValue().ToStdString();
+   const auto _limit = limit->GetValue();
 
    vector<graphene::wallet::operation_detail> result;
    wxAny response;
@@ -33,7 +33,7 @@ void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 
    try
    {
-      result = p_GWallet->bitshares.wallet_api_ptr->get_account_history(name_value, limit_value);
+      result = p_GWallet->bitshares.wallet_api_ptr->get_account_history(_name, _limit);
       response = result;
    }
    catch(const fc::exception& e)
@@ -47,7 +47,7 @@ void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "get_account_history " + name_value + " " + to_string(limit_value);
+      auto command = "get_account_history " + _name + " " + to_string(_limit);
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }

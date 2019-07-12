@@ -21,7 +21,7 @@ void GetHtlc::OnSearchID(wxCommandEvent& event)
 
 void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto htlc_id_value = htlc_id->GetValue().ToStdString();
+   const auto _htlc_id = htlc_id->GetValue().ToStdString();
    fc::optional<fc::variant> result_obj;
    wxAny response;
 
@@ -29,7 +29,7 @@ void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 
    try
    {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_htlc(htlc_id_value);
+      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_htlc(_htlc_id);
       if(result_obj.valid())
          response = *result_obj;
    }
@@ -44,7 +44,7 @@ void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "get_htlc " + htlc_id_value;
+      auto command = "get_htlc " + _htlc_id;
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }

@@ -22,7 +22,7 @@ void GetCommitteeMember::OnSearchAccount(wxCommandEvent& event)
 
 void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto account = owner_account->GetValue().ToStdString();
+   const auto _owner_account = owner_account->GetValue().ToStdString();
    committee_member_object result_obj;
    wxAny response;
 
@@ -30,7 +30,7 @@ void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
 
    try
    {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_committee_member(account);
+      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_committee_member(_owner_account);
       response = result_obj;
    }
    catch(const fc::exception& e)
@@ -44,7 +44,7 @@ void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "get_committee_member " + account;
+      auto command = "get_committee_member " + _owner_account;
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }

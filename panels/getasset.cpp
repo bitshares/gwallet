@@ -21,7 +21,7 @@ void GetAsset::OnSearchAsset(wxCommandEvent& event)
 
 void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto asset = asset_name_or_id->GetValue().ToStdString();
+   const auto _asset_name_or_id = asset_name_or_id->GetValue().ToStdString();
    asset_object result_obj;
    wxAny response;
 
@@ -29,7 +29,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    try
    {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_asset(asset);
+      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_asset(_asset_name_or_id);
       response = result_obj;
    }
    catch(const fc::exception& e)
@@ -43,7 +43,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "get_asset " + asset;
+      auto command = "get_asset " + _asset_name_or_id;
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }

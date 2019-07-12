@@ -21,7 +21,7 @@ void GetWitness::OnSearchAccount(wxCommandEvent& event)
 
 void GetWitness::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto account = owner_account->GetValue().ToStdString();
+   const auto _owner_account = owner_account->GetValue().ToStdString();
    witness_object result_obj;
    wxAny response;
 
@@ -29,7 +29,7 @@ void GetWitness::OnOk(wxCommandEvent& WXUNUSED(event))
 
    try
    {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_witness(account);
+      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_witness(_owner_account);
       response = result_obj;
    }
    catch(const fc::exception& e)
@@ -43,7 +43,7 @@ void GetWitness::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "get_witness " + account;
+      auto command = "get_witness " + _owner_account;
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
