@@ -20,6 +20,7 @@ add_executable( gwallet
     dialogs/importkey.cpp
     dialogs/importbalance.cpp
     dialogs/settings.cpp
+    dialogs/assetoptions.cpp
 
     panels/transfer.cpp
     panels/sellasset.cpp

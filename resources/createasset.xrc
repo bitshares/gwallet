@@ -280,7 +280,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxButton" name="generate_common">
-                            <enabled>0</enabled>
+                            <enabled>1</enabled>
                             <label>Generate</label>
                             <default>0</default>
                             <markup>0</markup>

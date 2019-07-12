@@ -31,6 +31,8 @@ private:
       cli = XRCCTRL(*this,"cli",wxCheckBox);
    }
    void OnOk(wxCommandEvent& event);
+   void OnGenerateCommon(wxCommandEvent& event);
+
 
 public:
    CreateAsset(GWallet* gwallet);

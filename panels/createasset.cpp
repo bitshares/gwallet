@@ -3,6 +3,8 @@
 #include "../include/panels/cli.hpp"
 #include "../include/panels/commands.hpp"
 
+#include "../include/dialogs/assetoptions.hpp"
+
 CreateAsset::CreateAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
@@ -13,11 +15,23 @@ CreateAsset::CreateAsset(GWallet* gwallet) : wxScrolledWindow()
    issuer->Append(p_GWallet->strings.accounts);
    issuer->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
+   symbol->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
+   common->SetValue(wxT("{}"));
+   common->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
+   bitasset_opts->SetValue(wxT("{}"));
+   bitasset_opts->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateAsset::OnOk));
+   Connect(XRCID("generate_common"), wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateAsset::OnGenerateCommon));
 }
 
 void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 {
+   if(!Validate())
+      return;
+
    const auto issuer_value = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
    const auto symbol_value = symbol->GetValue().ToStdString();
    const auto precision_value = precision->GetValue();
@@ -77,4 +91,10 @@ CreateAssetResponse::CreateAssetResponse(GWallet* gwallet, wxAny any_response)
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
    gwallet->panels.p_commands->notebook->AddPage(this, _("Create asset response"), true);
+}
+
+void CreateAsset::OnGenerateCommon(wxCommandEvent& WXUNUSED(event))
+{
+   AssetOptions AssetOptions(p_GWallet);
+   common->SetValue(AssetOptions.GetOptions());
 }
