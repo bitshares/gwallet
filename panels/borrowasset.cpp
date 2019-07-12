@@ -12,6 +12,7 @@ BorrowAsset::BorrowAsset(GWallet* gwallet) : wxScrolledWindow()
    seller->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
    borrow_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+   //borrow_asset->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
    collateral_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(BorrowAsset::OnOk));
@@ -27,13 +28,16 @@ void BorrowAsset::OnSearchAsset(wxCommandEvent& event)
 
 void BorrowAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto seller_value = p_GWallet->strings.accounts[seller->GetCurrentSelection()].ToStdString();
-   const auto borrow_amount_value = borrow_amount->GetValue().ToStdString();
-   const auto borrow_asset_value = borrow_asset->GetValue().ToStdString();
-   const auto collateral_amount_value = collateral_amount->GetValue().ToStdString();
-   string broadcast_v = "false";
+   if(!Validate())
+      return;
+
+   const auto _seller = p_GWallet->strings.accounts[seller->GetCurrentSelection()].ToStdString();
+   const auto _borrow_amount = borrow_amount->GetValue().ToStdString();
+   const auto _borrow_asset = borrow_asset->GetValue().ToStdString();
+   const auto _collateral_amount = collateral_amount->GetValue().ToStdString();
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_v = "true";
+      _broadcast = "true";
 
    signed_transaction result_obj;
    wxAny response;
@@ -42,23 +46,23 @@ void BorrowAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "borrow_asset " + seller_value + " " + borrow_amount_value + " " + borrow_asset_value + " " +
-            collateral_amount_value + " " + broadcast_v;
+      auto command = "borrow_asset " + _seller + " " + _borrow_amount + " " + _borrow_asset + " " +
+            _collateral_amount + " " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(seller_value);
+      p_GWallet->DoAssets(_seller);
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(seller_value, borrow_amount_value,
-               borrow_asset_value, collateral_amount_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(_seller, _borrow_amount,
+               _borrow_asset, _collateral_amount, false);
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm Borrow Asset?"),
                   wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(seller_value, borrow_amount_value,
-                     borrow_asset_value, collateral_amount_value, true);
-               p_GWallet->DoAssets(seller_value);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(_seller, _borrow_amount,
+                     _borrow_asset, _collateral_amount, true);
+               p_GWallet->DoAssets(_seller);
             }
          }
          response = result_obj;

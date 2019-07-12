@@ -58,6 +58,7 @@
                         <flag>wxALL</flag>
                         <border>5</border>
                         <object class="wxComboBox" name="name">
+                            <style>wxCB_READONLY</style>
                             <tooltip>The name of the account to upgrade</tooltip>
                             <value></value>
                             <content />

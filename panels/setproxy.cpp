@@ -44,15 +44,15 @@ void SetProxy::DoVotingAccount()
 
 void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto account_value = p_GWallet->strings.accounts[account_to_modify->GetCurrentSelection()].ToStdString();
-   const auto voting_account_value = voting_account->GetValue().ToStdString();
-   string broadcast_value = "false";
+   const auto _account = p_GWallet->strings.accounts[account_to_modify->GetCurrentSelection()].ToStdString();
+   const auto _voting_account = voting_account->GetValue().ToStdString();
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    try
    {
-      p_GWallet->bitshares.wallet_api_ptr->get_account(account_value);
+      p_GWallet->bitshares.wallet_api_ptr->get_account(_account);
    }
    catch(const fc::exception& e)
    {
@@ -68,21 +68,21 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "set_voting_proxy " + account_value + " " + voting_account_value + " " + broadcast_value;
+      auto command = "set_voting_proxy " + _account + " " + _voting_account + " " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(account_value);
+      p_GWallet->DoAssets(_account);
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(account_value, voting_account_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(_account, _voting_account, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]),
                _("Confirm update of voting account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(account_value, voting_account_value, true);
-               p_GWallet->DoAssets(account_value);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(_account, _voting_account, true);
+               p_GWallet->DoAssets(_account);
             }
             response = result_obj;
             new SetProxyResponse(p_GWallet, response);

@@ -75,7 +75,7 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>0</border>
                         <object class="wxComboBox" name="seller">
-                            <style>wxCB_DROPDOWN</style>
+                            <style>wxCB_READONLY</style>
                             <tooltip>The account providing the asset being sold, and which will receive the proceeds of the sale.</tooltip>
                             <value></value>
                             <content />

@@ -11,7 +11,7 @@ Transfer::Transfer(GWallet* gwallet) : wxScrolledWindow()
    from->Append(p_GWallet->strings.accounts);
    from->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
-   to->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+   //to->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
 
    amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
@@ -31,18 +31,21 @@ void Transfer::OnSearchAccount(wxCommandEvent& event)
 
 void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto from_value = p_GWallet->strings.accounts[from->GetCurrentSelection()].ToStdString();
-   const auto to_value = to->GetValue().ToStdString();
-   const auto amount_value = amount->GetValue().ToStdString();
-   const auto asset_value = p_GWallet->strings.assets[asset->GetCurrentSelection()].ToStdString();
-   const auto memo_value = memo->GetValue().ToStdString();
-   string broadcast_value = "false";
+   if(!Validate())
+      return;
+
+   const auto _from = p_GWallet->strings.accounts[from->GetCurrentSelection()].ToStdString();
+   const auto _to = to->GetValue().ToStdString();
+   const auto _amount = amount->GetValue().ToStdString();
+   const auto _asset = p_GWallet->strings.assets[asset->GetCurrentSelection()].ToStdString();
+   const auto _memo = memo->GetValue().ToStdString();
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    try
    {
-      p_GWallet->bitshares.wallet_api_ptr->get_account(to_value);
+      p_GWallet->bitshares.wallet_api_ptr->get_account(_to);
    }
    catch(const fc::exception& e)
    {
@@ -58,24 +61,24 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "transfer " + from_value + " " + to_value + " " + amount_value + " " + asset_value +
-            " \"" + memo_value + "\" " + broadcast_value;
+      auto command = "transfer " + _from + " " + _to + " " + _amount + " " + _asset +
+            " \"" + _memo + "\" " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(from_value);
+      p_GWallet->DoAssets(_from);
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(from_value, to_value, amount_value, asset_value,
-               memo_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(_from, _to, _amount, _asset,
+               _memo, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm transfer?"),
                   wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(from_value, to_value, amount_value, asset_value,
-                     memo_value, true);
-               p_GWallet->DoAssets(from_value);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(_from, _to, _amount, _asset,
+                     _memo, true);
+               p_GWallet->DoAssets(_from);
             }
          }
          response = result_obj;

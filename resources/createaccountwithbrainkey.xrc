@@ -227,6 +227,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxComboBox" name="registrar_account">
+                            <style>wxCB_READONLY</style>
                             <tooltip>The account which will pay the fee to register the user</tooltip>
                             <value></value>
                             <content />

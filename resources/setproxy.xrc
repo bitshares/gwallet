@@ -75,7 +75,7 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>0</border>
                         <object class="wxComboBox" name="account_to_modify">
-                            <style>wxCB_DROPDOWN</style>
+                            <style>wxCB_READONLY</style>
                             <tooltip>The name or id of the account to update.</tooltip>
                             <value></value>
                             <content />

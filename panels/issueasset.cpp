@@ -9,6 +9,7 @@ IssueAsset::IssueAsset(GWallet* gwallet) : wxScrolledWindow()
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
+   amount->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(IssueAsset::OnOk));
    Connect(XRCID("to_account"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(IssueAsset::OnSearchAccount), NULL, this);
@@ -29,13 +30,16 @@ void IssueAsset::OnSearchAsset(wxCommandEvent& event)
 
 void IssueAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto to_account_value = to_account->GetValue().ToStdString();
-   const auto amount_value = amount->GetValue().ToStdString();
-   const auto symbol_value = symbol->GetValue().ToStdString();
-   const auto memo_value = memo->GetValue().ToStdString();
-   string broadcast_value = "false";
+   if(!Validate())
+      return;
+
+   const auto _to_account = to_account->GetValue().ToStdString();
+   const auto _amount = amount->GetValue().ToStdString();
+   const auto _symbol = symbol->GetValue().ToStdString();
+   const auto _memo = memo->GetValue().ToStdString();
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    signed_transaction result_obj;
    wxAny response;
@@ -44,23 +48,23 @@ void IssueAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "issue_asset " + to_account_value + " " + amount_value + " " + symbol_value +
-            " \"" + memo_value + "\" " + broadcast_value;
+      auto command = "issue_asset " + _to_account + " " + _amount + " " + _symbol +
+            " \"" + _memo + "\" " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->issue_asset(to_account_value, amount_value, symbol_value,
-               memo_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->issue_asset(_to_account, _amount, _symbol,
+               _memo, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm issue asset?"),
                   wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->issue_asset(to_account_value, amount_value, symbol_value,
-                     memo_value, true);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->issue_asset(_to_account, _amount, _symbol,
+                     _memo, true);
                p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
             }
          }

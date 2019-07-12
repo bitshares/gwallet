@@ -24,9 +24,9 @@ void CancelOrder::OnOk(wxCommandEvent& WXUNUSED(event))
    }
    else {
       const auto order_id = open_orders_ids[order->GetSelection()];
-      string broadcast_v = "false";
+      string _broadcast = "false";
       if(broadcast->IsChecked())
-         broadcast_v = "true";
+         _broadcast = "true";
 
       signed_transaction result_obj;
       wxAny response;
@@ -35,7 +35,7 @@ void CancelOrder::OnOk(wxCommandEvent& WXUNUSED(event))
 
       if(cli->IsChecked())
       {
-         auto command = "cancel_order " + std::string(object_id_type(order_id)) + " " + broadcast_v;
+         auto command = "cancel_order " + std::string(object_id_type(order_id)) + " " + _broadcast;
          p_GWallet->panels.p_cli->DoCommand(command);
          p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
       }

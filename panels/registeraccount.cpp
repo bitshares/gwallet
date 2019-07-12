@@ -13,6 +13,10 @@ RegisterAccount::RegisterAccount(GWallet* gwallet) : wxScrolledWindow()
    registrar_account->Append(p_GWallet->strings.accounts);
    registrar_account->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
+   name->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+   owner->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+   active->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(RegisterAccount::OnOk));
    Connect(XRCID("referrer_account"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(RegisterAccount::OnSearchAccount), NULL, this);
 }
@@ -24,16 +28,19 @@ void RegisterAccount::OnSearchAccount(wxCommandEvent& event)
 
 void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto owner_value = owner->GetValue().ToStdString();
-   const auto active_value = active->GetValue().ToStdString();
-   const auto name_value = name->GetValue().ToStdString();
-   const auto registrar_account_value = registrar_account->GetValue().ToStdString();
-   const auto referrer_account_value = referrer_account->GetValue().ToStdString();
-   const auto referrer_percent_value = referrer_percent->GetValue();
+   if(!Validate())
+      return;
 
-   string broadcast_value = "false";
+   const auto _owner = owner->GetValue().ToStdString();
+   const auto _active = active->GetValue().ToStdString();
+   const auto _name = name->GetValue().ToStdString();
+   const auto _registrar_account = registrar_account->GetValue().ToStdString();
+   const auto _referrer_account = referrer_account->GetValue().ToStdString();
+   const auto _referrer_percent = referrer_percent->GetValue();
+
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    signed_transaction result_obj;
    wxAny response;
@@ -42,17 +49,17 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "register_account " + name_value + " " + owner_value + " " + active_value + " " +
-            registrar_account_value + " " + referrer_account_value + " " + to_string(referrer_percent_value) +
-            " " + broadcast_value;
+      auto command = "register_account " + _name + " " + _owner + " " + _active + " " +
+            _registrar_account + " " + _referrer_account + " " + to_string(_referrer_percent) +
+            " " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(registrar_account_value);
+      p_GWallet->DoAssets(_registrar_account);
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(name_value, public_key_type(owner_value),
-               public_key_type(active_value), registrar_account_value, referrer_account_value, referrer_percent_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(_name, public_key_type(_owner),
+               public_key_type(_active), _registrar_account, _referrer_account, _referrer_percent, false);
 
          if(broadcast->IsChecked()) {
             wxRichMessageDialog confirm(this, _("Please double check and confirm operation below"),
@@ -61,9 +68,9 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 
             if (wxID_YES == confirm.ShowModal()) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(name_value, public_key_type(owner_value),
-                     public_key_type(active_value), registrar_account_value, referrer_account_value, referrer_percent_value, true);
-               p_GWallet->DoAssets(registrar_account_value);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(_name, public_key_type(_owner),
+                     public_key_type(_active), _registrar_account, _referrer_account, _referrer_percent, true);
+               p_GWallet->DoAssets(_registrar_account);
             }
          }
          response = result_obj;

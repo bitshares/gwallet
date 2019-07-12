@@ -11,6 +11,8 @@ RedeemHtlc::RedeemHtlc(GWallet* gwallet) : wxScrolledWindow()
    issuer->Append(p_GWallet->strings.accounts);
    issuer->SetSelection(p_GWallet->strings.accounts.Index(p_GWallet->strings.selected_account));
 
+   preimage->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(RedeemHtlc::OnOk));
    Connect(XRCID("htlc_id"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(RedeemHtlc::OnSearchID), NULL, this);
 
@@ -24,13 +26,16 @@ void RedeemHtlc::OnSearchID(wxCommandEvent& event)
 
 void RedeemHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto issuer_value = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
-   const auto htlc_id_value = htlc_id->GetValue().ToStdString();
-   const auto preimage_value = preimage->GetValue().ToStdString();
+   if(!Validate())
+      return;
 
-   string broadcast_value = "false";
+   const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
+   const auto _htlc_id = htlc_id->GetValue().ToStdString();
+   const auto _preimage = preimage->GetValue().ToStdString();
+
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    signed_transaction result_obj;
    wxAny response;
@@ -39,23 +44,23 @@ void RedeemHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "htlc_redeem " + htlc_id_value + " " + issuer_value + " " + preimage_value + " " + broadcast_value;
+      auto command = "htlc_redeem " + _htlc_id + " " + _issuer + " " + _preimage + " " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(issuer_value);
+      p_GWallet->DoAssets(_issuer);
    }
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(htlc_id_value, issuer_value,
-               preimage_value, false);
+         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(_htlc_id, _issuer,
+               _preimage, false);
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm HTLC Redeem?"),
                   wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(htlc_id_value, issuer_value,
-                     preimage_value, true);
-               p_GWallet->DoAssets(issuer_value);
+               result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(_htlc_id, _issuer,
+                     _preimage, true);
+               p_GWallet->DoAssets(_issuer);
             }
          }
          response = result_obj;

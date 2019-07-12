@@ -299,7 +299,7 @@
                         <border>0</border>
                         <object class="wxChoice" name="hash_algorithm">
                             <tooltip>The algorithm used to generate the hash from the preimage.</tooltip>
-                            <selection>0</selection>
+                            <selection>2</selection>
                             <content>
                                 <item>RIPEMD160</item>
                                 <item>SHA1</item>

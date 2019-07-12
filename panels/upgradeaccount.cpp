@@ -20,9 +20,9 @@ void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto account = name->GetValue().ToStdString();
    signed_transaction result_obj;
-   string broadcast_value = "false";
+   string _broadcast = "false";
    if(broadcast->IsChecked())
-      broadcast_value = "true";
+      _broadcast = "true";
 
    wxAny response;
 
@@ -30,7 +30,7 @@ void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 
    if(cli->IsChecked())
    {
-      auto command = "upgrade_account " + account + " " + broadcast_value;
+      auto command = "upgrade_account " + account + " " + _broadcast;
       p_GWallet->panels.p_cli->DoCommand(command);
       p_GWallet->DoAssets(account);
    }
