@@ -74,9 +74,12 @@ public:
    void DoAccounts();
    void DoModes();
    std::string DoPrettyBalance(int precision, double balance);
-   void CreateCommandsPane(Commands* commands);
    void DoSearchAccount(const wxString& keyword, wxSearchCtrl& account_field);
    void DoSearchAsset(const wxString& keyword, wxSearchCtrl& asset_field);
+
+   template<typename T>
+   void CreatePane(T* create, wxString name, int width, int height, int position, bool is_bottom);
+
 
 protected:
    wxToolBar* toolbar;
@@ -125,8 +128,6 @@ private:
    void OnViewCommands(wxCommandEvent& event);
    void OnViewWallet(wxCommandEvent& event);
    void OnViewCli(wxCommandEvent& event);
-   void CreateWalletPane(Wallet* wallet);
-   void CreateCliPane(Cli* cli);
    void OnPanelClose(wxAuiManagerEvent& event);
    void OnSettings(wxCommandEvent& event);
 };

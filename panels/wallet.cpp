@@ -165,7 +165,8 @@ void Wallet::OpenCommandsPane()
    if(!p_GWallet->m_mgr.GetPane("Commands").IsShown()) {
       Commands *commands = new Commands(p_GWallet);
       p_GWallet->panels.p_commands = commands;
-      p_GWallet->CreateCommandsPane(commands);
+      p_GWallet->CreatePane(commands, "Commands", this->GetClientSize().x - this->GetClientSize().x/4,
+            this->GetClientSize().y - this->GetClientSize().y/4, 1, false);
       p_GWallet->m_mgr.Update();
 
       p_GWallet->menubar->Check(XRCID("m_view_commands"), true);

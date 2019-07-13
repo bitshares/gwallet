@@ -396,11 +396,11 @@ void GWallet::DoModes()
 
    Wallet *wallet = new Wallet(this);
    panels.p_wallet = wallet;
-   CreateWalletPane(wallet);
+   CreatePane(wallet, "Wallet", this->GetClientSize().x/4, this->GetClientSize().y - this->GetClientSize().y/4, 0, false);
 
    Cli *cli = new Cli(this);
    panels.p_cli = cli;
-   CreateCliPane(cli);
+   CreatePane(cli, "Cli", this->GetClientSize().x, this->GetClientSize().y/4, 3, true);
 
    Commands *commands = new Commands(this);
    panels.p_commands = commands;
@@ -411,26 +411,26 @@ void GWallet::DoModes()
    commands->notebook->AddPage(information, _("Blockchain information"));
    commands->notebook->AddPage(about, _("About"));
 
-   CreateCommandsPane(commands);
+   CreatePane(commands, "Commands", this->GetClientSize().x - this->GetClientSize().x/4,
+         this->GetClientSize().y - this->GetClientSize().y/4, 1, false);
 
    m_mgr.Update();
 }
 
-void GWallet::CreateWalletPane(Wallet* wallet)
+template<typename T>
+void GWallet::CreatePane(T* create, wxString name, int width, int height, int position, bool is_bottom)
 {
-   if(m_mgr.GetPane("Wallet").IsOk()) {
-      wxWindow* wnd = m_mgr.GetPane("Wallet").window;
+   if(m_mgr.GetPane(name).IsOk()) {
+      wxWindow* wnd = m_mgr.GetPane(name).window;
       m_mgr.DetachPane(wnd);
       wnd->Destroy();
    }
 
    wxAuiPaneInfo info;
-   info.Top();
+   (is_bottom) ? info.Bottom() : info.Top();
    info.PinButton();
-   info.Caption(_("Wallet"));
-   info.Position(0);
-   auto width = this->GetClientSize().x/4;
-   auto height = this->GetClientSize().y - this->GetClientSize().y/4;
+   info.Caption(_(name));
+   info.Position(position);
    info.MinSize(width, height);
    info.BestSize(width, height);
    info.Resizable();
@@ -438,68 +438,11 @@ void GWallet::CreateWalletPane(Wallet* wallet)
    info.PinButton();
    info.MaximizeButton();
    info.MinimizeButton();
-   info.Name("Wallet");
+   info.Name(name);
    info.Dock();
    info.Movable();
 
-   m_mgr.AddPane(wallet, info);
-}
-
-void GWallet::CreateCommandsPane(Commands* commands)
-{
-   if(m_mgr.GetPane("Commands").IsOk()) {
-      wxWindow* wnd = m_mgr.GetPane("Commands").window;
-      m_mgr.DetachPane(wnd);
-      wnd->Destroy();
-   }
-
-   wxAuiPaneInfo info;
-   info.Top();
-   info.PinButton();
-   info.Caption(_("Commands"));
-   info.Position(1);
-   auto width = this->GetClientSize().x - this->GetClientSize().x/4;
-   auto height = this->GetClientSize().y - this->GetClientSize().y/4;
-   info.MinSize(width, height);
-   info.BestSize(width, height);
-   info.Resizable();
-   info.dock_proportion = 2;
-   info.PinButton();
-   info.MaximizeButton();
-   info.MinimizeButton();
-   info.Name("Commands");
-   info.Dock();
-   info.Movable();
-
-   m_mgr.AddPane(commands, info);
-}
-
-void GWallet::CreateCliPane(Cli* cli)
-{
-   if(m_mgr.GetPane("Cli").IsOk()) {
-      wxWindow* wnd = m_mgr.GetPane("Cli").window;
-      m_mgr.DetachPane(wnd);
-      wnd->Destroy();
-   }
-
-   wxAuiPaneInfo info;
-   info.Bottom();
-   info.PinButton();
-   info.Caption(_("Cli"));
-   info.Position(3);
-   auto width = this->GetClientSize().x;
-   info.MinSize(width, this->GetClientSize().y/4);
-   info.BestSize(width, this->GetClientSize().y/4);
-   info.Resizable();
-   info.dock_proportion = 2;
-   info.PinButton();
-   info.MaximizeButton();
-   info.MinimizeButton();
-   info.Name("Cli");
-   info.Dock();
-   info.Movable();
-
-   m_mgr.AddPane(cli, info);
+   m_mgr.AddPane(create, info);
 }
 
 void GWallet::LoadRegistrationWizardWidget()
@@ -529,7 +472,8 @@ void GWallet::OnViewCommands(wxCommandEvent& WXUNUSED(event))
    if(menubar->IsChecked(XRCID("m_view_commands"))) {
       Commands *commands = new Commands(this);
       panels.p_commands = commands;
-      CreateCommandsPane(commands);
+      CreatePane(commands, "Commands", this->GetClientSize().x - this->GetClientSize().x/4,
+                 this->GetClientSize().y - this->GetClientSize().y/4, 1, false);
    }
    else {
       wxWindow* wnd = m_mgr.GetPane("Commands").window;
@@ -544,7 +488,7 @@ void GWallet::OnViewWallet(wxCommandEvent& WXUNUSED(event))
    if(menubar->IsChecked(XRCID("m_view_wallet"))) {
       Wallet *wallet = new Wallet(this);
       panels.p_wallet = wallet;
-      CreateWalletPane(wallet);
+      CreatePane(wallet, "Wallet", this->GetClientSize().x/4, this->GetClientSize().y - this->GetClientSize().y/4, 0, false);
    }
    else {
       wxWindow* wnd = m_mgr.GetPane("Wallet").window;
@@ -559,7 +503,7 @@ void GWallet::OnViewCli(wxCommandEvent& WXUNUSED(event))
    if(menubar->IsChecked(XRCID("m_view_cli"))) {
       Cli *cli = new Cli(this);
       panels.p_cli = cli;
-      CreateCliPane(cli);
+      CreatePane(cli, "Cli", this->GetClientSize().x, this->GetClientSize().y/4, 3, true);
    }
    else {
       wxWindow* wnd = m_mgr.GetPane("Cli").window;
