@@ -61,3 +61,18 @@ uint32_t Commands::DoDateToSeconds(wxDatePickerCtrl* date, wxTimePickerCtrl* tim
    uint32_t seconds = date_value + time_value - now;
    return seconds;
 }
+
+bool Commands::ValidateAccount(wxSearchCtrl* control)
+{
+   try
+   {
+      p_GWallet->bitshares.wallet_api_ptr->get_account(control->GetValue().ToStdString());
+      return true;
+   }
+   catch(const fc::exception& e)
+   {
+      p_GWallet->OnError(this, _("Account is invalid"));
+      control->SetFocus();
+      return false;
+   }
+}

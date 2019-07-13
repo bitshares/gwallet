@@ -43,16 +43,8 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
-   try
-   {
-      p_GWallet->bitshares.wallet_api_ptr->get_account(_to);
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account is invalid"));
-      to->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAccount(to))
       return;
-   }
 
    signed_transaction result_obj;
    wxAny response;

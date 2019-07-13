@@ -34,7 +34,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    }
    catch(const fc::exception& e)
    {
-      p_GWallet->OnError(this, _("Account is not a committee member"));
+      p_GWallet->OnError(this, _("Asset is invalid"));
       asset_name_or_id->SetFocus();
       return;
    }

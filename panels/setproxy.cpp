@@ -50,16 +50,8 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
-   try
-   {
-      p_GWallet->bitshares.wallet_api_ptr->get_account(_account);
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account is invalid"));
-      voting_account->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAccount(voting_account))
       return;
-   }
 
    signed_transaction result_obj;
    wxAny response;

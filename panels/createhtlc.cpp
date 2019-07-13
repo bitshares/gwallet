@@ -49,6 +49,9 @@ void CreateHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
+   if(!p_GWallet->panels.p_commands->ValidateAccount(destination))
+      return;
+
    signed_transaction result_obj;
    wxAny response;
 
