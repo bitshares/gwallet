@@ -50,7 +50,7 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
-   if(!p_GWallet->panels.p_commands->ValidateAccount(voting_account))
+   if(!p_GWallet->panels.p_commands->ValidateAccount(voting_account).valid())
       return;
 
    signed_transaction result_obj;

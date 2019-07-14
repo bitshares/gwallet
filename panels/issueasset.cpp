@@ -41,7 +41,7 @@ void IssueAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
-   if(!p_GWallet->panels.p_commands->ValidateAccount(to_account))
+   if(!p_GWallet->panels.p_commands->ValidateAccount(to_account).valid())
       return;
 
    signed_transaction result_obj;

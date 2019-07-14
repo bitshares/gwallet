@@ -43,7 +43,7 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
    if(broadcast->IsChecked())
       _broadcast = "true";
 
-   if(!p_GWallet->panels.p_commands->ValidateAccount(to))
+   if(!p_GWallet->panels.p_commands->ValidateAccount(to).valid())
       return;
 
    signed_transaction result_obj;

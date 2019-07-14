@@ -21,29 +21,22 @@ void GetAccount::OnSearchAccount(wxCommandEvent& event)
 
 void GetAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto _asset_name_or_id = account_name_or_id->GetValue().ToStdString();
+   const auto _account_name_or_id = account_name_or_id->GetValue().ToStdString();
    account_object result_obj;
    wxAny response;
 
    p_GWallet->panels.p_commands->Wait();
 
-   try
-   {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_account(_asset_name_or_id);
-      response = result_obj;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account does not exist"));
-      account_name_or_id->SetFocus();
+   auto validate = p_GWallet->panels.p_commands->ValidateAccount(account_name_or_id);
+   if(!validate.valid())
       return;
-   }
+   response = *validate;
 
    new GetAccountResponse(p_GWallet, response);
 
    if(cli->IsChecked())
    {
-      auto command = "get_account " + _asset_name_or_id;
+      auto command = "get_account " + _account_name_or_id;
       p_GWallet->panels.p_cli->DoCommand(command);
    }
 }
