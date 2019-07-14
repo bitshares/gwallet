@@ -27,17 +27,10 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    p_GWallet->panels.p_commands->Wait();
 
-   try
-   {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_asset(_asset_name_or_id);
-      response = result_obj;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Asset is invalid"));
-      asset_name_or_id->SetFocus();
+   auto validate = p_GWallet->panels.p_commands->ValidateAsset(asset_name_or_id);
+   if(!validate.valid())
       return;
-   }
+   response = *validate;
 
    new GetAssetResponse(p_GWallet, response);
 

@@ -48,16 +48,8 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(fill_or_kill->IsChecked())
       _fill_or_kill_string = "true";
 
-   try
-   {
-      p_GWallet->bitshares.wallet_api_ptr->get_asset(_receive_asset);
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Asset is invalid"));
-      receive_asset->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAsset(receive_asset).valid())
       return;
-   }
 
    signed_transaction result_obj;
    wxAny response;

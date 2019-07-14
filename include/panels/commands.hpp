@@ -2,6 +2,7 @@
 #include <wx/timectrl.h>
 #include <wx/datectrl.h>
 #include <wx/dateevt.h>
+#include <wx/srchctrl.h>
 #include <wx/treectrl.h>
 
 #ifndef GWALLET_H
@@ -17,6 +18,8 @@ public:
    void Wait();
    void DoGridProperties(wxGrid* grid);
    uint32_t DoDateToSeconds(wxDatePickerCtrl* date, wxTimePickerCtrl* time);
+   optional<wxAny> ValidateAccount(wxSearchCtrl* control);
+   optional<wxAny> ValidateAsset(wxSearchCtrl* control);
 
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);

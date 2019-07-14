@@ -75,3 +75,17 @@ optional<wxAny> Commands::ValidateAccount(wxSearchCtrl* control)
       return {};
    }
 }
+
+optional<wxAny> Commands::ValidateAsset(wxSearchCtrl* control)
+{
+   try
+   {
+      return p_GWallet->bitshares.wallet_api_ptr->get_asset(control->GetValue().ToStdString());
+   }
+   catch(const fc::exception& e)
+   {
+      p_GWallet->OnError(this, _("Asset is invalid"));
+      control->SetFocus();
+      return {};
+   }
+}
