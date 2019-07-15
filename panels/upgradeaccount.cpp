@@ -41,7 +41,7 @@ void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 
          if(broadcast->IsChecked()) {
             if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]),
-                  _("Confirm update of voting account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
+                  _("Confirm upgrade of account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
                wxTheApp->Yield(true);
                result_obj = p_GWallet->bitshares.wallet_api_ptr->upgrade_account(account, true);
                p_GWallet->DoAssets(account);
@@ -62,5 +62,5 @@ UpgradeAccountResponse::UpgradeAccountResponse(GWallet* gwallet, wxAny any_respo
    SetScrollRate(1,1);
 
    gwallet->panels.p_commands->DoSignedTranactionResponse(response_tree, any_response.As<signed_transaction>());
-   gwallet->panels.p_commands->notebook->AddPage(this, _("Committee member response"), true);
+   gwallet->panels.p_commands->notebook->AddPage(this, _("Upgrade account response"), true);
 }

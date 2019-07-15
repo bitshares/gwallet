@@ -23,6 +23,7 @@
 #include "../include/panels/redeemhtlc.hpp"
 #include "../include/panels/extendhtlc.hpp"
 #include "../include/panels/gethtlc.hpp"
+#include "../include/panels/updatefeedproducers.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -40,6 +41,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.sell_asset = wallet_tree->AppendItem(asset, _("Sell"));
    tree.borrow_asset = wallet_tree->AppendItem(asset, _("Borrow"));
    tree.cancel_order = wallet_tree->AppendItem(asset, _("Cancel order"));
+   tree.update_feed_producers = wallet_tree->AppendItem(asset, _("Update feed producers"));
    wallet_tree->Expand(asset);
 
    const auto account = wallet_tree->AppendItem(root, _("Account"));
@@ -145,6 +147,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<ExtendHtlc>(_("Extend HTLC"));
    else if(selected == tree.get_htlc)
       DoOperation<GetHtlc>(_("Get HTLC"));
+   else if(selected == tree.update_feed_producers)
+      DoOperation<UpdateAssetFeedProducers>(_("Update feed producers"));
 }
 
 void Wallet::DoSuggestBrainKey()

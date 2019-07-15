@@ -34,6 +34,7 @@ struct treeItems
    wxTreeItemId htlc_redeem;
    wxTreeItemId htlc_extend;
    wxTreeItemId get_htlc;
+   wxTreeItemId update_feed_producers;
 };
 
 class Wallet : public wxPanel

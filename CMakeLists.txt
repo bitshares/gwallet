@@ -51,6 +51,7 @@ add_executable( gwallet
     panels/redeemhtlc.cpp
     panels/extendhtlc.cpp
     panels/gethtlc.cpp
+    panels/updatefeedproducers.cpp
 
     wizards/registration.cpp)
 
