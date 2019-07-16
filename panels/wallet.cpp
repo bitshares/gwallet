@@ -24,6 +24,7 @@
 #include "../include/panels/extendhtlc.hpp"
 #include "../include/panels/gethtlc.hpp"
 #include "../include/panels/updatefeedproducers.hpp"
+#include "../include/panels/voteforwitness.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -68,6 +69,9 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.htlc_create = wallet_tree->AppendItem(htlc, _("Create"));
    tree.htlc_redeem = wallet_tree->AppendItem(htlc, _("Redeem"));
    tree.htlc_extend = wallet_tree->AppendItem(htlc, _("Extend"));
+
+   const auto governance = wallet_tree->AppendItem(root, _("Governance"));
+   tree.vote_for_witness = wallet_tree->AppendItem(governance, _("Vote for witness"));
 
    wallet_tree->Expand(root);
 
@@ -149,6 +153,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<GetHtlc>(_("Get HTLC"));
    else if(selected == tree.update_feed_producers)
       DoOperation<UpdateAssetFeedProducers>(_("Update feed producers"));
+   else if(selected == tree.vote_for_witness)
+      DoOperation<VoteForWitness>(_("Vote for witness"));
 }
 
 void Wallet::DoSuggestBrainKey()

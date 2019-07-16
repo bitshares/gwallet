@@ -769,3 +769,18 @@ void GWallet::DoSearchAsset(const wxString& keyword, wxSearchCtrl& asset_field)
    if (dialog.ShowModal() == wxID_OK)
       asset_field.SetValue(dialog.GetStringSelection());
 }
+
+void GWallet::DoSearchWitness(const wxString& keyword, wxSearchCtrl& witness_field)
+{
+   wxArrayString choices;
+   auto findings = bitshares.database_api->lookup_witness_accounts(keyword.ToStdString(), 100);
+   for(auto f : findings)
+   {
+      choices.Add(f.first);
+   }
+
+   wxSingleChoiceDialog dialog(this, _("Witnesses found"), _("Please select a witness"), choices);
+   if (dialog.ShowModal() == wxID_OK)
+      witness_field.SetValue(dialog.GetStringSelection());
+}
+
