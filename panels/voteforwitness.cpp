@@ -25,48 +25,24 @@ void VoteForWitness::OnSearchWitness(wxCommandEvent& event)
 
 void VoteForWitness::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-
    const auto _voting_account = voting_account->GetValue().ToStdString();
    const auto _witness = witness->GetValue().ToStdString();
    auto _approve = true;
    if(approve->GetSelection() == 1) _approve = false;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   signed_transaction result_obj;
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   stringstream command;
+   command << "vote_for_witness " << _voting_account << " " << _witness << " " << std::boolalpha << _approve
+           << " " << std::boolalpha << _broadcast;
 
-   wxAny response;
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _voting_account,
+         _("Confirm vote for witness?"), _cli, _broadcast);
 
-   p_GWallet->panels.p_commands->Wait();
-
-   if(cli->IsChecked())
-   {
-      stringstream command;
-      command << "vote_for_witness " << _voting_account << " " << _witness + " " << std::boolalpha << _approve << " " << _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command.str());
-      p_GWallet->DoAssets(_voting_account);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->vote_for_witness(_voting_account, _witness, _approve, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]),
-                  _("Confirm vote for witness?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->vote_for_witness(_voting_account, _witness, _approve, true);
-               p_GWallet->DoAssets(_voting_account);
-            }
-            response = result_obj;
-            new VoteForWitnessResponse(p_GWallet, response);
-         }
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new VoteForWitnessResponse(p_GWallet, response);
 }
 
 VoteForWitnessResponse::VoteForWitnessResponse(GWallet* gwallet, wxAny any_response)

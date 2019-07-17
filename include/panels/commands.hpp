@@ -21,6 +21,8 @@ public:
    optional<wxAny> ValidateAccount(wxSearchCtrl* control);
    optional<wxAny> ValidateAsset(wxSearchCtrl* control);
 
+   wxAny ExecuteWalletCommand(string command_string, string account, wxString confirm, bool cli, bool broadcast);
+
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);
    }

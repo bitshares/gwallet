@@ -52,6 +52,7 @@ add_executable( gwallet
     panels/extendhtlc.cpp
     panels/gethtlc.cpp
     panels/updatefeedproducers.cpp
+    panels/voteforwitness.cpp
 
     wizards/registration.cpp)
 

@@ -1,5 +1,6 @@
 #include "../include/panels/commands.hpp"
 #include "../include/panels/wallet.hpp"
+#include "../include/panels/cli.hpp"
 
 Commands::Commands(GWallet* gwallet) : wxPanel()
 {
@@ -87,5 +88,52 @@ optional<wxAny> Commands::ValidateAsset(wxSearchCtrl* control)
       p_GWallet->OnError(this, _("Asset is invalid"));
       control->SetFocus();
       return {};
+   }
+}
+
+wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxString confirm, bool cli, bool broadcast)
+{
+   wxAny response;
+   p_GWallet->panels.p_commands->Wait();
+
+   const auto wallet_api = fc::api<graphene::wallet::wallet_api>(p_GWallet->bitshares.wallet_api_ptr);
+   const auto api_id = p_GWallet->bitshares.wallet_cli->register_api(wallet_api);
+   const fc::variants line_variants = fc::json::variants_from_string(command_string);
+   const auto command_name = line_variants[0].get_string();
+   auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
+
+   if(cli)
+   {
+      p_GWallet->panels.p_cli->DoCommand(command_string);
+      p_GWallet->DoAssets(account);
+      return {};
+   }
+   else
+   {
+      // broadcast is always false in the first one
+      arguments_variants[arguments_variants.size()-1] = false;
+      try {
+
+         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+         auto st = result_obj.as<signed_transaction>(GRAPHENE_MAX_NESTED_OBJECTS);
+         response = st;
+
+         if(broadcast) {
+            if (wxYES == wxMessageBox(fc::json::to_pretty_string(st.operations[0]), confirm,
+                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
+               wxTheApp->Yield(true);
+               arguments_variants[arguments_variants.size()-1] = true;
+               result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+               p_GWallet->DoAssets(account);
+            }
+            st = result_obj.as<signed_transaction>(GRAPHENE_MAX_NESTED_OBJECTS);
+            response = st;
+         }
+         return response;
+      }
+      catch (const fc::exception &e) {
+         p_GWallet->OnError(this, e.to_detail_string());
+         return {};
+      }
    }
 }
