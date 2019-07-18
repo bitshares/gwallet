@@ -128,6 +128,9 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
                result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
                p_GWallet->DoAssets(account);
             }
+            else {
+               return {};
+            }
             st = result_obj.as<signed_transaction>(GRAPHENE_MAX_NESTED_OBJECTS);
             response = st;
          }
