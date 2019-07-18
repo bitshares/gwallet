@@ -44,45 +44,20 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _account_name = account_name->GetValue().ToStdString();
    const auto _registrar_account = registrar_account->GetValue().ToStdString();
    const auto _referrer_account = referrer_account->GetValue().ToStdString();
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   stringstream command;
+   command << "create_account_with_brain_key \"" << _brain_key << "\" " << _account_name << " " << _registrar_account
+           << " " << _referrer_account << " " << std::boolalpha << _broadcast;
 
-   signed_transaction result_obj;
-   wxAny response;
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _registrar_account,
+         _("Confirm create account?"), _cli, _broadcast);
 
-   p_GWallet->panels.p_commands->Wait();
-
-   if(cli->IsChecked())
-   {
-      auto command = "create_account_with_brain_key \"" + _brain_key + "\" " + _account_name +
-            " " + _registrar_account + " " + _referrer_account + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_registrar_account);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(_brain_key,
-               _account_name, _registrar_account, _referrer_account, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm create account?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION | wxMAXIMIZE_BOX, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->create_account_with_brain_key(_brain_key,
-                     _account_name, _registrar_account, _referrer_account, true);
-               p_GWallet->DoAssets(_registrar_account);
-            }
-         }
-         response = result_obj;
-         new CreateAccountWithBrainKeyResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new CreateAccountWithBrainKeyResponse(p_GWallet, response);
 }
 
 CreateAccountWithBrainKeyResponse::CreateAccountWithBrainKeyResponse(GWallet* gwallet, wxAny any_response)

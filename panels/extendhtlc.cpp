@@ -26,46 +26,20 @@ void ExtendHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
    const auto _htlc_id = htlc_id->GetValue().ToStdString();
-   const auto _seconds_to_add = minutes_to_add->GetValue() * 60;
+   const auto _seconds_to_add = to_string(minutes_to_add->GetValue() * 60);
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   stringstream command;
+   command << "htlc_extend " << _htlc_id << " " << _issuer << " " << _seconds_to_add << " " << std::boolalpha << _broadcast;
 
-   signed_transaction result_obj;
-   wxAny response;
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _issuer,
+         _("Confirm HTLC Extend?"), _cli, _broadcast);
 
-   p_GWallet->panels.p_commands->Wait();
-
-   if(cli->IsChecked())
-   {
-      auto command = "htlc_extend " + _htlc_id + " " + _issuer + " " + to_string(_seconds_to_add) + " " +
-            _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_issuer);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_extend(_htlc_id, _issuer,
-               _seconds_to_add, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm HTLC Extend?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_extend(_htlc_id, _issuer,
-                     _seconds_to_add, false);
-               p_GWallet->DoAssets(_issuer);
-            }
-         }
-         response = result_obj;
-         new ExtendHtlcResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new ExtendHtlcResponse(p_GWallet, response);
 }
 
 ExtendHtlcResponse::ExtendHtlcResponse(GWallet* gwallet, wxAny any_response)

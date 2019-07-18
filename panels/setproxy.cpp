@@ -46,44 +46,22 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _account = p_GWallet->strings.accounts[account_to_modify->GetCurrentSelection()].ToStdString();
    const auto _voting_account = voting_account->GetValue().ToStdString();
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
    if(!p_GWallet->panels.p_commands->ValidateAccount(voting_account).valid())
       return;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "set_voting_proxy " << _account << " " << _voting_account << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),
+         _account, _("Confirm update of voting account?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "set_voting_proxy " + _account + " " + _voting_account + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_account);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(_account, _voting_account, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]),
-               _("Confirm update of voting account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->set_voting_proxy(_account, _voting_account, true);
-               p_GWallet->DoAssets(_account);
-            }
-            response = result_obj;
-            new SetProxyResponse(p_GWallet, response);
-         }
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new SetProxyResponse(p_GWallet, response);
 }
 
 SetProxyResponse::SetProxyResponse(GWallet* gwallet, wxAny any_response)

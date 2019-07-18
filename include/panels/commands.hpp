@@ -4,6 +4,7 @@
 #include <wx/dateevt.h>
 #include <wx/srchctrl.h>
 #include <wx/treectrl.h>
+#include <wx/richmsgdlg.h>
 
 #ifndef GWALLET_H
 #include "../gwallet.hpp"

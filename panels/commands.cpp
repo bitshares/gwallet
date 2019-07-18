@@ -119,8 +119,10 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
          response = st;
 
          if(broadcast) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(st.operations[0]), confirm,
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
+            wxRichMessageDialog _confirm(this, _("Please double check and confirm operation below"),
+                  confirm, wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION);
+            _confirm.ShowDetailedText(fc::json::to_pretty_string(st.operations[0]));
+            if (wxID_YES == _confirm.ShowModal()) {
                wxTheApp->Yield(true);
                arguments_variants[arguments_variants.size()-1] = true;
                result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);

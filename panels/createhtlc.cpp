@@ -43,52 +43,25 @@ void CreateHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _hash_algorithm = hash_algorithm->GetString(hash_algorithm->GetSelection()).ToStdString();
    const auto _preimage_hash = preimage_hash->GetValue().ToStdString();
    const auto _preimage_size = preimage_size->GetValue().ToStdString();
-   uint32_t _claim_period_seconds = p_GWallet->panels.p_commands->DoDateToSeconds(date, time);
-
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   const auto _claim_period_seconds = to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
    if(!p_GWallet->panels.p_commands->ValidateAccount(destination).valid())
       return;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "htlc_create " << _source << " " << _destination << " " << _amount << " " << _asset_symbol
+           << " " << _hash_algorithm << " " << _preimage_hash << " " << _preimage_size << " " << _claim_period_seconds
+           << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _source,
+         _("Confirm HTLC Create?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "htlc_create " + _source + " " + _destination + " " + _amount + " " + _asset_symbol +
-            " " + _hash_algorithm + " " + _preimage_hash + " " + _preimage_size + " " +
-            to_string(_claim_period_seconds) + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_source);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_create(_source, _destination, _amount,
-               _asset_symbol, _hash_algorithm, _preimage_hash, std::atoi(_preimage_size.c_str()),
-               _claim_period_seconds, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm HTLC Create?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_create(_source, _destination, _amount,
-                     _asset_symbol, _hash_algorithm, _preimage_hash, std::atoi(_preimage_size.c_str()),
-                     _claim_period_seconds, true);
-               p_GWallet->DoAssets(_source);
-            }
-         }
-         response = result_obj;
-         new CreateHtlcResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new CreateHtlcResponse(p_GWallet, response);
 }
 
 CreateHtlcResponse::CreateHtlcResponse(GWallet* gwallet, wxAny any_response)

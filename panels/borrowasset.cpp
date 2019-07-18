@@ -35,43 +35,20 @@ void BorrowAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _borrow_amount = borrow_amount->GetValue().ToStdString();
    const auto _borrow_asset = borrow_asset->GetValue().ToStdString();
    const auto _collateral_amount = collateral_amount->GetValue().ToStdString();
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "borrow_asset " << _seller << " " << _borrow_amount << " " << _borrow_asset << " " << _collateral_amount
+           << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _seller,
+         _("Confirm Borrow Asset?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "borrow_asset " + _seller + " " + _borrow_amount + " " + _borrow_asset + " " +
-            _collateral_amount + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_seller);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(_seller, _borrow_amount,
-               _borrow_asset, _collateral_amount, false);
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm Borrow Asset?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->borrow_asset(_seller, _borrow_amount,
-                     _borrow_asset, _collateral_amount, true);
-               p_GWallet->DoAssets(_seller);
-            }
-         }
-         response = result_obj;
-         new BorrowAssetResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new BorrowAssetResponse(p_GWallet, response);
 }
 
 BorrowAssetResponse::BorrowAssetResponse(GWallet* gwallet, wxAny any_response)

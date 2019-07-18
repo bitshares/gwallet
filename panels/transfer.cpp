@@ -39,47 +39,23 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _amount = amount->GetValue().ToStdString();
    const auto _asset = p_GWallet->strings.assets[asset->GetCurrentSelection()].ToStdString();
    const auto _memo = memo->GetValue().ToStdString();
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
    if(!p_GWallet->panels.p_commands->ValidateAccount(to).valid())
       return;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "transfer " << _from << " " << _to << " " << _amount << " " << _asset
+           << " \"" << _memo << "\" " << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _from,
+         _("Confirm transfer?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "transfer " + _from + " " + _to + " " + _amount + " " + _asset +
-            " \"" + _memo + "\" " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_from);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(_from, _to, _amount, _asset,
-               _memo, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm transfer?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->transfer(_from, _to, _amount, _asset,
-                     _memo, true);
-               p_GWallet->DoAssets(_from);
-            }
-         }
-         response = result_obj;
-         new TransferResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new TransferResponse(p_GWallet, response);
 }
 
 TransferResponse::TransferResponse(GWallet* gwallet, wxAny any_response)

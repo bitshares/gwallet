@@ -36,50 +36,21 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _name = name->GetValue().ToStdString();
    const auto _registrar_account = registrar_account->GetValue().ToStdString();
    const auto _referrer_account = referrer_account->GetValue().ToStdString();
-   const auto _referrer_percent = referrer_percent->GetValue();
+   const auto _referrer_percent = to_string(referrer_percent->GetValue());
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   stringstream command;
+   command << "register_account " << _name << " " << _owner << " " << _active << " " << _registrar_account
+           << " " << _referrer_account << " " << _referrer_percent << " " << std::boolalpha << _broadcast;
 
-   signed_transaction result_obj;
-   wxAny response;
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _registrar_account,
+         _("Confirm register account?"), _cli, _broadcast);
 
-   p_GWallet->panels.p_commands->Wait();
-
-   if(cli->IsChecked())
-   {
-      auto command = "register_account " + _name + " " + _owner + " " + _active + " " +
-            _registrar_account + " " + _referrer_account + " " + to_string(_referrer_percent) +
-            " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_registrar_account);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(_name, public_key_type(_owner),
-               public_key_type(_active), _registrar_account, _referrer_account, _referrer_percent, false);
-
-         if(broadcast->IsChecked()) {
-            wxRichMessageDialog confirm(this, _("Please double check and confirm operation below"),
-                  _("Confirm create account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION);
-            confirm.ShowDetailedText(fc::json::to_pretty_string(result_obj.operations[0]));
-
-            if (wxID_YES == confirm.ShowModal()) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->register_account(_name, public_key_type(_owner),
-                     public_key_type(_active), _registrar_account, _referrer_account, _referrer_percent, true);
-               p_GWallet->DoAssets(_registrar_account);
-            }
-         }
-         response = result_obj;
-         new RegisterAccountResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new RegisterAccountResponse(p_GWallet, response);
 }
 
 RegisterAccountResponse::RegisterAccountResponse(GWallet* gwallet, wxAny any_response)

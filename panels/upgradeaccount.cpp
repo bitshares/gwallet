@@ -18,42 +18,20 @@ UpgradeAccount::UpgradeAccount(GWallet* gwallet)
 
 void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 {
-   const auto account = name->GetValue().ToStdString();
-   signed_transaction result_obj;
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   const auto _name = name->GetValue().ToStdString();
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   wxAny response;
+   stringstream command;
+   command << "upgrade_account " << _name << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),
+         _name, _("Confirm upgrade of account?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "upgrade_account " + account + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(account);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->upgrade_account(account, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]),
-                  _("Confirm upgrade of account?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->upgrade_account(account, true);
-               p_GWallet->DoAssets(account);
-            }
-            response = result_obj;
-            new UpgradeAccountResponse(p_GWallet, response);
-         }
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new UpgradeAccountResponse(p_GWallet, response);
 }
 
 UpgradeAccountResponse::UpgradeAccountResponse(GWallet* gwallet, wxAny any_response)

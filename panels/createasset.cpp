@@ -32,56 +32,25 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!Validate())
       return;
 
-   const auto issuer_value = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
-   const auto symbol_value = symbol->GetValue().ToStdString();
-   const auto precision_value = precision->GetValue();
-   const auto common_value = common->GetValue().ToStdString();
-   const auto bitasset_opts_value = bitasset_opts->GetValue().ToStdString();
-   string broadcast_value = "false";
-   if(broadcast->IsChecked())
-      broadcast_value = "true";
+   const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
+   const auto _symbol = symbol->GetValue().ToStdString();
+   const auto _precision = to_string(precision->GetValue());
+   const auto _common = common->GetValue().ToStdString();
+   const auto _bitasset_opts = bitasset_opts->GetValue().ToStdString();
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "create_asset " << _issuer << " " << _symbol << " " << _precision << " " << _common
+           << " " << _bitasset_opts << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _issuer,
+         _("Confirm create asset?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "create_asset " + issuer_value + " " + symbol_value + " " + to_string(precision_value) + " " +
-            common_value + " " + bitasset_opts_value + " " + broadcast_value;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(issuer_value);
-   }
-   else
-   {
-      try {
-         auto common_variant = fc::json::from_string(common_value);
-         asset_options ao = common_variant.as<asset_options>(FC_PACK_MAX_DEPTH);
-         auto bitasset_variant = fc::json::from_string(bitasset_opts_value);
-         bitasset_options bo = bitasset_variant.as<bitasset_options>(FC_PACK_MAX_DEPTH);
-
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-               ao, bo, false);
-
-         if(broadcast->IsChecked()) {
-            wxRichMessageDialog confirm(this, _("Please double check and confirm operation below"),
-                  _("Confirm create asset?"), wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION);
-            confirm.ShowDetailedText(fc::json::to_pretty_string(result_obj.operations[0]));
-            if (wxID_YES == confirm.ShowModal()) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->create_asset(issuer_value, symbol_value, precision_value,
-                     ao, bo, true);
-               p_GWallet->DoAssets(issuer_value);
-            }
-         }
-         response = result_obj;
-         new CreateAssetResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new CreateAssetResponse(p_GWallet, response);
 }
 
 CreateAssetResponse::CreateAssetResponse(GWallet* gwallet, wxAny any_response)

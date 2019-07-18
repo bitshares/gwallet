@@ -13,6 +13,8 @@ CancelOrder::CancelOrder(GWallet* gwallet) : wxScrolledWindow()
    DoOpenOrders();
    order->Append(open_orders_strings);
 
+   //order->SetValidator(*p_GWallet->panels.p_commands->empty_validator);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CancelOrder::OnOk));
 }
 
@@ -22,44 +24,21 @@ void CancelOrder::OnOk(wxCommandEvent& WXUNUSED(event))
       p_GWallet->OnError(this, _("No order selected"));
       return;
    }
-   else {
-      const auto order_id = open_orders_ids[order->GetSelection()];
-      string _broadcast = "false";
-      if(broadcast->IsChecked())
-         _broadcast = "true";
 
-      signed_transaction result_obj;
-      wxAny response;
+   const auto _order_id = open_orders_ids[order->GetSelection()];
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-      p_GWallet->panels.p_commands->Wait();
+   stringstream command;
+   command << "cancel_order " << std::string(object_id_type(_order_id)) << " " << std::boolalpha << _broadcast;
 
-      if(cli->IsChecked())
-      {
-         auto command = "cancel_order " + std::string(object_id_type(order_id)) + " " + _broadcast;
-         p_GWallet->panels.p_cli->DoCommand(command);
-         p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
-      }
-      else
-      {
-         try {
-            auto result_obj = p_GWallet->bitshares.wallet_api_ptr->cancel_order(order_id, false);
-            if(broadcast->IsChecked()) {
-               if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm cancel order?"),
-                     wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-                  wxTheApp->Yield(true);
-                  result_obj = p_GWallet->bitshares.wallet_api_ptr->cancel_order(order_id, true);
-                  p_GWallet->DoAssets(p_GWallet->strings.selected_account.ToStdString());
-                  order->Delete(order->GetSelection());
-               }
-            }
-            response = result_obj;
-            new CancelOrderResponse(p_GWallet, response);
-         }
-         catch (const fc::exception &e) {
-            p_GWallet->OnError(this, e.to_detail_string());
-         }
-      }
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),
+         p_GWallet->strings.selected_account.ToStdString(), _("Confirm cancel order?"), _cli, _broadcast);
+
+   if(!response.IsNull())
+      new CancelOrderResponse(p_GWallet, response);
 }
 
 void CancelOrder::DoOpenOrders()

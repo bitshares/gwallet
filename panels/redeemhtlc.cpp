@@ -32,44 +32,19 @@ void RedeemHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
    const auto _htlc_id = htlc_id->GetValue().ToStdString();
    const auto _preimage = preimage->GetValue().ToStdString();
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
+   stringstream command;
+   command << "htlc_redeem " << _htlc_id << " " << _issuer << " " << _preimage << " " << " " << std::boolalpha
+           << _broadcast;
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _issuer,
+         _("Confirm HTLC Redeem?"), _cli, _broadcast);
 
-   signed_transaction result_obj;
-   wxAny response;
-
-   p_GWallet->panels.p_commands->Wait();
-
-   if(cli->IsChecked())
-   {
-      auto command = "htlc_redeem " + _htlc_id + " " + _issuer + " " + _preimage + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_issuer);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(_htlc_id, _issuer,
-               _preimage, false);
-
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm HTLC Redeem?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->htlc_redeem(_htlc_id, _issuer,
-                     _preimage, true);
-               p_GWallet->DoAssets(_issuer);
-            }
-         }
-         response = result_obj;
-         new RedeemHtlcResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new RedeemHtlcResponse(p_GWallet, response);
 }
 
 RedeemHtlcResponse::RedeemHtlcResponse(GWallet* gwallet, wxAny any_response)
