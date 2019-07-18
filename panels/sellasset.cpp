@@ -39,52 +39,25 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _receive_amount = receive_amount->GetValue().ToStdString();
    const auto _receive_asset = receive_asset->GetValue().ToStdString();
    const auto _fill_or_kill = fill_or_kill->GetValue() ? true : false;
-
-   uint32_t _expiration = p_GWallet->panels.p_commands->DoDateToSeconds(date, time);
-   string _broadcast = "false";
-   if(broadcast->IsChecked())
-      _broadcast = "true";
-   string _fill_or_kill_string = "false";
-   if(fill_or_kill->IsChecked())
-      _fill_or_kill_string = "true";
+   const auto _expiration = to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
+   auto _broadcast = true;
+   if(!broadcast->IsChecked()) _broadcast = false;
 
    if(!p_GWallet->panels.p_commands->ValidateAsset(receive_asset).valid())
       return;
 
-   signed_transaction result_obj;
-   wxAny response;
+   stringstream command;
+   command << "sell_asset " << _seller << " " << _sell_amount << " " << _sell_asset << " " << _receive_amount
+           << " " << _receive_asset << " " << _expiration << " " << std::boolalpha << _fill_or_kill
+           << " " << std::boolalpha << _broadcast;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _seller,
+         _("Confirm Sell Asset?"), _cli, _broadcast);
 
-   if(cli->IsChecked())
-   {
-      auto command = "sell_asset " + _seller + " " + _sell_amount + " " + _sell_asset + " " +
-            _receive_amount + " " + _receive_asset + " " + to_string(_expiration) + " " +
-            " " + _fill_or_kill_string + " " + _broadcast;
-      p_GWallet->panels.p_cli->DoCommand(command);
-      p_GWallet->DoAssets(_seller);
-   }
-   else
-   {
-      try {
-         auto result_obj = p_GWallet->bitshares.wallet_api_ptr->sell_asset(_seller, _sell_amount,
-               _sell_asset, _receive_amount, _receive_asset, _expiration, _fill_or_kill, false);
-         if(broadcast->IsChecked()) {
-            if (wxYES == wxMessageBox(fc::json::to_pretty_string(result_obj.operations[0]), _("Confirm Sell Asset?"),
-                  wxNO_DEFAULT | wxYES_NO | wxICON_QUESTION, this)) {
-               wxTheApp->Yield(true);
-               result_obj = p_GWallet->bitshares.wallet_api_ptr->sell_asset(_seller, _sell_amount,
-                     _sell_asset, _receive_amount, _receive_asset, _expiration, _fill_or_kill, true);
-               p_GWallet->DoAssets(_seller);
-            }
-         }
-         response = result_obj;
-         new SellAssetResponse(p_GWallet, response);
-      }
-      catch (const fc::exception &e) {
-         p_GWallet->OnError(this, e.to_detail_string());
-      }
-   }
+   if(!response.IsNull())
+      new SellAssetResponse(p_GWallet, response);
 }
 
 SellAssetResponse::SellAssetResponse(GWallet* gwallet, wxAny any_response)
