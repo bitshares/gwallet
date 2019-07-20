@@ -1,11 +1,12 @@
-#include "../include/panels/createhtlc.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/createhtlc.hpp"
+
+#include <panels/commands.hpp>
 
 CreateHtlc::CreateHtlc(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/htlc/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    source->Append(p_GWallet->strings.accounts);

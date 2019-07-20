@@ -1,3 +1,5 @@
 add_subdirectory( assets )
-add_subdirectory( setproxy )
+add_subdirectory( accounts )
 add_subdirectory( getters )
+add_subdirectory( htlc )
+add_subdirectory( governance )

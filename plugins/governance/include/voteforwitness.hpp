@@ -3,7 +3,7 @@
 #include <wx/treectrl.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
 class VoteForWitness: public wxScrolledWindow
 {

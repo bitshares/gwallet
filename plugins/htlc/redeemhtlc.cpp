@@ -1,11 +1,12 @@
-#include "../include/panels/redeemhtlc.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/redeemhtlc.hpp"
+
+#include <panels/commands.hpp>
 
 RedeemHtlc::RedeemHtlc(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/htlc/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    issuer->Append(p_GWallet->strings.accounts);

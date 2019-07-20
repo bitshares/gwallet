@@ -1,11 +1,12 @@
-#include "../include/panels/voteforwitness.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/voteforwitness.hpp"
+
+#include <panels/commands.hpp>
 
 VoteForWitness::VoteForWitness(GWallet* gwallet)
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/governance/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

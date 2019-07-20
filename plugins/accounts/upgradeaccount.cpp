@@ -1,11 +1,12 @@
-#include "../include/panels/upgradeaccount.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/upgradeaccount.hpp"
+
+#include <panels/commands.hpp>
 
 UpgradeAccount::UpgradeAccount(GWallet* gwallet)
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/accounts/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);
