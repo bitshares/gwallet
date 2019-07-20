@@ -3,12 +3,12 @@
 #include <wx/numformatter.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
-class ActiveWitnesses : public wxScrolledWindow
+class ActiveCommittee : public wxScrolledWindow
 {
 public:
-   ActiveWitnesses(GWallet* gwallet);
+   ActiveCommittee(GWallet* gwallet);
    GWallet* p_GWallet;
 
 protected:
@@ -16,7 +16,7 @@ protected:
 
 private:
    void InitWidgetsFromXRC(wxWindow *parent){
-      wxXmlResource::Get()->LoadObject(this,parent,wxT("ActiveWitnesses"), wxT("wxScrolledWindow"));
+      wxXmlResource::Get()->LoadObject(this,parent,wxT("ActiveCommittee"), wxT("wxScrolledWindow"));
       response_grid = XRCCTRL(*this,"response_grid",wxGrid);
    }
 };

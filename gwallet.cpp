@@ -8,8 +8,8 @@
 
 #include "include/wizards/registration.hpp"
 
-#include "include/panels/info.hpp"
-#include "include/panels/about.hpp"
+#include "plugins/getters/include/info.hpp"
+#include "plugins/getters/include/about.hpp"
 
 #include "include/panels/cli.hpp"
 #include "include/panels/wallet.hpp"

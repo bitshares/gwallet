@@ -4,7 +4,7 @@
 #include <wx/spinctrl.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
 class GetOrderBook: public wxScrolledWindow
 {

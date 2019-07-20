@@ -1,5 +1,7 @@
-#include "../include/panels/about.hpp"
-#include "../include/panels/wallet.hpp"
+#include "include/about.hpp"
+
+#include <panels/commands.hpp>
+#include <panels/cli.hpp>
 
 About::About(GWallet* gwallet) : wxScrolledWindow()
 {

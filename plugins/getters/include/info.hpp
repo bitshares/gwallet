@@ -2,9 +2,7 @@
 #include <wx/hyperlink.h>
 #include <wx/numformatter.h>
 
-#ifndef GWALLET_H
-#include "../gwallet.hpp"
-#endif
+#include <panels/wallet.hpp>
 
 class Info : public wxScrolledWindow
 {

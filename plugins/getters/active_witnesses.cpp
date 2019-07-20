@@ -1,6 +1,7 @@
-#include "../include/panels/active_witnesses.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/active_witnesses.hpp"
+
+#include <panels/commands.hpp>
+#include <panels/cli.hpp>
 
 ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
 {
@@ -10,6 +11,7 @@ ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
    wxBusyInfo wait(_("Please wait, updating active witnesses info ..."));
    wxTheApp->Yield();
 
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

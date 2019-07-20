@@ -32,31 +32,31 @@ add_executable( gwallet
     #panels/sellasset.cpp
     #panels/borrowasset.cpp
     #panels/cancelorder.cpp
-    panels/setproxy.cpp
-    panels/getcommitteemember.cpp
-    panels/getaccounthistory.cpp
-    panels/getorderbook.cpp
-    panels/info.cpp
+    #panels/setproxy.cpp
+    #panels/getcommitteemember.cpp
+    #panels/getaccounthistory.cpp
+    #panels/getorderbook.cpp
+    #panels/info.cpp
     panels/wallet.cpp
     panels/cli.cpp
     panels/dashboard.cpp
     panels/commands.cpp
 
-    panels/about.cpp
-    panels/active_witnesses.cpp
-    panels/active_committee.cpp
+    #panels/about.cpp
+    #panels/active_witnesses.cpp
+    #panels/active_committee.cpp
     panels/upgradeaccount.cpp
     panels/createaccountwithbrainkey.cpp
     panels/registeraccount.cpp
     panels/createasset.cpp
-    panels/getwitness.cpp
-    panels/getaccount.cpp
-    panels/getasset.cpp
+    #panels/getwitness.cpp
+    #panels/getaccount.cpp
+    #panels/getasset.cpp
     panels/issueasset.cpp
     panels/createhtlc.cpp
     panels/redeemhtlc.cpp
     panels/extendhtlc.cpp
-    panels/gethtlc.cpp
+    #panels/gethtlc.cpp
     panels/updatefeedproducers.cpp
     panels/voteforwitness.cpp
 
@@ -65,7 +65,8 @@ add_executable( gwallet
 find_package(wxWidgets COMPONENTS core base adv xrc aui REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-set(plugins "gwallet_transfer" "gwallet_sellasset" "gwallet_borrowasset" "gwallet_cancelorder")
+set(plugins "gwallet_transfer" "gwallet_sellasset" "gwallet_borrowasset" "gwallet_cancelorder" "gwallet_setproxy"
+		"gwallet_getters")
 
 target_link_libraries( gwallet
     PRIVATE graphene_app graphene_net graphene_chain graphene_egenesis_brief graphene_utilities graphene_wallet fc

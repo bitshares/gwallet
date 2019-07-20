@@ -1,13 +1,14 @@
-#include "../include/panels/info.hpp"
-#include "../include/panels/active_committee.hpp"
-#include "../include/panels/active_witnesses.hpp"
+#include "include/info.hpp"
+#include "include/active_committee.hpp"
+#include "include/active_witnesses.hpp"
 
-#include "../include/panels/commands.hpp"
+#include <panels/commands.hpp>
 
 Info::Info(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
 
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

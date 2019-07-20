@@ -1,7 +1,7 @@
 #include <wx/wx.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
 class About : public wxScrolledWindow
 {

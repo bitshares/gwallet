@@ -1,11 +1,13 @@
-#include "../include/panels/getaccounthistory.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/getaccounthistory.hpp"
+
+#include <panels/commands.hpp>
+#include <panels/cli.hpp>
 
 GetAccountHistory::GetAccountHistory(GWallet* gwallet)
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

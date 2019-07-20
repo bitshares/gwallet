@@ -4,12 +4,12 @@
 #include <wx/numformatter.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
-class GetWitness: public wxScrolledWindow
+class GetCommitteeMember: public wxScrolledWindow
 {
 public:
-   GetWitness(GWallet* gwallet);
+   GetCommitteeMember(GWallet* gwallet);
 
 protected:
    wxSearchCtrl* owner_account;
@@ -22,21 +22,21 @@ private:
    void OnSearchAccount(wxCommandEvent& event);
 
    void InitWidgetsFromXRC(wxWindow *parent){
-      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetWitness"), wxT("wxScrolledWindow"));
+      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetCommitteeMember"), wxT("wxScrolledWindow"));
       owner_account = XRCCTRL(*this,"owner_account",wxSearchCtrl);
       cli = XRCCTRL(*this,"cli",wxCheckBox);
    }
 };
 
-class GetWitnessResponse: public wxScrolledWindow
+class GetCommitteeMemberResponse: public wxScrolledWindow
 {
 public:
-   GetWitnessResponse(GWallet* gwallet, wxAny any_response);
+   GetCommitteeMemberResponse(GWallet* gwallet, wxAny any_response);
    wxTreeCtrl* response_tree;
 
 private:
    void InitWidgetsFromXRC(wxWindow *parent){
-      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetWitnessResponse"), wxT("wxScrolledWindow"));
+      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetCommitteeMemberResponse"), wxT("wxScrolledWindow"));
       response_tree = XRCCTRL(*this,"response_tree",wxTreeCtrl);
    }
 };

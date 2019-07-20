@@ -4,7 +4,7 @@
 #include <wx/numformatter.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
 class GetAsset: public wxScrolledWindow
 {

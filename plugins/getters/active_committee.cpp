@@ -1,6 +1,7 @@
-#include "../include/panels/active_committee.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/active_committee.hpp"
+
+#include <panels/commands.hpp>
+#include <panels/cli.hpp>
 
 ActiveCommittee::ActiveCommittee(GWallet* gwallet) : wxScrolledWindow()
 {
@@ -10,6 +11,7 @@ ActiveCommittee::ActiveCommittee(GWallet* gwallet) : wxScrolledWindow()
    wxBusyInfo wait(_("Please wait, updating active committee members info ..."));
    wxTheApp->Yield();
 
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    response_grid->CreateGrid(0, 3);

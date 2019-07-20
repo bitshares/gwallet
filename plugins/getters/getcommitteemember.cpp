@@ -1,11 +1,13 @@
-#include "../include/panels/getcommitteemember.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/getcommitteemember.hpp"
+
+#include <panels/commands.hpp>
+#include <panels/cli.hpp>
 
 GetCommitteeMember::GetCommitteeMember(GWallet* gwallet)
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);
