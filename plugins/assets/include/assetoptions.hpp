@@ -4,7 +4,7 @@
 #include <wx/listctrl.h>
 #include <wx/xrc/xmlres.h>
 
-class GWallet;
+#include <panels/wallet.hpp>
 
 class AssetOptions : public wxDialog {
 protected:

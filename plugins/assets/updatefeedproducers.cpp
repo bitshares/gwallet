@@ -1,11 +1,12 @@
-#include "../include/panels/updatefeedproducers.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/updatefeedproducers.hpp"
+
+#include <panels/commands.hpp>
 
 UpdateAssetFeedProducers::UpdateAssetFeedProducers(GWallet* gwallet)
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

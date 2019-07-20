@@ -24,7 +24,7 @@ add_executable( gwallet
     dialogs/importkey.cpp
     dialogs/importbalance.cpp
     dialogs/settings.cpp
-    dialogs/assetoptions.cpp
+    #dialogs/assetoptions.cpp
 
     #panels/transfer.cpp
 	#plugins/transfer/transfer.cpp
@@ -48,16 +48,16 @@ add_executable( gwallet
     panels/upgradeaccount.cpp
     panels/createaccountwithbrainkey.cpp
     panels/registeraccount.cpp
-    panels/createasset.cpp
+    #panels/createasset.cpp
     #panels/getwitness.cpp
     #panels/getaccount.cpp
     #panels/getasset.cpp
-    panels/issueasset.cpp
+    #panels/issueasset.cpp
     panels/createhtlc.cpp
     panels/redeemhtlc.cpp
     panels/extendhtlc.cpp
     #panels/gethtlc.cpp
-    panels/updatefeedproducers.cpp
+    #panels/updatefeedproducers.cpp
     panels/voteforwitness.cpp
 
     wizards/registration.cpp)
@@ -65,8 +65,7 @@ add_executable( gwallet
 find_package(wxWidgets COMPONENTS core base adv xrc aui REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-set(plugins "gwallet_transfer" "gwallet_sellasset" "gwallet_borrowasset" "gwallet_cancelorder" "gwallet_setproxy"
-		"gwallet_getters")
+set(plugins "gwallet_assets" "gwallet_setproxy" "gwallet_getters")
 
 target_link_libraries( gwallet
     PRIVATE graphene_app graphene_net graphene_chain graphene_egenesis_brief graphene_utilities graphene_wallet fc

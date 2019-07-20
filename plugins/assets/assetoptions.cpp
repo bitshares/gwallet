@@ -1,6 +1,6 @@
-#include "../include/dialogs/assetoptions.hpp"
-#include "../include/gwallet.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/assetoptions.hpp"
+
+#include <panels/commands.hpp>
 
 AssetOptions::AssetOptions(GWallet* gwallet) : wxDialog()
 {

@@ -1,13 +1,13 @@
-#include "../include/panels/createasset.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/createasset.hpp"
+#include "include/assetoptions.hpp"
 
-#include "../include/dialogs/assetoptions.hpp"
+#include <panels/commands.hpp>
 
 CreateAsset::CreateAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

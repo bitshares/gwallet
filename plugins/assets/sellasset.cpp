@@ -6,7 +6,7 @@ SellAsset::SellAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/sellasset/resources"));
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    seller->Append(p_GWallet->strings.accounts);
