@@ -1,11 +1,12 @@
-#include "../include/panels/borrowasset.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/borrowasset.hpp"
+
+#include <panels/commands.hpp>
 
 BorrowAsset::BorrowAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/borrowasset/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    seller->Append(p_GWallet->strings.accounts);

@@ -1,8 +1,8 @@
 #include "../include/panels/wallet.hpp"
-#include "../include/panels/transfer.hpp"
-#include "../include/panels/sellasset.hpp"
-#include "../include/panels/borrowasset.hpp"
-#include "../include/panels/cancelorder.hpp"
+#include "../plugins/transfer/include/transfer.hpp"
+#include "../plugins/sellasset/include/sellasset.hpp"
+#include "../plugins/borrowasset/include/borrowasset.hpp"
+#include "../plugins/cancelorder/include/cancelorder.hpp"
 #include "../include/panels/setproxy.hpp"
 #include "../include/panels/getcommitteemember.hpp"
 #include "../include/panels/getaccounthistory.hpp"
@@ -155,6 +155,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<UpdateAssetFeedProducers>(_("Update feed producers"));
    else if(selected == tree.vote_for_witness)
       DoOperation<VoteForWitness>(_("Vote for witness"));
+
+   p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }
 
 void Wallet::DoSuggestBrainKey()

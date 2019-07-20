@@ -1,11 +1,12 @@
-#include "../include/panels/transfer.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/transfer.hpp"
+
+#include <panels/commands.hpp>
 
 Transfer::Transfer(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/transfer/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    from->Append(p_GWallet->strings.accounts);

@@ -2,7 +2,7 @@
 #include <wx/treectrl.h>
 #include <wx/xrc/xmlres.h>
 
-#include "../gwallet.hpp"
+#include <panels/wallet.hpp>
 
 class CancelOrder: public wxScrolledWindow
 {

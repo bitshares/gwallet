@@ -1,11 +1,12 @@
-#include "../include/panels/sellasset.hpp"
-#include "../include/panels/wallet.hpp"
-#include "../include/panels/cli.hpp"
-#include "../include/panels/commands.hpp"
+#include "include/sellasset.hpp"
+
+#include <panels/commands.hpp>
 
 SellAsset::SellAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
+
+   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/sellasset/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    seller->Append(p_GWallet->strings.accounts);
