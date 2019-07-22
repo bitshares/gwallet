@@ -25,6 +25,7 @@
 #include "../plugins/getters/include/gethtlc.hpp"
 #include "../plugins/assets/include/updatefeedproducers.hpp"
 #include "../plugins/governance/include/voteforwitness.hpp"
+#include "../plugins/governance/include/voteforcommittee.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -72,6 +73,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
 
    const auto governance = wallet_tree->AppendItem(root, _("Governance"));
    tree.vote_for_witness = wallet_tree->AppendItem(governance, _("Vote for witness"));
+   tree.vote_for_committee = wallet_tree->AppendItem(governance, _("Vote for committee"));
 
    wallet_tree->Expand(root);
 
@@ -155,6 +157,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<UpdateAssetFeedProducers>(_("Update feed producers"));
    else if(selected == tree.vote_for_witness)
       DoOperation<VoteForWitness>(_("Vote for witness"));
+   else if(selected == tree.vote_for_committee)
+      DoOperation<VoteForCommittee>(_("Vote for committee"));
 
    p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }

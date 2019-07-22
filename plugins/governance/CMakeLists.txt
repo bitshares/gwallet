@@ -3,6 +3,7 @@ include(${wxWidgets_USE_FILE})
 
 add_library( gwallet_governance
         voteforwitness.cpp
+        voteforcommittee.cpp
         )
 
 target_link_libraries( gwallet_governance

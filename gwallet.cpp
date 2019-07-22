@@ -784,3 +784,16 @@ void GWallet::DoSearchWitness(const wxString& keyword, wxSearchCtrl& witness_fie
       witness_field.SetValue(dialog.GetStringSelection());
 }
 
+void GWallet::DoSearchCommittee(const wxString& keyword, wxSearchCtrl& committee_field)
+{
+   wxArrayString choices;
+   auto findings = bitshares.database_api->lookup_committee_member_accounts(keyword.ToStdString(), 100);
+   for(auto f : findings)
+   {
+      choices.Add(f.first);
+   }
+
+   wxSingleChoiceDialog dialog(this, _("Committee member found"), _("Please select a committee member"), choices);
+   if (dialog.ShowModal() == wxID_OK)
+      committee_field.SetValue(dialog.GetStringSelection());
+}

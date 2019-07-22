@@ -77,6 +77,7 @@ public:
    void DoSearchAccount(const wxString& keyword, wxSearchCtrl& account_field);
    void DoSearchAsset(const wxString& keyword, wxSearchCtrl& asset_field);
    void DoSearchWitness(const wxString& keyword, wxSearchCtrl& witness_field);
+   void DoSearchCommittee(const wxString& keyword, wxSearchCtrl& committee_field);
 
    template<typename T>
    void CreatePane(T* create, wxString name, int width, int height, int position, bool is_bottom);
