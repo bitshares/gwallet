@@ -24,30 +24,20 @@ void GetWitness::OnSearchAccount(wxCommandEvent& event)
 void GetWitness::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _owner_account = owner_account->GetValue().ToStdString();
-   witness_object result_obj;
-   wxAny response;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   p_GWallet->panels.p_commands->Wait();
-
-   try
-   {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_witness(_owner_account);
-      response = result_obj;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account is not a witness"));
-      owner_account->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAccount(owner_account))
       return;
-   }
 
-   new GetWitnessResponse(p_GWallet, response);
+   stringstream command;
+   command << "get_witness " << _owner_account;
 
-   if(cli->IsChecked())
-   {
-      auto command = "get_witness " + _owner_account;
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<witness_object>(command.str(), _cli,
+         _("Account is not a witness"));
+
+   if(!response.IsNull())
+      new GetWitnessResponse(p_GWallet, response);
 }
 
 GetWitnessResponse::GetWitnessResponse(GWallet* gwallet, wxAny any_response)

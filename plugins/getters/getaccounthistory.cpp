@@ -26,32 +26,21 @@ void GetAccountHistory::OnSearchAccount(wxCommandEvent& event)
 void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _name = name->GetValue().ToStdString();
-   const auto _limit = limit->GetValue();
+   const auto _limit = to_string(limit->GetValue());
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   vector<graphene::wallet::operation_detail> result;
-   wxAny response;
-
-   p_GWallet->panels.p_commands->Wait();
-
-   try
-   {
-      result = p_GWallet->bitshares.wallet_api_ptr->get_account_history(_name, _limit);
-      response = result;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account not found"));
-      name->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAccount(name))
       return;
-   }
 
-   new GetAccountHistoryResponse(p_GWallet, response);
+   stringstream command;
+   command << "get_account_history " << _name << " " << _limit;
 
-   if(cli->IsChecked())
-   {
-      auto command = "get_account_history " + _name + " " + to_string(_limit);
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<vector<graphene::wallet::operation_detail>>(command.str(), _cli,
+         _("Account is invalid"));
+
+   if(!response.IsNull())
+      new GetAccountHistoryResponse(p_GWallet, response);
 }
 
 GetAccountHistoryResponse::GetAccountHistoryResponse(GWallet* gwallet, wxAny any_response)

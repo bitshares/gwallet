@@ -24,31 +24,17 @@ void GetHtlc::OnSearchID(wxCommandEvent& event)
 void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _htlc_id = htlc_id->GetValue().ToStdString();
-   fc::optional<fc::variant> result_obj;
-   wxAny response;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   p_GWallet->panels.p_commands->Wait();
+   stringstream command;
+   command << "get_htlc " << _htlc_id;
 
-   try
-   {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_htlc(_htlc_id);
-      if(result_obj.valid())
-         response = *result_obj;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("HTLC ID not found"));
-      htlc_id->SetFocus();
-      return;
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<htlc_object>(command.str(), _cli,
+         _("HTLC ID not found"));
 
-   new GetHtlcResponse(p_GWallet, response);
-
-   if(cli->IsChecked())
-   {
-      auto command = "get_htlc " + _htlc_id;
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   if(!response.IsNull())
+      new GetHtlcResponse(p_GWallet, response);
 }
 
 GetHtlcResponse::GetHtlcResponse(GWallet* gwallet, wxAny any_response)

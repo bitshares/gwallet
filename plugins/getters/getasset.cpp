@@ -1,7 +1,7 @@
 #include "include/getasset.hpp"
 
 #include <panels/commands.hpp>
-#include <panels/cli.hpp>
+//#include <panels/cli.hpp>
 
 GetAsset::GetAsset(GWallet* gwallet)
 {
@@ -24,23 +24,20 @@ void GetAsset::OnSearchAsset(wxCommandEvent& event)
 void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _asset_name_or_id = asset_name_or_id->GetValue().ToStdString();
-   asset_object result_obj;
-   wxAny response;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   p_GWallet->panels.p_commands->Wait();
-
-   auto validate = p_GWallet->panels.p_commands->ValidateAsset(asset_name_or_id);
-   if(!validate.valid())
+   if(!p_GWallet->panels.p_commands->ValidateAsset(asset_name_or_id))
       return;
-   response = *validate;
 
-   new GetAssetResponse(p_GWallet, response);
+   stringstream command;
+   command << "get_asset " << _asset_name_or_id;
 
-   if(cli->IsChecked())
-   {
-      auto command = "get_asset " + _asset_name_or_id;
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<asset_object>(command.str(), _cli,
+         _("Asset is invalid"));
+
+   if(!response.IsNull())
+      new GetAssetResponse(p_GWallet, response);
 }
 
 GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)

@@ -26,31 +26,20 @@ void GetOrderBook::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _base = base->GetValue().ToStdString();
    const auto _quote = quote->GetValue().ToStdString();
-   const auto _limit = limit->GetValue();
+   const auto _limit = to_string(limit->GetValue());
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   order_book result;
-   wxAny response;
+   stringstream command;
+   command << "get_order_book " << _base << " " << _quote << " " << _limit;
 
-   p_GWallet->panels.p_commands->Wait();
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<order_book>(command.str(), _cli,
+         _("Invalid market"));
 
-   try
+   if(!response.IsNull())
    {
-      result = p_GWallet->bitshares.wallet_api_ptr->get_order_book(_base, _quote, _limit);
-      response = result;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Invalid market"));
-      return;
-   }
-
-   new GetOrderBookResponse(p_GWallet, response, "asks");
-   new GetOrderBookResponse(p_GWallet, response, "bids");
-
-   if(cli->IsChecked())
-   {
-      auto command = "get_order_book " + _base + " " + _quote + " " + to_string(_limit);
-      p_GWallet->panels.p_cli->DoCommand(command);
+      new GetOrderBookResponse(p_GWallet, response, "asks");
+      new GetOrderBookResponse(p_GWallet, response, "bids");
    }
 }
 

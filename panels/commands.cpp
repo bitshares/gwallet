@@ -142,3 +142,45 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
       }
    }
 }
+
+template<typename T>
+wxAny Commands::ExecuteGetterCommand(string command_string, bool cli, wxString error_message)
+{
+   wxAny response;
+   p_GWallet->panels.p_commands->Wait();
+
+   const auto wallet_api = fc::api<graphene::wallet::wallet_api>(p_GWallet->bitshares.wallet_api_ptr);
+   const auto api_id = p_GWallet->bitshares.wallet_cli->register_api(wallet_api);
+   const fc::variants line_variants = fc::json::variants_from_string(command_string);
+   const auto command_name = line_variants[0].get_string();
+   auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
+
+   if(cli)
+   {
+      p_GWallet->panels.p_cli->DoCommand(command_string);
+      return {};
+   }
+   else
+   {
+      try {
+         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+         auto casted = result_obj.as<T>(GRAPHENE_MAX_NESTED_OBJECTS);
+         response = casted;
+         return response;
+      }
+      catch (const fc::exception &e) {
+         p_GWallet->OnError(this, error_message);
+         return {};
+      }
+   }
+}
+
+// needed for linker purposes
+template wxAny Commands::ExecuteGetterCommand<asset_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<account_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<witness_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<committee_member_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<order_book>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<htlc_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<vector<graphene::wallet::operation_detail>>(string command_string, bool cli,
+      wxString error_message);

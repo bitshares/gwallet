@@ -24,23 +24,20 @@ void GetAccount::OnSearchAccount(wxCommandEvent& event)
 void GetAccount::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _account_name_or_id = account_name_or_id->GetValue().ToStdString();
-   account_object result_obj;
-   wxAny response;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   p_GWallet->panels.p_commands->Wait();
-
-   auto validate = p_GWallet->panels.p_commands->ValidateAccount(account_name_or_id);
-   if(!validate.valid())
+   if(!p_GWallet->panels.p_commands->ValidateAccount(account_name_or_id))
       return;
-   response = *validate;
 
-   new GetAccountResponse(p_GWallet, response);
+   stringstream command;
+   command << "get_account " << _account_name_or_id;
 
-   if(cli->IsChecked())
-   {
-      auto command = "get_account " + _account_name_or_id;
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<account_object>(command.str(), _cli,
+         _("Account is invalid"));
+
+   if(!response.IsNull())
+      new GetAccountResponse(p_GWallet, response);
 }
 
 GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)

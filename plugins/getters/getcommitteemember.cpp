@@ -25,30 +25,20 @@ void GetCommitteeMember::OnSearchAccount(wxCommandEvent& event)
 void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _owner_account = owner_account->GetValue().ToStdString();
-   committee_member_object result_obj;
-   wxAny response;
+   auto _cli = false;
+   if(cli->IsChecked()) _cli = true;
 
-   p_GWallet->panels.p_commands->Wait();
-
-   try
-   {
-      result_obj = p_GWallet->bitshares.wallet_api_ptr->get_committee_member(_owner_account);
-      response = result_obj;
-   }
-   catch(const fc::exception& e)
-   {
-      p_GWallet->OnError(this, _("Account is not a committee member"));
-      owner_account->SetFocus();
+   if(!p_GWallet->panels.p_commands->ValidateAccount(owner_account))
       return;
-   }
 
-   new GetCommitteeMemberResponse(p_GWallet, response);
+   stringstream command;
+   command << "get_committee_member " << _owner_account;
 
-   if(cli->IsChecked())
-   {
-      auto command = "get_committee_member " + _owner_account;
-      p_GWallet->panels.p_cli->DoCommand(command);
-   }
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<committee_member_object>(command.str(), _cli,
+         _("Account is not a committee member"));
+
+   if(!response.IsNull())
+      new GetCommitteeMemberResponse(p_GWallet, response);
 }
 
 GetCommitteeMemberResponse::GetCommitteeMemberResponse(GWallet* gwallet, wxAny any_response)
