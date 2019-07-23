@@ -110,7 +110,7 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>5</border>
                         <object class="wxStaticText">
-                            <label>CommitteeMember</label>
+                            <label>Committee member</label>
                             <wrap>-1</wrap>
                         </object>
                     </object>
@@ -139,7 +139,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxSearchCtrl" name="committee_member">
-                            <tooltip>The name or id of the committee_member owner account</tooltip>
+                            <tooltip>The name or id of the committee member owner account</tooltip>
                             <value></value>
                         </object>
                     </object>
@@ -203,7 +203,7 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxChoice" name="approve">
-                            <tooltip>true if you wish to vote in favor of that committee_member, false to remove your vote in favor of that committee_member</tooltip>
+                            <tooltip>true if you wish to vote in favor of that committee member, false to remove your vote in favor of that committee member</tooltip>
                             <selection>0</selection>
                             <content>
                                 <item>true</item>

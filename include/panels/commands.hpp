@@ -24,6 +24,9 @@ public:
 
    wxAny ExecuteWalletCommand(string command_string, string account, wxString confirm, bool cli, bool broadcast);
 
+   template<typename>
+   wxAny ExecuteGetterCommand(string command_string, bool cli, wxString error_message);
+
    Commands(wxWindow *parent=NULL){
       InitWidgetsFromXRC((wxWindow *)parent);
    }
