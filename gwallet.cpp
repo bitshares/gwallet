@@ -293,6 +293,8 @@ void GWallet::DoInitialSize()
    InitWidgetsFromXRC((wxWindow *)NULL);
 
    wxTopLevelWindow::Maximize(true);
+
+   version->SetLabel(wxT("Version 0.8.0"));
    //wxTopLevelWindow::SetMinSize(wxSize(600, 450));
 }
 

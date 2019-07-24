@@ -13,7 +13,7 @@ About::About(GWallet* gwallet) : wxScrolledWindow()
 
    const auto about = p_GWallet->bitshares.wallet_api_ptr->about();
 
-   client_version->SetLabel(about["client_version"].as_string());
+   client_version->SetLabel(p_GWallet->version->GetLabel());
    graphene_revision->SetLabel(about["graphene_revision"].as_string());
    revision_age->SetLabel(about["graphene_revision_age"].as_string());
    fc_revision->SetLabel(about["fc_revision"].as_string());

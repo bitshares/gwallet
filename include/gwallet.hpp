@@ -64,6 +64,7 @@ public:
    Strings strings;
    wxAuiManager m_mgr;
    wxMenuBar* menubar;
+   wxStaticText* version;
 
    GWallet(const wxString& title);
    ~GWallet() { m_mgr.UnInit(); }
@@ -103,6 +104,7 @@ private:
       t_balance = XRCCTRL(*this,"t_balance",wxStaticText);
       main_panel = XRCCTRL(*this,"main_panel",wxPanel);
       connect_button = XRCCTRL(*this,"connect_button",wxBitmapButton);
+      version = XRCCTRL(*this,"version",wxStaticText);
    }
 
    void OnNew(wxCommandEvent& event);
