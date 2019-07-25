@@ -6,7 +6,6 @@ CreateAccountWithBrainKey::CreateAccountWithBrainKey(GWallet* gwallet) : wxScrol
 {
    p_GWallet = gwallet;
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

@@ -6,7 +6,6 @@ IssueAsset::IssueAsset(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);

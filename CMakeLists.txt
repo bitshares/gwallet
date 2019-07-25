@@ -29,7 +29,10 @@ add_executable( gwallet
     panels/dashboard.cpp
     panels/commands.cpp
 
-    wizards/registration.cpp)
+    wizards/registration.cpp
+
+    resource.cpp
+    )
 
 find_package(wxWidgets COMPONENTS core base adv xrc aui REQUIRED)
 include(${wxWidgets_USE_FILE})

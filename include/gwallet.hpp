@@ -53,6 +53,8 @@ struct Strings {
    wxString selected_asset;
 };
 
+extern void InitXmlResource();
+
 class GWallet : public wxFrame
 {
 public:

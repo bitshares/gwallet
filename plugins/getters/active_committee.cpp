@@ -11,7 +11,6 @@ ActiveCommittee::ActiveCommittee(GWallet* gwallet) : wxScrolledWindow()
    wxBusyInfo wait(_("Please wait, updating active committee members info ..."));
    wxTheApp->Yield();
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    response_grid->CreateGrid(0, 3);

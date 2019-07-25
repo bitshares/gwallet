@@ -11,7 +11,6 @@ ActiveWitnesses::ActiveWitnesses(GWallet* gwallet) : wxScrolledWindow()
    wxBusyInfo wait(_("Please wait, updating active witnesses info ..."));
    wxTheApp->Yield();
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/getters/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);

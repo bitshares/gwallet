@@ -6,7 +6,6 @@ Transfer::Transfer(GWallet* gwallet) : wxScrolledWindow()
 {
    p_GWallet = gwallet;
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/assets/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    from->Append(p_GWallet->strings.accounts);

@@ -6,7 +6,6 @@ UpgradeAccount::UpgradeAccount(GWallet* gwallet)
 {
    p_GWallet = gwallet;
 
-   wxXmlResource::Get()->LoadAllFiles(p_GWallet->directory + wxT("/plugins/accounts/resources"));
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
    SetScrollRate(1,1);
