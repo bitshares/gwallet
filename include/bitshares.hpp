@@ -47,4 +47,6 @@ public:
    std::shared_ptr<fc::rpc::cli> wallet_cli;
    std::string wallet_filename;
    fc::api<graphene::app::database_api> database_api;
+   fc::api<graphene::wallet::wallet_api> wallet_api;
+   fc::api_id_type api_id;
 };

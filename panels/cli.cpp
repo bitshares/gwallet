@@ -28,14 +28,11 @@ void Cli::OnCliCommand(wxCommandEvent& WXUNUSED(event))
    commands_log.Write();
    command->Insert(line, 0);
 
-   const auto wallet_api = fc::api<graphene::wallet::wallet_api>(p_GWallet->bitshares.wallet_api_ptr);
-   const auto api_id = p_GWallet->bitshares.wallet_cli->register_api(wallet_api);
-
    try {
       const fc::variants line_variants = fc::json::variants_from_string(line.ToStdString());
       const auto command = line_variants[0].get_string();
       const auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
-      const auto response = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command, arguments_variants);
+      const auto response = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command, arguments_variants);
       auto res = fc::json::to_pretty_string(response);
 
       boost::replace_all(res, "\\n", "\n");

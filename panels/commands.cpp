@@ -96,8 +96,6 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
    wxAny response;
    p_GWallet->panels.p_commands->Wait();
 
-   const auto wallet_api = fc::api<graphene::wallet::wallet_api>(p_GWallet->bitshares.wallet_api_ptr);
-   const auto api_id = p_GWallet->bitshares.wallet_cli->register_api(wallet_api);
    const fc::variants line_variants = fc::json::variants_from_string(command_string);
    const auto command_name = line_variants[0].get_string();
    auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
@@ -114,7 +112,7 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
       arguments_variants[arguments_variants.size()-1] = false;
       try {
 
-         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command_name, arguments_variants);
          auto st = result_obj.as<signed_transaction>(GRAPHENE_MAX_NESTED_OBJECTS);
          response = st;
 
@@ -125,7 +123,7 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
             if (wxID_YES == _confirm.ShowModal()) {
                wxTheApp->Yield(true);
                arguments_variants[arguments_variants.size()-1] = true;
-               result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+               result_obj = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command_name, arguments_variants);
                p_GWallet->DoAssets(account);
             }
             else {
@@ -149,8 +147,6 @@ wxAny Commands::ExecuteGetterCommand(string command_string, bool cli, wxString e
    wxAny response;
    p_GWallet->panels.p_commands->Wait();
 
-   const auto wallet_api = fc::api<graphene::wallet::wallet_api>(p_GWallet->bitshares.wallet_api_ptr);
-   const auto api_id = p_GWallet->bitshares.wallet_cli->register_api(wallet_api);
    const fc::variants line_variants = fc::json::variants_from_string(command_string);
    const auto command_name = line_variants[0].get_string();
    auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
@@ -163,7 +159,7 @@ wxAny Commands::ExecuteGetterCommand(string command_string, bool cli, wxString e
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(api_id, command_name, arguments_variants);
+         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command_name, arguments_variants);
          auto casted = result_obj.as<T>(GRAPHENE_MAX_NESTED_OBJECTS);
          response = casted;
          return response;

@@ -32,6 +32,9 @@ void Bitshares::Connect(std::string server, std::string wallet_path)
 
    wallet_cli = std::make_shared<fc::rpc::cli>(GRAPHENE_MAX_NESTED_OBJECTS);
 
+   wallet_api = fc::api<graphene::wallet::wallet_api>(wallet_api_ptr);
+   api_id = wallet_cli->register_api(wallet_api);
+
    for( auto& name_formatter : wallet_api_ptr->get_result_formatters() )
       wallet_cli->format_result( name_formatter.first, name_formatter.second );
 
