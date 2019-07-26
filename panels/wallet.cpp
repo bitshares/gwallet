@@ -53,6 +53,8 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    const auto governance = wallet_tree->AppendItem(root, _("Governance"));
    tree.vote_for_witness = wallet_tree->AppendItem(governance, _("Vote for witness"));
    tree.vote_for_committee = wallet_tree->AppendItem(governance, _("Vote for committee"));
+   tree.create_witness = wallet_tree->AppendItem(governance, _("Create witness"));
+   tree.create_committee = wallet_tree->AppendItem(governance, _("Create committee member"));
 
    wallet_tree->Expand(root);
 
@@ -138,6 +140,10 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<VoteForWitness>(_("Vote for witness"));
    else if(selected == tree.vote_for_committee)
       DoOperation<VoteForCommittee>(_("Vote for committee"));
+   else if(selected == tree.create_witness)
+      DoOperation<CreateWitness>(_("Create witness"));
+   else if(selected == tree.create_committee)
+      DoOperation<CreateCommittee>(_("Create committee member"));
 
    p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }
