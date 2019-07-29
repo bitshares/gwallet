@@ -6,7 +6,13 @@ Cli::Cli(GWallet* gwallet) : wxPanel()
 
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
-   commands_log.Open(p_GWallet->directory + wxT("/logs/cli_commands.txt"));
+   wxString log_file = wxT("cli_commands_log.txt");
+   wxTextFile logs(log_file);
+   if(!logs.Exists()) {
+      logs.Create();
+   }
+   logs.Close();
+   commands_log.Open(log_file);
 
    ReadCommands();
 
