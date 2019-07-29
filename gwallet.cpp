@@ -305,10 +305,6 @@ void GWallet::DoInitialConfig()
 
    wxXmlResource::Get()->InitAllHandlers();
    InitXmlResource();
-   //wxXmlResource::Get()->LoadAllFiles(directory + wxT("/resources"));
-
-   const wxIcon application_icon(directory + wxT("/icons/btslogo.png"), wxBITMAP_TYPE_PNG);
-   SetIcon(application_icon);
 
    config = new wxConfig(wxT("GWallet"));
 

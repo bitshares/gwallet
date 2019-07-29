@@ -5,6 +5,7 @@
         <size>1200,900</size>
         <title>G-Wallet | Secure Bitshares Wallet</title>
         <centered>1</centered>
+        <icon>../icons/btslogo.png</icon>
         <aui_managed>0</aui_managed>
         <object class="wxMenuBar" name="menubar">
             <label></label>
