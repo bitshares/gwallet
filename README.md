@@ -64,6 +64,11 @@ Use the File -> New (CTRL-N) to start the configuration wizard when running the 
 
 ![Wizard](readme_images/wizard.png)
 
+To reduce the size of the generate executable do:
+
+`strip --strip-all gwallet`
+
+
 ## Language
 
 Use File -> Change language to translate the wallet, English, Spanish and Chinese are supported.

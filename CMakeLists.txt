@@ -16,6 +16,8 @@ add_subdirectory(bitshares-core)
 #add_subdirectory(bitshares-core/libraries/app)
 #add_subdirectory(bitshares-core/libraries/wallet)
 
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections -fdata-sections -Os" )
+
 add_subdirectory(plugins)
 
 add_executable( gwallet
@@ -39,7 +41,6 @@ include(${wxWidgets_USE_FILE})
 
 set(plugins "gwallet_assets" "gwallet_getters" "gwallet_accounts" "gwallet_htlc" "gwallet_governance")
 
-target_link_libraries( gwallet
-    PRIVATE graphene_app graphene_net graphene_chain graphene_egenesis_brief graphene_utilities graphene_wallet fc
-	${wxWidgets_LIBRARIES} ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} ${plugins}
+target_link_libraries( gwallet PRIVATE graphene_app fc
+    ${wxWidgets_LIBRARIES} ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} ${plugins}
 )
