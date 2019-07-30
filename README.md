@@ -64,7 +64,7 @@ Use the File -> New (CTRL-N) to start the configuration wizard when running the 
 
 ![Wizard](readme_images/wizard.png)
 
-To reduce the size of the generate executable do:
+To reduce the size of the generated executable do:
 
 `strip --strip-all gwallet`
 
