@@ -21,7 +21,6 @@ protected:
    wxListCtrl* whitelist_markets;
    wxListCtrl* blacklist_markets;
    wxTextCtrl* description;
-   wxTextCtrl* extensions;
 
    wxString options;
 
@@ -39,7 +38,6 @@ private:
       whitelist_markets = XRCCTRL(*this,"whitelist_markets",wxListCtrl);
       blacklist_markets = XRCCTRL(*this,"blacklist_markets",wxListCtrl);
       description = XRCCTRL(*this,"description",wxTextCtrl);
-      extensions = XRCCTRL(*this,"extensions",wxTextCtrl);
    }
    void OnOk(wxCommandEvent& event);
 

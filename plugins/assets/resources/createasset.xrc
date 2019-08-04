@@ -357,8 +357,8 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxButton" name="generate_bitasset">
+                            <enabled>1</enabled>
                             <label>Generate</label>
-                            <enabled>0</enabled>
                             <default>0</default>
                             <markup>0</markup>
                             <bitmap />

@@ -10,6 +10,7 @@ add_library( gwallet_assets
         transfer.cpp
         updatefeedproducers.cpp
         assetoptions.cpp
+        bitassetoptions.cpp
         )
 
 target_link_libraries( gwallet_assets

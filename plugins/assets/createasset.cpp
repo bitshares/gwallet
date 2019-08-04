@@ -1,5 +1,6 @@
 #include "include/createasset.hpp"
 #include "include/assetoptions.hpp"
+#include "include/bitassetoptions.hpp"
 
 #include <panels/commands.hpp>
 
@@ -24,6 +25,7 @@ CreateAsset::CreateAsset(GWallet* gwallet) : wxScrolledWindow()
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateAsset::OnOk));
    Connect(XRCID("generate_common"), wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateAsset::OnGenerateCommon));
+   Connect(XRCID("generate_bitasset"), wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(CreateAsset::OnGenerateBitAsset));
 }
 
 void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
@@ -65,4 +67,10 @@ void CreateAsset::OnGenerateCommon(wxCommandEvent& WXUNUSED(event))
 {
    AssetOptions AssetOptions(p_GWallet);
    common->SetValue(AssetOptions.GetOptions());
+}
+
+void CreateAsset::OnGenerateBitAsset(wxCommandEvent& WXUNUSED(event))
+{
+   BitAssetOptions BitAssetOptions(p_GWallet);
+   bitasset_opts->SetValue(BitAssetOptions.GetOptions());
 }

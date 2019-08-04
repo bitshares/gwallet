@@ -511,7 +511,7 @@
                 </object>
             </object>
             <object class="sizeritem">
-                <option>1</option>
+                <option>0</option>
                 <flag>wxEXPAND</flag>
                 <border>5</border>
                 <object class="wxBoxSizer">
@@ -643,81 +643,11 @@
                 <border>5</border>
                 <size>0,5</size>
             </object>
-            <object class="sizeritem">
-                <option>0</option>
-                <flag>wxEXPAND</flag>
-                <border>5</border>
-                <object class="wxBoxSizer">
-                    <orient>wxHORIZONTAL</orient>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxEXPAND</flag>
-                        <border>5</border>
-                        <size>0,0</size>
-                    </object>
-                    <object class="sizeritem">
-                        <option>10</option>
-                        <flag>wxALL</flag>
-                        <border>5</border>
-                        <object class="wxStaticText" name="m_staticText18">
-                            <label>Extensions</label>
-                            <wrap>-1</wrap>
-                        </object>
-                    </object>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxEXPAND</flag>
-                        <border>5</border>
-                        <size>0,0</size>
-                    </object>
-                </object>
-            </object>
-            <object class="sizeritem">
-                <option>0</option>
-                <flag>wxEXPAND</flag>
-                <border>5</border>
-                <object class="wxBoxSizer">
-                    <orient>wxHORIZONTAL</orient>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxEXPAND</flag>
-                        <border>5</border>
-                        <size>0,0</size>
-                    </object>
-                    <object class="sizeritem">
-                        <option>9</option>
-                        <flag>wxALL</flag>
-                        <border>0</border>
-                        <object class="wxTextCtrl" name="extensions">
-                            <value></value>
-                            <maxlength>0</maxlength>
-                        </object>
-                    </object>
-                    <object class="sizeritem">
-                        <option>1</option>
-                        <flag>wxALL</flag>
-                        <border>0</border>
-                        <object class="wxButton" name="m_button9">
-                            <enabled>0</enabled>
-                            <label>+</label>
-                            <default>0</default>
-                            <markup>0</markup>
-                            <bitmap />
-                        </object>
-                    </object>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxEXPAND</flag>
-                        <border>5</border>
-                        <size>0,0</size>
-                    </object>
-                </object>
-            </object>
             <object class="spacer">
                 <option>0</option>
                 <flag>wxEXPAND</flag>
                 <border>5</border>
-                <size>0,20</size>
+                <size>0,5</size>
             </object>
             <object class="sizeritem">
                 <option>0</option>

@@ -31,7 +31,7 @@ private:
    }
    void OnOk(wxCommandEvent& event);
    void OnGenerateCommon(wxCommandEvent& event);
-
+   void OnGenerateBitAsset(wxCommandEvent& event);
 
 public:
    CreateAsset(GWallet* gwallet);
