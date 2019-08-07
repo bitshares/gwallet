@@ -217,7 +217,6 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>0</border>
                         <object class="wxTextCtrl" name="memo">
-                            <style>wxTE_MULTILINE</style>
                             <tooltip>A memo to include in the transaction, readable by the recipient</tooltip>
                             <value></value>
                             <maxlength>0</maxlength>

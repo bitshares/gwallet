@@ -280,7 +280,6 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>0</border>
                         <object class="wxTextCtrl" name="memo">
-                            <style>wxTE_MULTILINE</style>
                             <enabled>1</enabled>
                             <tooltip>A memo to attach to the transaction.  The memo will be encrypted in the transaction and readable for the receiver.  There is no length limit other than the limit imposed by maximum transaction size, but transaction increase with transaction size</tooltip>
                             <value></value>

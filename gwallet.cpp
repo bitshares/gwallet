@@ -24,11 +24,6 @@ GWallet::GWallet(const wxString& title)
    CreateEvents();
    DoState();
 
-   // todo: delete all config, enable to start with an empty config, could be command line option
-   //config->DeleteAll();
-
-   //m_mgr.SetManagedWindow(this);
-
    Centre();
 }
 
@@ -51,7 +46,8 @@ void GWallet::OnOpen(wxCommandEvent& WXUNUSED(event))
       config->Write("WalletPath", path);
 
       // get ws_server form wallet
-      auto _wallet = fc::json::from_file( path.ToStdString() ).as< graphene::wallet::wallet_data >( 2 * GRAPHENE_MAX_NESTED_OBJECTS );
+      auto _wallet = fc::json::from_file( path.ToStdString() ).as< graphene::wallet::wallet_data >
+            ( 2 * GRAPHENE_MAX_NESTED_OBJECTS );
       wxString ws_server(_wallet.ws_server);
       config->Write("Server", ws_server);
 

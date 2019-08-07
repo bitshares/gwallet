@@ -17,6 +17,9 @@ SellAsset::SellAsset(GWallet* gwallet) : wxScrolledWindow()
    sell_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
    receive_amount->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
+   time->MoveAfterInTabOrder(date);
+   fill_or_kill->MoveAfterInTabOrder(time);
+
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(SellAsset::OnOk));
    Connect(XRCID("receive_asset"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(SellAsset::OnSearchAsset), NULL, this);
 
