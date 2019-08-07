@@ -28,7 +28,7 @@ private:
    }
 };
 
-class GetAssetResponse: public wxScrolledWindow
+class GetAssetResponse: public wxPanel
 {
 public:
    GetAssetResponse(GWallet* gwallet, wxAny any_response);
@@ -36,7 +36,7 @@ public:
 
 private:
    void InitWidgetsFromXRC(wxWindow *parent){
-      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetAssetResponse"), wxT("wxScrolledWindow"));
+      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetAssetResponse"), wxT("wxPanel"));
       response_tree = XRCCTRL(*this,"response_tree",wxTreeCtrl);
    }
 };

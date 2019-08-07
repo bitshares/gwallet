@@ -253,7 +253,7 @@
             </object>
         </object>
     </object>
-    <object class="wxScrolledWindow" name="GetAccountHistoryResponse">
+    <object class="wxPanel" name="GetAccountHistoryResponse">
         <style>wxTAB_TRAVERSAL</style>
         <object class="wxBoxSizer">
             <orient>wxVERTICAL</orient>

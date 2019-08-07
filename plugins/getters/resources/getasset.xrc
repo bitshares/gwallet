@@ -182,7 +182,7 @@
             </object>
         </object>
     </object>
-    <object class="wxScrolledWindow" name="GetAssetResponse">
+    <object class="wxPanel" name="GetAssetResponse">
         <style>wxTAB_TRAVERSAL</style>
         <size>-1,-1</size>
         <object class="wxBoxSizer">
@@ -198,4 +198,3 @@
         </object>
     </object>
 </resource>
-

@@ -12,8 +12,7 @@ GetHtlc::GetHtlc(GWallet* gwallet)
    SetScrollRate(1,1);
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(GetHtlc::OnOk));
-   Connect(XRCID("htlc_id"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(GetHtlc::OnSearchID),
-           NULL, this);
+   Connect(XRCID("htlc_id"), wxEVT_SEARCHCTRL_SEARCH_BTN, wxCommandEventHandler(GetHtlc::OnSearchID), NULL, this);
 }
 
 void GetHtlc::OnSearchID(wxCommandEvent& event)
@@ -29,7 +28,7 @@ void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    stringstream command;
    command << "get_htlc " << _htlc_id;
 
-   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<htlc_object>(command.str(), _cli,
+   auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<fc::variant>(command.str(), _cli,
          _("HTLC ID not found"));
 
    if(!response.IsNull())
@@ -39,9 +38,6 @@ void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 GetHtlcResponse::GetHtlcResponse(GWallet* gwallet, wxAny any_response)
 {
    InitWidgetsFromXRC((wxWindow *)gwallet);
-
-   SetScrollRate(1,1);
-   response_tree->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
 
    fc::variant result = any_response.As<fc::variant>();
    if(!result.is_object())

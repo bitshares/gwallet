@@ -30,7 +30,7 @@ private:
    }
 };
 
-class GetAccountHistoryResponse: public wxScrolledWindow
+class GetAccountHistoryResponse: public wxPanel
 {
 public:
    GetAccountHistoryResponse(GWallet* gwallet, wxAny any_response);
@@ -38,7 +38,7 @@ public:
 
 private:
    void InitWidgetsFromXRC(wxWindow *parent){
-      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetAccountHistoryResponse"), wxT("wxScrolledWindow"));
+      wxXmlResource::Get()->LoadObject(this,parent,wxT("GetAccountHistoryResponse"), wxT("wxPanel"));
       response_grid = XRCCTRL(*this,"response_grid",wxGrid);
    }
 };

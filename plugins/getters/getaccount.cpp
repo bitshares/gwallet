@@ -43,9 +43,6 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
 {
    InitWidgetsFromXRC((wxWindow *)gwallet);
 
-   SetScrollRate(1,1);
-   response_tree->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
-
    account_object result = any_response.As<account_object>();
 
    // Todo: Too much code just to have the benefit of keys of objects translated

@@ -1,7 +1,6 @@
 #include "include/getasset.hpp"
 
 #include <panels/commands.hpp>
-//#include <panels/cli.hpp>
 
 GetAsset::GetAsset(GWallet* gwallet)
 {
@@ -42,9 +41,6 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
 {
    InitWidgetsFromXRC((wxWindow *)gwallet);
-
-   SetScrollRate(1,1);
-   response_tree->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
 
    asset_object result = any_response.As<asset_object>();
 

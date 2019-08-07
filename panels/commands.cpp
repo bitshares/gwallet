@@ -98,7 +98,7 @@ wxAny Commands::ExecuteWalletCommand(string command_string, string account, wxSt
 
    const fc::variants line_variants = fc::json::variants_from_string(command_string);
    const auto command_name = line_variants[0].get_string();
-   auto arguments_variants = fc::variants( line_variants.begin()+1,line_variants.end());
+   auto arguments_variants = fc::variants(line_variants.begin()+1,line_variants.end());
 
    if(cli)
    {
@@ -159,7 +159,8 @@ wxAny Commands::ExecuteGetterCommand(string command_string, bool cli, wxString e
    else
    {
       try {
-         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command_name, arguments_variants);
+         auto result_obj = p_GWallet->bitshares.wallet_cli->receive_call(p_GWallet->bitshares.api_id, command_name,
+               arguments_variants);
          auto casted = result_obj.as<T>(GRAPHENE_MAX_NESTED_OBJECTS);
          response = casted;
          return response;
@@ -177,6 +178,6 @@ template wxAny Commands::ExecuteGetterCommand<account_object>(string command_str
 template wxAny Commands::ExecuteGetterCommand<witness_object>(string command_string, bool cli, wxString error_message);
 template wxAny Commands::ExecuteGetterCommand<committee_member_object>(string command_string, bool cli, wxString error_message);
 template wxAny Commands::ExecuteGetterCommand<order_book>(string command_string, bool cli, wxString error_message);
-template wxAny Commands::ExecuteGetterCommand<htlc_object>(string command_string, bool cli, wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<fc::variant>(string command_string, bool cli, wxString error_message);
 template wxAny Commands::ExecuteGetterCommand<vector<graphene::wallet::operation_detail>>(string command_string, bool cli,
       wxString error_message);

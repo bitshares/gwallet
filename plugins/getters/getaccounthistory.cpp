@@ -48,9 +48,6 @@ GetAccountHistoryResponse::GetAccountHistoryResponse(GWallet* gwallet, wxAny any
 
    response_grid->CreateGrid(0, 4);
 
-   SetScrollRate(1,1);
-   response_grid->ShowScrollbars(wxSHOW_SB_NEVER,wxSHOW_SB_NEVER);
-
    gwallet->panels.p_commands->DoGridProperties(response_grid);
 
    response_grid->SetColLabelValue(0, "ID");
