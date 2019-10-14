@@ -39,7 +39,7 @@ add_executable( gwallet
 find_package(wxWidgets COMPONENTS core base adv xrc aui REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-set(plugins "gwallet_assets" "gwallet_getters" "gwallet_accounts" "gwallet_htlc" "gwallet_governance")
+set(plugins "gwallet_assets" "gwallet_getters" "gwallet_accounts" "gwallet_htlc" "gwallet_governance" "gwallet_blinded")
 
 target_link_libraries( gwallet PRIVATE graphene_app fc
     ${wxWidgets_LIBRARIES} ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} ${plugins}

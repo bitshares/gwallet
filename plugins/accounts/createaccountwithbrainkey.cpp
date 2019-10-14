@@ -30,7 +30,8 @@ void CreateAccountWithBrainKey::OnSearchAccount(wxCommandEvent& event)
 void CreateAccountWithBrainKey::OnGetBrainKey(wxCommandEvent& event)
 {
    auto result = p_GWallet->bitshares.wallet_api_ptr->suggest_brain_key();
-   int key = wxMessageBox(result.brain_priv_key, _("Suggested Brain key"), wxNO_DEFAULT|wxOK|wxCANCEL|wxICON_INFORMATION, this);
+   int key = wxMessageBox(result.brain_priv_key, _("Suggested Brain key"),
+         wxNO_DEFAULT|wxOK|wxCANCEL|wxICON_INFORMATION, this);
    if (key == wxOK)
       brain_key->SetValue(result.brain_priv_key);
 }

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+    <object class="wxScrolledWindow" name="CreateBlindAccount">
+        <style>wxTAB_TRAVERSAL</style>
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>2</border>
+                <size>10,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="sizeritem">
+                        <option>0</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <tooltip>BitAssets have price feeds selected by taking the median values of recommendations from a set of feed producers.\nThis command is used to specify which accounts may produce feeds for a given BitAsset.</tooltip>
+                            <label>Generates a new blind account for the given brain key and assigns it the given label.</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="wxID_STATIC">
+                            <label>Label</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTextCtrl" name="label">
+                            <value></value>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText">
+                            <label>Brain key</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>8</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxTextCtrl" name="brain_key">
+                            <tooltip>A list of account names or ids which are authorized to produce feeds for the asset.\nThis list will completely replace the existing list. The format is [&quot;account1&quot;, &quot;account2&quot;, ...]</tooltip>
+                            <value></value>
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <option>2</option>
+                        <flag>wxALL</flag>
+                        <border>0</border>
+                        <object class="wxButton" name="get_brain_key">
+                            <label>Get brain key</label>
+                            <default>0</default>
+                            <markup>0</markup>
+                            <bitmap />
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag></flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag></flag>
+                <border>2</border>
+                <size>5,10</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxCheckBox" name="cli">
+                            <label>Show output in CLI mode</label>
+                            <checked>0</checked>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>0</border>
+                <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                    <object class="sizeritem">
+                        <option>10</option>
+                        <flag>wxEXPAND|wxALL</flag>
+                        <border>0</border>
+                        <object class="wxStaticLine" name="wxID_STATIC">
+                            <style>wxLI_HORIZONTAL</style>
+                        </object>
+                    </object>
+                    <object class="spacer">
+                        <option>1</option>
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>0</border>
+                        <size>5,5</size>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+            <object class="sizeritem">
+                <option>0</option>
+                <flag>wxEXPAND|wxALL</flag>
+                <border>5</border>
+                <object class="wxStdDialogButtonSizer">
+                    <object class="button">
+                        <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxButton" name="wxID_OK">
+                            <label>&amp;OK</label>
+                        </object>
+                    </object>
+                </object>
+            </object>
+            <object class="spacer">
+                <option>0</option>
+                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+                <border>2</border>
+                <size>5,5</size>
+            </object>
+        </object>
+    </object>
+    <object class="wxScrolledWindow" name="CreateBlindedAccountResponse">
+        <style>wxTAB_TRAVERSAL</style>
+        <size>-1,-1</size>
+        <object class="wxBoxSizer">
+            <orient>wxHORIZONTAL</orient>
+            <object class="sizeritem">
+                <option>1</option>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+                <object class="wxTreeCtrl" name="response_tree">
+                    <style>wxTR_DEFAULT_STYLE|wxBORDER_STATIC|wxTR_EDIT_LABELS</style>
+                </object>
+            </object>
+        </object>
+    </object>
+</resource>

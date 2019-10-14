@@ -39,7 +39,7 @@ struct treeItems
    wxTreeItemId vote_for_committee;
    wxTreeItemId create_witness;
    wxTreeItemId create_committee;
-
+   wxTreeItemId create_blind_account;
 };
 
 class Wallet : public wxPanel

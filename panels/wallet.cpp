@@ -5,6 +5,7 @@
 #include "../plugins/getters/include/includes.hpp"
 #include "../plugins/htlc/include/includes.hpp"
 #include "../plugins/governance/include/includes.hpp"
+#include "../plugins/blinded/include/includes.hpp"
 
 #include "../include/panels/commands.hpp"
 
@@ -55,6 +56,10 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.vote_for_committee = wallet_tree->AppendItem(governance, _("Vote for committee"));
    tree.create_witness = wallet_tree->AppendItem(governance, _("Create witness"));
    tree.create_committee = wallet_tree->AppendItem(governance, _("Create committee member"));
+
+
+   const auto blinded = wallet_tree->AppendItem(root, _("Blinded"));
+   tree.create_blind_account = wallet_tree->AppendItem(blinded, _("Create"));
 
    wallet_tree->Expand(root);
 
@@ -144,6 +149,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<CreateWitness>(_("Create witness"));
    else if(selected == tree.create_committee)
       DoOperation<CreateCommittee>(_("Create committee member"));
+   else if(selected == tree.create_blind_account)
+      DoOperation<CreateBlindAccount>(_("Create Blind account"));
 
    p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }
