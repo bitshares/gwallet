@@ -45,6 +45,7 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
    tree.active_witnesses = wallet_tree->AppendItem(getter, _("Active witnesses"));
    tree.active_committee = wallet_tree->AppendItem(getter, _("Active committee"));
    tree.get_htlc = wallet_tree->AppendItem(getter, _("HTLC"));
+   tree.get_my_blind_accounts = wallet_tree->AppendItem(getter, _("My blind accounts"));
 
    const auto htlc = wallet_tree->AppendItem(root, _("HTLC"));
    tree.htlc_create = wallet_tree->AppendItem(htlc, _("Create"));
@@ -151,6 +152,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<CreateCommittee>(_("Create committee member"));
    else if(selected == tree.create_blind_account)
       DoOperation<CreateBlindAccount>(_("Create Blind account"));
+   else if(selected == tree.get_my_blind_accounts)
+      DoOperation<GetMyBlindAccounts>(_("My blind accounts"));
 
    p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }

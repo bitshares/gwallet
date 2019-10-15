@@ -40,6 +40,7 @@ struct treeItems
    wxTreeItemId create_witness;
    wxTreeItemId create_committee;
    wxTreeItemId create_blind_account;
+   wxTreeItemId get_my_blind_accounts;
 };
 
 class Wallet : public wxPanel

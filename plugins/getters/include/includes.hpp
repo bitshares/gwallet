@@ -9,3 +9,4 @@
 #include "getaccount.hpp"
 #include "getasset.hpp"
 #include "gethtlc.hpp"
+#include "getmyblindaccounts.hpp"

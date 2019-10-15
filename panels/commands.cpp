@@ -181,3 +181,5 @@ template wxAny Commands::ExecuteGetterCommand<order_book>(string command_string,
 template wxAny Commands::ExecuteGetterCommand<fc::variant>(string command_string, bool cli, wxString error_message);
 template wxAny Commands::ExecuteGetterCommand<vector<graphene::wallet::operation_detail>>(string command_string, bool cli,
       wxString error_message);
+template wxAny Commands::ExecuteGetterCommand<map<string, public_key_type>>(string command_string, bool cli,
+      wxString error_message);

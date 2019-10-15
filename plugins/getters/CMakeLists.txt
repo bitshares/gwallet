@@ -13,7 +13,7 @@ add_library( gwallet_getters
         getaccount.cpp
         getasset.cpp
         gethtlc.cpp
-
+        getmyblindaccounts.cpp
         )
 
 target_link_libraries( gwallet_getters

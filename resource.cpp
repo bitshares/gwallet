@@ -16834,8 +16834,35 @@ static unsigned char xml_res_file_43[] = {
 10,32,32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,115,111,117,114,
 99,101,62,10};
 
-static size_t xml_res_size_44 = 11867;
+static size_t xml_res_size_44 = 492;
 static unsigned char xml_res_file_44[] = {
+60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
+110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
+115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
+47,47,119,119,119,46,119,120,119,105,110,100,111,119,115,46,111,114,103,
+47,119,120,120,114,99,34,32,118,101,114,115,105,111,110,61,34,50,46,51,
+46,48,46,49,34,62,10,32,32,60,111,98,106,101,99,116,32,99,108,97,115,115,
+61,34,119,120,83,99,114,111,108,108,101,100,87,105,110,100,111,119,34,32,
+110,97,109,101,61,34,71,101,116,77,121,66,108,105,110,100,65,99,99,111,
+117,110,116,115,34,62,10,32,32,32,32,60,115,116,121,108,101,62,119,120,
+84,65,66,95,84,82,65,86,69,82,83,65,76,60,47,115,116,121,108,101,62,10,
+32,32,32,32,60,111,98,106,101,99,116,32,99,108,97,115,115,61,34,119,120,
+66,111,120,83,105,122,101,114,34,62,10,32,32,32,32,32,32,60,111,114,105,
+101,110,116,62,119,120,86,69,82,84,73,67,65,76,60,47,111,114,105,101,110,
+116,62,10,32,32,32,32,32,32,60,111,98,106,101,99,116,32,99,108,97,115,115,
+61,34,115,105,122,101,114,105,116,101,109,34,62,10,32,32,32,32,32,32,32,
+32,60,111,112,116,105,111,110,62,48,60,47,111,112,116,105,111,110,62,10,
+32,32,32,32,32,32,32,32,60,102,108,97,103,62,119,120,65,76,76,60,47,102,
+108,97,103,62,10,32,32,32,32,32,32,32,32,60,98,111,114,100,101,114,62,53,
+60,47,98,111,114,100,101,114,62,10,32,32,32,32,32,32,32,32,60,111,98,106,
+101,99,116,32,99,108,97,115,115,61,34,119,120,71,114,105,100,34,32,110,
+97,109,101,61,34,114,101,115,112,111,110,115,101,95,103,114,105,100,34,
+47,62,10,32,32,32,32,32,32,60,47,111,98,106,101,99,116,62,10,32,32,32,32,
+60,47,111,98,106,101,99,116,62,10,32,32,60,47,111,98,106,101,99,116,62,
+10,60,47,114,101,115,111,117,114,99,101,62,10};
+
+static size_t xml_res_size_45 = 11867;
+static unsigned char xml_res_file_45[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -17388,8 +17415,8 @@ static unsigned char xml_res_file_44[] = {
 101,99,116,62,10,32,32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,
 115,111,117,114,99,101,62,10};
 
-static size_t xml_res_size_45 = 11752;
-static unsigned char xml_res_file_45[] = {
+static size_t xml_res_size_46 = 11752;
+static unsigned char xml_res_file_46[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -17936,8 +17963,8 @@ static unsigned char xml_res_file_45[] = {
 10,32,32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,115,111,117,114,
 99,101,62,10};
 
-static size_t xml_res_size_46 = 9345;
-static unsigned char xml_res_file_46[] = {
+static size_t xml_res_size_47 = 9345;
+static unsigned char xml_res_file_47[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -18372,8 +18399,8 @@ static unsigned char xml_res_file_46[] = {
 101,99,116,62,10,32,32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,
 115,111,117,114,99,101,62,10};
 
-static size_t xml_res_size_47 = 9301;
-static unsigned char xml_res_file_47[] = {
+static size_t xml_res_size_48 = 9301;
+static unsigned char xml_res_file_48[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -18806,8 +18833,8 @@ static unsigned char xml_res_file_47[] = {
 111,98,106,101,99,116,62,10,32,32,60,47,111,98,106,101,99,116,62,10,60,
 47,114,101,115,111,117,114,99,101,62,10};
 
-static size_t xml_res_size_48 = 19517;
-static unsigned char xml_res_file_48[] = {
+static size_t xml_res_size_49 = 19517;
+static unsigned char xml_res_file_49[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -19710,8 +19737,8 @@ static unsigned char xml_res_file_48[] = {
 101,99,116,62,10,32,32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,
 115,111,117,114,99,101,62,10};
 
-static size_t xml_res_size_49 = 11512;
-static unsigned char xml_res_file_49[] = {
+static size_t xml_res_size_50 = 11512;
+static unsigned char xml_res_file_50[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -20245,8 +20272,8 @@ static unsigned char xml_res_file_49[] = {
 32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,115,111,117,114,99,101,
 62,10};
 
-static size_t xml_res_size_50 = 11389;
-static unsigned char xml_res_file_50[] = {
+static size_t xml_res_size_51 = 11389;
+static unsigned char xml_res_file_51[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -20775,8 +20802,8 @@ static unsigned char xml_res_file_50[] = {
 32,60,47,111,98,106,101,99,116,62,10,60,47,114,101,115,111,117,114,99,101,
 62,10};
 
-static size_t xml_res_size_51 = 9443;
-static unsigned char xml_res_file_51[] = {
+static size_t xml_res_size_52 = 9443;
+static unsigned char xml_res_file_52[] = {
 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,
 110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,10,60,114,101,
 115,111,117,114,99,101,32,120,109,108,110,115,61,34,104,116,116,112,58,
@@ -21273,14 +21300,15 @@ void InitXmlResource()
     XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_getters_resources_getasset.xrc"), xml_res_file_41, xml_res_size_41, wxT("text/xml"));
     XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_getters_resources_gethtlc.xrc"), xml_res_file_42, xml_res_size_42, wxT("text/xml"));
     XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_getters_resources_getwitness.xrc"), xml_res_file_43, xml_res_size_43, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_voteforcommittee.xrc"), xml_res_file_44, xml_res_size_44, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_voteforwitness.xrc"), xml_res_file_45, xml_res_size_45, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_createcommitteemember.xrc"), xml_res_file_46, xml_res_size_46, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_createwitness.xrc"), xml_res_file_47, xml_res_size_47, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_createhtlc.xrc"), xml_res_file_48, xml_res_size_48, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_extendhtlc.xrc"), xml_res_file_49, xml_res_size_49, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_redeemhtlc.xrc"), xml_res_file_50, xml_res_size_50, wxT("text/xml"));
-    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_blinded_resources_createblindaccount.xrc"), xml_res_file_51, xml_res_size_51, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_getters_resources_getmyblindaccounts.xrc"), xml_res_file_44, xml_res_size_44, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_voteforcommittee.xrc"), xml_res_file_45, xml_res_size_45, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_voteforwitness.xrc"), xml_res_file_46, xml_res_size_46, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_createcommitteemember.xrc"), xml_res_file_47, xml_res_size_47, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_governance_resources_createwitness.xrc"), xml_res_file_48, xml_res_size_48, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_createhtlc.xrc"), xml_res_file_49, xml_res_size_49, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_extendhtlc.xrc"), xml_res_file_50, xml_res_size_50, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_htlc_resources_redeemhtlc.xrc"), xml_res_file_51, xml_res_size_51, wxT("text/xml"));
+    XRC_ADD_FILE(wxT("XRC_resource/resource.cpp$plugins_blinded_resources_createblindaccount.xrc"), xml_res_file_52, xml_res_size_52, wxT("text/xml"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$resources_cli.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$resources_commands.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$resources_dashboard.xrc"));
@@ -21314,6 +21342,7 @@ void InitXmlResource()
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_getters_resources_getasset.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_getters_resources_gethtlc.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_getters_resources_getwitness.xrc"));
+    wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_getters_resources_getmyblindaccounts.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_governance_resources_voteforcommittee.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_governance_resources_voteforwitness.xrc"));
     wxXmlResource::Get()->Load(wxT("memory:XRC_resource/resource.cpp$plugins_governance_resources_createcommitteemember.xrc"));
