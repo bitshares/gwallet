@@ -3,6 +3,7 @@ include(${wxWidgets_USE_FILE})
 
 add_library( gwallet_blinded
         createblindaccount.cpp
+        transfertoblind.cpp
         )
 
 target_link_libraries( gwallet_blinded

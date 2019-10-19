@@ -24,8 +24,8 @@ GetMyBlindAccounts::GetMyBlindAccounts(GWallet* gwallet) : wxScrolledWindow() {
    command << "get_my_blind_accounts";
 
    auto response =
-         p_GWallet->panels.p_commands->ExecuteGetterCommand < map < string, public_key_type>>(command.str(), false, _(
-         "Invalid market"));
+         p_GWallet->panels.p_commands->ExecuteGetterCommand < map < string, public_key_type>>(command.str(),
+               false, _("No blind accounts"));
 
    if (!response.IsNull()) {
       auto results = response.As<map<string, public_key_type>>();
