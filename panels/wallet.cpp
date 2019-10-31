@@ -61,7 +61,8 @@ Wallet::Wallet(GWallet* gwallet) : wxPanel()
 
    const auto blinded = wallet_tree->AppendItem(root, _("Blinded"));
    tree.create_blind_account = wallet_tree->AppendItem(blinded, _("Create"));
-   tree.transfer_to_blind = wallet_tree->AppendItem(blinded, _("Transfer"));
+   tree.transfer_to_blind = wallet_tree->AppendItem(blinded, _("Transfer to blind"));
+   tree.transfer_from_blind = wallet_tree->AppendItem(blinded, _("Transfer from blind"));
 
    wallet_tree->Expand(root);
 
@@ -157,6 +158,8 @@ void Wallet::OnCommand(wxTreeEvent& event)
       DoOperation<GetMyBlindAccounts>(_("My blind accounts"));
    else if(selected == tree.transfer_to_blind)
       DoOperation<TransferToBlind>(_("Transfer to blind"));
+   else if(selected == tree.transfer_from_blind)
+      DoOperation<TransferFromBlind>(_("Transfer from blind"));
 
    p_GWallet->m_mgr.GetPane("Commands").window->SetFocus();
 }

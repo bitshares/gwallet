@@ -42,6 +42,7 @@ struct treeItems
    wxTreeItemId create_blind_account;
    wxTreeItemId get_my_blind_accounts;
    wxTreeItemId transfer_to_blind;
+   wxTreeItemId transfer_from_blind;
 };
 
 class Wallet : public wxPanel
