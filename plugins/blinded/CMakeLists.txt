@@ -5,6 +5,7 @@ add_library( gwallet_blinded
         createblindaccount.cpp
         transfertoblind.cpp
         transferfromblind.cpp
+        receiveblindtransfer.cpp
         )
 
 target_link_libraries( gwallet_blinded
