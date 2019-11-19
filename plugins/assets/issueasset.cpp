@@ -45,7 +45,7 @@ void IssueAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(to_account).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "issue_asset " << _to_account << " " << _amount << " " << _symbol << " \"" << _memo
            << "\" " << std::boolalpha << _broadcast;
 

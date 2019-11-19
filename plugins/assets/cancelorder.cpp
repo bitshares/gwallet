@@ -31,7 +31,7 @@ void CancelOrder::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "cancel_order " << std::string(object_id_type(_order_id)) << " " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),
@@ -50,7 +50,7 @@ void CancelOrder::DoOpenOrders()
          auto assets = p_GWallet->bitshares.database_api->get_assets({
             std::string(object_id_type(limit_order.amount_for_sale().asset_id)),
             std::string(object_id_type(limit_order.amount_to_receive().asset_id))
-         });
+         }, false);
 
          auto pretty_balance_for_sale = p_GWallet->DoPrettyBalance(
                assets[0]->precision, limit_order.amount_for_sale().amount.value);

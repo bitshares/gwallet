@@ -34,7 +34,7 @@ void VoteForWitness::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "vote_for_witness " << _voting_account << " " << _witness << " " << std::boolalpha << _approve
            << " " << std::boolalpha << _broadcast;
 

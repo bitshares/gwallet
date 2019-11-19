@@ -36,13 +36,13 @@ void RegisterAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _name = name->GetValue().ToStdString();
    const auto _registrar_account = registrar_account->GetValue().ToStdString();
    const auto _referrer_account = referrer_account->GetValue().ToStdString();
-   const auto _referrer_percent = to_string(referrer_percent->GetValue());
+   const auto _referrer_percent = std::to_string(referrer_percent->GetValue());
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "register_account " << _name << " " << _owner << " " << _active << " " << _registrar_account
            << " " << _referrer_account << " " << _referrer_percent << " " << std::boolalpha << _broadcast;
 

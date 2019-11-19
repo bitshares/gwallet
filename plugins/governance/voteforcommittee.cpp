@@ -34,7 +34,7 @@ void VoteForCommittee::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "vote_for_committee_member " << _voting_account << " " << _committee_member << " " << std::boolalpha << _approve
            << " " << std::boolalpha << _broadcast;
 

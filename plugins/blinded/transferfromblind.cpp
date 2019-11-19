@@ -21,7 +21,7 @@ TransferFromBlind::TransferFromBlind(GWallet* gwallet)
    asset_symbol->Append(p_GWallet->strings.assets);
    asset_symbol->SetSelection(p_GWallet->strings.assets.Index(p_GWallet->strings.selected_asset));
 
-   stringstream command;
+   std::stringstream command;
    command << "get_my_blind_accounts";
 
    auto response =
@@ -65,7 +65,7 @@ void TransferFromBlind::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "transfer_from_blind " << _from_blind_account_key_or_label << " " << _to_account_id_or_name << " "
            << _amount << " \"" << _asset_symbol << "\" " << std::boolalpha << _broadcast;
 

@@ -54,7 +54,7 @@ void SetProxy::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(voting_account).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "set_voting_proxy " << _account << " " << _voting_account << " " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),

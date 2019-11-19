@@ -24,7 +24,7 @@ void UpgradeAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "upgrade_account " << _name << " " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),

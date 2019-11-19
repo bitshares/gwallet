@@ -50,7 +50,7 @@ void CreateAccountWithBrainKey::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "create_account_with_brain_key \"" << _brain_key << "\" " << _account_name << " " << _registrar_account
            << " " << _referrer_account << " " << std::boolalpha << _broadcast;
 

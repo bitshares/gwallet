@@ -25,7 +25,7 @@ void CreateCommittee::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "create_committee_member " << _owner_account << " \"" << _url << "\" " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _owner_account,

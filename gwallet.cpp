@@ -604,8 +604,8 @@ void GWallet::SelectLanguage(int lang)
 std::string GWallet::DoPrettyBalance(int precision, double balance)
 {
    const auto divisor = pow(10, precision);
-   stringstream pretty_balance;
-   pretty_balance << fixed << std::setprecision(precision) << balance/divisor;
+   std::stringstream pretty_balance;
+   pretty_balance << std::fixed << std::setprecision(precision) << balance/divisor;
    return pretty_balance.str();
 }
 

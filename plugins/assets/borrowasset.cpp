@@ -40,7 +40,7 @@ void BorrowAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "borrow_asset " << _seller << " " << _borrow_amount << " " << _borrow_asset << " " << _collateral_amount
            << " " << std::boolalpha << _broadcast;
 

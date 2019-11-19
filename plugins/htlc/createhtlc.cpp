@@ -43,7 +43,7 @@ void CreateHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _hash_algorithm = hash_algorithm->GetString(hash_algorithm->GetSelection()).ToStdString();
    const auto _preimage_hash = preimage_hash->GetValue().ToStdString();
    const auto _preimage_size = preimage_size->GetValue().ToStdString();
-   const auto _claim_period_seconds = to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
+   const auto _claim_period_seconds = std::to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
    auto _broadcast = true;
@@ -52,7 +52,7 @@ void CreateHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(destination).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "htlc_create " << _source << " " << _destination << " " << _amount << " " << _asset_symbol
            << " " << _hash_algorithm << " " << _preimage_hash << " " << _preimage_size << " " << _claim_period_seconds
            << " " << std::boolalpha << _broadcast;

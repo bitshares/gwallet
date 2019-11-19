@@ -26,7 +26,7 @@ void ReceiveBlindTransfer::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
 
-   stringstream command;
+   std::stringstream command;
    command << "receive_blind_transfer " << _confirmation_receipt << " \"" << _opt_from << "\" \"" << _opt_memo << "\"";
 
    if(_cli)

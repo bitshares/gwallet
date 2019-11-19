@@ -25,14 +25,14 @@ void GetAccountHistory::OnSearchAccount(wxCommandEvent& event)
 void GetAccountHistory::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _name = name->GetValue().ToStdString();
-   const auto _limit = to_string(limit->GetValue());
+   const auto _limit = std::to_string(limit->GetValue());
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
 
    if(!p_GWallet->panels.p_commands->ValidateAccount(name))
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_account_history " << _name << " " << _limit;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<vector<graphene::wallet::operation_detail>>(command.str(), _cli,

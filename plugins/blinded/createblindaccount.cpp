@@ -32,7 +32,7 @@ void CreateBlindAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
 
-   stringstream command;
+   std::stringstream command;
    command << "create_blind_account " << _label << " \"" << _brain_key << "\"";
 
    // Todo: We cant use ExecuteWalletCommand here

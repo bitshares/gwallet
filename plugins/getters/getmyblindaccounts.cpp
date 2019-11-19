@@ -21,7 +21,7 @@ GetMyBlindAccounts::GetMyBlindAccounts(GWallet* gwallet) : wxScrolledWindow() {
    response_grid->SetColLabelValue(1, _("Public key"));
    response_grid->SetColLabelValue(2, _("Balances"));
 
-   stringstream command;
+   std::stringstream command;
    command << "get_my_blind_accounts";
 
    auto response =
@@ -41,7 +41,7 @@ GetMyBlindAccounts::GetMyBlindAccounts(GWallet* gwallet) : wxScrolledWindow() {
          response_grid->SetCellValue(counter, 0, blind.first);
          response_grid->SetCellValue(counter, 1, string(blind.second));
 
-         stringstream balances_string;
+         std::stringstream balances_string;
 
          const auto balances = p_GWallet->bitshares.wallet_api_ptr->get_blind_balances(blind.first);
          if(balances.size() > 0)

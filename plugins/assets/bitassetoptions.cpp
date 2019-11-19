@@ -7,11 +7,11 @@ BitAssetOptions::BitAssetOptions(GWallet* gwallet) : wxDialog()
    p_GWallet = gwallet;
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
-   feed_lifetime_min->SetValue(to_string(GRAPHENE_MAX_SHARE_SUPPLY/60));
+   feed_lifetime_min->SetValue(std::to_string(GRAPHENE_MAX_SHARE_SUPPLY/60));
    minimum_feeds->SetValue("1");
-   force_settlement_delay_min->SetValue(to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY/60));
-   force_settlement_offset_percent->SetValue(to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET));
-   maximum_force_settlement_volume->SetValue(to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME));
+   force_settlement_delay_min->SetValue(std::to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY/60));
+   force_settlement_offset_percent->SetValue(std::to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET));
+   maximum_force_settlement_volume->SetValue(std::to_string(GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME));
    maximum_force_settlement_volume->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
    Connect(wxID_OK, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(BitAssetOptions::OnOk));

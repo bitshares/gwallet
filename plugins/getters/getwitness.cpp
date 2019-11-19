@@ -29,7 +29,7 @@ void GetWitness::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(owner_account))
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_witness " << _owner_account;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<witness_object>(command.str(), _cli,

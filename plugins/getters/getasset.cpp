@@ -28,7 +28,7 @@ void GetAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAsset(asset_name_or_id))
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_asset " << _asset_name_or_id;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<asset_object>(command.str(), _cli,
@@ -56,7 +56,7 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(symbol, result.symbol);
 
    const auto precision = response_tree->AppendItem(root, _("Precision"));
-   response_tree->AppendItem(precision, to_string(result.precision));
+   response_tree->AppendItem(precision, std::to_string(result.precision));
 
    const auto issuer = response_tree->AppendItem(root, _("Issuer"));
    response_tree->AppendItem(issuer, string(object_id_type(result.issuer)));
@@ -67,16 +67,16 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(max_supply, wxNumberFormatter::ToString(result.options.max_supply.value));
 
    const auto market_fee_percent = response_tree->AppendItem(options, _("Market fee percent"));
-   response_tree->AppendItem(market_fee_percent, to_string(result.options.market_fee_percent));
+   response_tree->AppendItem(market_fee_percent, std::to_string(result.options.market_fee_percent));
 
    const auto max_market_fee = response_tree->AppendItem(options, _("Max market fee"));
    response_tree->AppendItem(max_market_fee, wxNumberFormatter::ToString(result.options.max_market_fee.value));
 
    const auto issuer_permissions = response_tree->AppendItem(options, _("Issuer permissions"));
-   response_tree->AppendItem(issuer_permissions, to_string(result.options.issuer_permissions));
+   response_tree->AppendItem(issuer_permissions, std::to_string(result.options.issuer_permissions));
 
    const auto flags = response_tree->AppendItem(options, _("Flags"));
-   response_tree->AppendItem(flags, to_string(result.options.flags));
+   response_tree->AppendItem(flags, std::to_string(result.options.flags));
 
    const auto core_exchange_rate = response_tree->AppendItem(options, "Core exchange rate");
    const auto base = response_tree->AppendItem(core_exchange_rate, _("Base"));

@@ -30,7 +30,7 @@ void GetCommitteeMember::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(owner_account))
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_committee_member " << _owner_account;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<committee_member_object>(command.str(), _cli,

@@ -43,7 +43,7 @@ void UpdateAssetFeedProducers::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAsset(symbol).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "update_asset_feed_producers " << _symbol << " " << _new_feed_producers << " " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(),

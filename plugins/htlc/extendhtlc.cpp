@@ -26,13 +26,13 @@ void ExtendHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
    const auto _htlc_id = htlc_id->GetValue().ToStdString();
-   const auto _seconds_to_add = to_string(minutes_to_add->GetValue() * 60);
+   const auto _seconds_to_add = std::to_string(minutes_to_add->GetValue() * 60);
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "htlc_extend " << _htlc_id << " " << _issuer << " " << _seconds_to_add << " " << std::boolalpha << _broadcast;
 
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _issuer,

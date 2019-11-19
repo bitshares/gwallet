@@ -7,16 +7,16 @@ AssetOptions::AssetOptions(GWallet* gwallet) : wxDialog()
    p_GWallet = gwallet;
    InitWidgetsFromXRC((wxWindow *)p_GWallet);
 
-   max_supply->SetValue(to_string(GRAPHENE_MAX_SHARE_SUPPLY));
+   max_supply->SetValue(std::to_string(GRAPHENE_MAX_SHARE_SUPPLY));
    max_supply->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
-   max_market_fee->SetValue(to_string(GRAPHENE_MAX_SHARE_SUPPLY));
+   max_market_fee->SetValue(std::to_string(GRAPHENE_MAX_SHARE_SUPPLY));
    max_market_fee->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
-   issuer_permissions->SetValue(to_string(UIA_ASSET_ISSUER_PERMISSION_MASK));
+   issuer_permissions->SetValue(std::to_string(UIA_ASSET_ISSUER_PERMISSION_MASK));
    issuer_permissions->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
-   flags->SetValue(to_string(0));
+   flags->SetValue(std::to_string(0));
    flags->SetValidator(*p_GWallet->panels.p_commands->numeric_validator);
 
    price cer = price(asset(), asset(0, asset_id_type(1)));

@@ -35,7 +35,7 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
 
    const auto _issuer = p_GWallet->strings.accounts[issuer->GetCurrentSelection()].ToStdString();
    const auto _symbol = symbol->GetValue().ToStdString();
-   const auto _precision = to_string(precision->GetValue());
+   const auto _precision = std::to_string(precision->GetValue());
    const auto _common = common->GetValue().ToStdString();
    const auto _bitasset_opts = bitasset_opts->GetValue().ToStdString();
    auto _cli = false;
@@ -43,7 +43,7 @@ void CreateAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "create_asset " << _issuer << " " << _symbol << " " << _precision << " " << _common
            << " " << _bitasset_opts << " " << std::boolalpha << _broadcast;
 

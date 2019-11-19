@@ -47,7 +47,7 @@ void Transfer::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(to).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "transfer " << _from << " " << _to << " " << _amount << " " << _asset
            << " \"" << _memo << "\" " << " " << std::boolalpha << _broadcast;
 

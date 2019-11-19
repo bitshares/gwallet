@@ -29,7 +29,7 @@ void GetAccount::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAccount(account_name_or_id))
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_account " << _account_name_or_id;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<account_object>(command.str(), _cli,
@@ -66,20 +66,20 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(lifetime_referrer, string(object_id_type(result.lifetime_referrer)));
 
    const auto network_fee_percentage = response_tree->AppendItem(root, _("Network fee percentage"));
-   response_tree->AppendItem(network_fee_percentage, to_string(result.network_fee_percentage));
+   response_tree->AppendItem(network_fee_percentage, std::to_string(result.network_fee_percentage));
 
    const auto lifetime_referrer_fee_percentage = response_tree->AppendItem(root, _("Lifetime referrer fee percentage"));
-   response_tree->AppendItem(lifetime_referrer_fee_percentage, to_string(result.lifetime_referrer_fee_percentage));
+   response_tree->AppendItem(lifetime_referrer_fee_percentage, std::to_string(result.lifetime_referrer_fee_percentage));
 
    const auto referrer_rewards_percentage = response_tree->AppendItem(root, _("Referrer rewards percentage"));
-   response_tree->AppendItem(referrer_rewards_percentage, to_string(result.referrer_rewards_percentage));
+   response_tree->AppendItem(referrer_rewards_percentage, std::to_string(result.referrer_rewards_percentage));
 
    const auto name = response_tree->AppendItem(root, _("Name"));
    response_tree->AppendItem(name, result.name);
 
    const auto owner = response_tree->AppendItem(root, _("Owner"));
    const auto owner_weight_threshold = response_tree->AppendItem(owner, _("Weight threshold"));
-   response_tree->AppendItem(owner_weight_threshold, to_string(result.owner.weight_threshold));
+   response_tree->AppendItem(owner_weight_threshold, std::to_string(result.owner.weight_threshold));
    const auto owner_account_auths = response_tree->AppendItem(owner, _("Account authorities"));
    response_tree->AppendItem(owner_account_auths, fc::json::to_string(result.owner.account_auths));
    const auto owner_key_auths = response_tree->AppendItem(owner, _("Key authorities"));
@@ -89,7 +89,7 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
 
    const auto active = response_tree->AppendItem(root, _("Active"));
    const auto active_weight_threshold = response_tree->AppendItem(active, _("Weight threshold"));
-   response_tree->AppendItem(active_weight_threshold, to_string(result.active.weight_threshold));
+   response_tree->AppendItem(active_weight_threshold, std::to_string(result.active.weight_threshold));
    const auto active_account_auths = response_tree->AppendItem(active, _("Account authorities"));
    response_tree->AppendItem(active_account_auths, fc::json::to_string(result.active.account_auths));
    const auto active_key_auths = response_tree->AppendItem(active, _("Key authorities"));
@@ -103,9 +103,9 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    const auto voting_account = response_tree->AppendItem(options, _("Voting account"));
    response_tree->AppendItem(voting_account, string(object_id_type(result.options.voting_account)));
    const auto num_witness = response_tree->AppendItem(options, _("Number of witness"));
-   response_tree->AppendItem(num_witness, to_string(result.options.num_witness));
+   response_tree->AppendItem(num_witness, std::to_string(result.options.num_witness));
    const auto num_committee = response_tree->AppendItem(options, _("Number of committee"));
-   response_tree->AppendItem(num_committee, to_string(result.options.num_committee));
+   response_tree->AppendItem(num_committee, std::to_string(result.options.num_committee));
    const auto votes = response_tree->AppendItem(options, _("Votes"));
    response_tree->AppendItem(votes, fc::json::to_string(result.options.votes));
    const auto extensions = response_tree->AppendItem(options, _("Extensions"));
@@ -133,7 +133,7 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(active_special_authority, fc::json::to_string(result.active_special_authority));
 
    const auto top_n_control_flags = response_tree->AppendItem(root, _("Top n control flags"));
-   response_tree->AppendItem(top_n_control_flags, to_string(result.top_n_control_flags));
+   response_tree->AppendItem(top_n_control_flags, std::to_string(result.top_n_control_flags));
 
    response_tree->ExpandAll();
 

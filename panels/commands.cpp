@@ -15,10 +15,10 @@ void Commands::DoSignedTranactionResponse(wxTreeCtrl* response_tree, signed_tran
    const auto root = response_tree->AddRoot(_("Signed Transaction"));
 
    const auto ref_block_num = response_tree->AppendItem(root, _("Reference block number"));
-   response_tree->AppendItem(ref_block_num, to_string(result.ref_block_num));
+   response_tree->AppendItem(ref_block_num, std::to_string(result.ref_block_num));
 
    const auto ref_block_prefix = response_tree->AppendItem(root, _("Reference block prefix"));
-   response_tree->AppendItem(ref_block_prefix, to_string(result.ref_block_prefix));
+   response_tree->AppendItem(ref_block_prefix, std::to_string(result.ref_block_prefix));
 
    const auto expiration = response_tree->AppendItem(root, _("Expiration"));
    response_tree->AppendItem(expiration, result.expiration.to_iso_string());

@@ -25,7 +25,7 @@ void GetHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_htlc " << _htlc_id;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<fc::variant>(command.str(), _cli,

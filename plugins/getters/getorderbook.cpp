@@ -25,11 +25,11 @@ void GetOrderBook::OnOk(wxCommandEvent& WXUNUSED(event))
 {
    const auto _base = base->GetValue().ToStdString();
    const auto _quote = quote->GetValue().ToStdString();
-   const auto _limit = to_string(limit->GetValue());
+   const auto _limit = std::to_string(limit->GetValue());
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
 
-   stringstream command;
+   std::stringstream command;
    command << "get_order_book " << _base << " " << _quote << " " << _limit;
 
    auto response = p_GWallet->panels.p_commands->ExecuteGetterCommand<order_book>(command.str(), _cli,

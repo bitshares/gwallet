@@ -42,7 +42,7 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    const auto _receive_amount = receive_amount->GetValue().ToStdString();
    const auto _receive_asset = receive_asset->GetValue().ToStdString();
    const auto _fill_or_kill = fill_or_kill->GetValue() ? true : false;
-   const auto _expiration = to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
+   const auto _expiration = std::to_string(p_GWallet->panels.p_commands->DoDateToSeconds(date, time));
    auto _cli = false;
    if(cli->IsChecked()) _cli = true;
    auto _broadcast = true;
@@ -51,7 +51,7 @@ void SellAsset::OnOk(wxCommandEvent& WXUNUSED(event))
    if(!p_GWallet->panels.p_commands->ValidateAsset(receive_asset).valid())
       return;
 
-   stringstream command;
+   std::stringstream command;
    command << "sell_asset " << _seller << " " << _sell_amount << " " << _sell_asset << " " << _receive_amount
            << " " << _receive_asset << " " << _expiration << " " << std::boolalpha << _fill_or_kill
            << " " << std::boolalpha << _broadcast;

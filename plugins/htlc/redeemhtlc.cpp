@@ -37,7 +37,7 @@ void RedeemHtlc::OnOk(wxCommandEvent& WXUNUSED(event))
    auto _broadcast = true;
    if(!broadcast->IsChecked()) _broadcast = false;
 
-   stringstream command;
+   std::stringstream command;
    command << "htlc_redeem " << _htlc_id << " " << _issuer << " " << _preimage << " " << " " << std::boolalpha
            << _broadcast;
    auto response = p_GWallet->panels.p_commands->ExecuteWalletCommand(command.str(), _issuer,
