@@ -106,7 +106,7 @@
                         <size>5,5</size>
                     </object>
                     <object class="sizeritem">
-                        <option>10</option>
+                        <option>7</option>
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>5</border>
                         <object class="wxStaticText" name="wxID_STATIC">
@@ -114,6 +114,15 @@
                             <wrap>0</wrap>
                         </object>
                     </object>
+                    <object class="sizeritem">
+                        <option>3</option>
+                        <flag>wxALL</flag>
+                        <border>5</border>
+                        <object class="wxStaticText" name="m_staticText7">
+                            <label>Precision</label>
+                            <wrap>-1</wrap>
+                        </object>
+                    </object>
                     <object class="spacer">
                         <option>1</option>
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
@@ -135,76 +144,21 @@
                         <size>5,5</size>
                     </object>
                     <object class="sizeritem">
-                        <option>10</option>
+                        <option>7</option>
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxTextCtrl" name="symbol">
                             <tooltip>The ticker symbol of the new asset</tooltip>
                             <value></value>
+                            <maxlength>0</maxlength>
                         </object>
                     </object>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>0</border>
-                        <size>5,5</size>
-                    </object>
-                </object>
-            </object>
-            <object class="spacer">
-                <option>0</option>
-                <flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
-                <border>2</border>
-                <size>5,5</size>
-            </object>
-            <object class="sizeritem">
-                <option>0</option>
-                <flag>wxEXPAND|wxALL</flag>
-                <border>0</border>
-                <object class="wxBoxSizer">
-                    <orient>wxHORIZONTAL</orient>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>0</border>
-                        <size>5,5</size>
-                    </object>
                     <object class="sizeritem">
-                        <option>10</option>
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>5</border>
-                        <object class="wxStaticText" name="wxID_STATIC">
-                            <label>Precision</label>
-                            <wrap>0</wrap>
-                        </object>
-                    </object>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>0</border>
-                        <size>5,5</size>
-                    </object>
-                </object>
-            </object>
-            <object class="sizeritem">
-                <option>0</option>
-                <flag>wxEXPAND|wxALL</flag>
-                <border>0</border>
-                <object class="wxBoxSizer">
-                    <orient>wxHORIZONTAL</orient>
-                    <object class="spacer">
-                        <option>1</option>
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>0</border>
-                        <size>5,5</size>
-                    </object>
-                    <object class="sizeritem">
-                        <option>10</option>
+                        <option>3</option>
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxSpinCtrl" name="precision">
                             <style>wxSP_ARROW_KEYS</style>
-                            <tooltip>The number of digits of precision to the right of the decimal point, must be less than or equal to 12</tooltip>
                             <value>0</value>
                             <min>0</min>
                             <max>12</max>
@@ -280,7 +234,6 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxButton" name="generate_common">
-                            <enabled>1</enabled>
                             <label>Generate</label>
                             <default>0</default>
                             <markup>0</markup>
@@ -357,7 +310,6 @@
                         <flag>wxALL</flag>
                         <border>0</border>
                         <object class="wxButton" name="generate_bitasset">
-                            <enabled>1</enabled>
                             <label>Generate</label>
                             <default>0</default>
                             <markup>0</markup>
