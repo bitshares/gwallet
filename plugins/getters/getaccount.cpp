@@ -52,30 +52,39 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
 
    const auto id = response_tree->AppendItem(root, "ID");
    response_tree->AppendItem(id, string(object_id_type(result.id)));
+   response_tree->Collapse(id);
 
    const auto membership_expiration_date = response_tree->AppendItem(root, _("Membership expiration date"));
    response_tree->AppendItem(membership_expiration_date, result.membership_expiration_date.to_iso_string());
+   response_tree->Collapse(membership_expiration_date);
 
    const auto registrar = response_tree->AppendItem(root, _("Registrar"));
    response_tree->AppendItem(registrar, string(object_id_type(result.registrar)));
+   response_tree->Collapse(registrar);
 
    const auto referrer = response_tree->AppendItem(root, _("Referrer"));
    response_tree->AppendItem(referrer, string(object_id_type(result.referrer)));
+   response_tree->Collapse(referrer);
 
    const auto lifetime_referrer = response_tree->AppendItem(root, _("Lifetime referrer"));
    response_tree->AppendItem(lifetime_referrer, string(object_id_type(result.lifetime_referrer)));
+   response_tree->Collapse(lifetime_referrer);
 
    const auto network_fee_percentage = response_tree->AppendItem(root, _("Network fee percentage"));
    response_tree->AppendItem(network_fee_percentage, std::to_string(result.network_fee_percentage));
+   response_tree->Collapse(network_fee_percentage);
 
    const auto lifetime_referrer_fee_percentage = response_tree->AppendItem(root, _("Lifetime referrer fee percentage"));
    response_tree->AppendItem(lifetime_referrer_fee_percentage, std::to_string(result.lifetime_referrer_fee_percentage));
+   response_tree->Collapse(lifetime_referrer_fee_percentage);
 
    const auto referrer_rewards_percentage = response_tree->AppendItem(root, _("Referrer rewards percentage"));
    response_tree->AppendItem(referrer_rewards_percentage, std::to_string(result.referrer_rewards_percentage));
+   response_tree->Collapse(lifetime_referrer_fee_percentage);
 
    const auto name = response_tree->AppendItem(root, _("Name"));
    response_tree->AppendItem(name, result.name);
+   response_tree->Expand(name);
 
    const auto owner = response_tree->AppendItem(root, _("Owner"));
    const auto owner_weight_threshold = response_tree->AppendItem(owner, _("Weight threshold"));
@@ -86,6 +95,7 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(owner_key_auths, fc::json::to_string(result.owner.key_auths));
    const auto owner_address_auths = response_tree->AppendItem(owner, _("Address authorities"));
    response_tree->AppendItem(owner_address_auths, fc::json::to_string(result.owner.address_auths));
+   response_tree->CollapseAllChildren(owner);
 
    const auto active = response_tree->AppendItem(root, _("Active"));
    const auto active_weight_threshold = response_tree->AppendItem(active, _("Weight threshold"));
@@ -96,6 +106,7 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(active_key_auths, fc::json::to_string(result.active.key_auths));
    const auto active_address_auths = response_tree->AppendItem(active, _("Address authorities"));
    response_tree->AppendItem(active_address_auths, fc::json::to_string(result.active.address_auths));
+   response_tree->CollapseAllChildren(active);
 
    const auto options = response_tree->AppendItem(root, _("Options"));
    const auto memo_key = response_tree->AppendItem(options, _("Memo key"));
@@ -110,32 +121,41 @@ GetAccountResponse::GetAccountResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(votes, fc::json::to_string(result.options.votes));
    const auto extensions = response_tree->AppendItem(options, _("Extensions"));
    response_tree->AppendItem(extensions, fc::json::to_string(result.options.extensions));
+   response_tree->CollapseAllChildren(options);
 
    const auto statistics = response_tree->AppendItem(root, _("Statistics"));
    response_tree->AppendItem(statistics, fc::json::to_string(result.statistics));
+   response_tree->Collapse(statistics);
 
    const auto whitelisting_accounts = response_tree->AppendItem(root, _("Whitelisting accounts"));
    response_tree->AppendItem(whitelisting_accounts, fc::json::to_string(result.whitelisting_accounts));
+   response_tree->Collapse(whitelisting_accounts);
 
    const auto blacklisting_accounts = response_tree->AppendItem(root, _("Blacklisting accounts"));
    response_tree->AppendItem(blacklisting_accounts, fc::json::to_string(result.blacklisting_accounts));
+   response_tree->Collapse(blacklisting_accounts);
 
    const auto whitelisted_accounts = response_tree->AppendItem(root, _("Whitelisted accounts"));
    response_tree->AppendItem(whitelisted_accounts, fc::json::to_string(result.whitelisted_accounts));
+   response_tree->Collapse(whitelisted_accounts);
 
    const auto blacklisted_accounts = response_tree->AppendItem(root, _("Blacklisted accounts"));
    response_tree->AppendItem(blacklisted_accounts, fc::json::to_string(result.blacklisted_accounts));
+   response_tree->Collapse(blacklisted_accounts);
 
    const auto owner_special_authority = response_tree->AppendItem(root, _("Owner special authority"));
    response_tree->AppendItem(owner_special_authority, fc::json::to_string(result.owner_special_authority));
+   response_tree->Collapse(owner_special_authority);
 
    const auto active_special_authority = response_tree->AppendItem(root, _("Active special authority"));
    response_tree->AppendItem(active_special_authority, fc::json::to_string(result.active_special_authority));
+   response_tree->Collapse(active_special_authority);
 
    const auto top_n_control_flags = response_tree->AppendItem(root, _("Top n control flags"));
    response_tree->AppendItem(top_n_control_flags, std::to_string(result.top_n_control_flags));
+   response_tree->Collapse(top_n_control_flags);
 
-   response_tree->ExpandAll();
+   response_tree->Expand(root);
 
    gwallet->panels.p_commands->notebook->AddPage(this, _("Get account response"), true);
 }

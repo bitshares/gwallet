@@ -53,20 +53,25 @@ GetCommitteeMemberResponse::GetCommitteeMemberResponse(GWallet* gwallet, wxAny a
 
    const auto id = response_tree->AppendItem(root, "ID");
    response_tree->AppendItem(id, string(object_id_type(result.id)));
+   response_tree->Expand(id);
 
    const auto committee_member_account = response_tree->AppendItem(root, _("Committee member account"));
    response_tree->AppendItem(committee_member_account, string(object_id_type(result.committee_member_account)));
+   response_tree->Collapse(committee_member_account);
 
    const auto vote_id = response_tree->AppendItem(root, _("Vote ID"));
    response_tree->AppendItem(vote_id, fc::json::to_string(result.vote_id));
+   response_tree->Collapse(vote_id);
 
    const auto total_votes = response_tree->AppendItem(root, _("Total votes"));
    response_tree->AppendItem(total_votes, wxNumberFormatter::ToString((long)(result.total_votes/pow(10, 5))));
+   response_tree->Collapse(total_votes);
 
    const auto url = response_tree->AppendItem(root, "Url");
    response_tree->AppendItem(url, fc::json::to_string(result.url));
+   response_tree->Collapse(url);
 
-   response_tree->ExpandAll();
+   response_tree->Expand(root);
 
    gwallet->panels.p_commands->notebook->AddPage(this, _("Committee member response"), true);
 }

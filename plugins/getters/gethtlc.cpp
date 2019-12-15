@@ -54,6 +54,7 @@ GetHtlcResponse::GetHtlcResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(asset, result["transfer"]["asset"].as_string());
    const auto amount = response_tree->AppendItem(transfer, "Amount");
    response_tree->AppendItem(amount, result["transfer"]["amount"].as_string());
+   response_tree->CollapseAllChildren(transfer);
 
    const auto conditions = response_tree->AppendItem(root, "Conditions");
    const auto htlc_lock = response_tree->AppendItem(conditions, "HTLC Lock");
@@ -68,8 +69,9 @@ GetHtlcResponse::GetHtlcResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(expiration, result["conditions"]["time_lock"]["expiration"].as_string());
    const auto time_left = response_tree->AppendItem(time_lock, "Time left");
    response_tree->AppendItem(time_left, result["conditions"]["time_lock"]["time_left"].as_string());
+   response_tree->CollapseAllChildren(conditions);
 
-   response_tree->ExpandAll();
+   response_tree->Expand(root);
 
    gwallet->panels.p_commands->notebook->AddPage(this, _("HTLC response"), true);
 }

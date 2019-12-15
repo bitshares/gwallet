@@ -51,33 +51,31 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
 
    const auto id = response_tree->AppendItem(root, "ID");
    response_tree->AppendItem(id, string(object_id_type(result.id)));
+   response_tree->Collapse(id);
 
    const auto symbol = response_tree->AppendItem(root, _("Symbol"));
    response_tree->AppendItem(symbol, result.symbol);
+   response_tree->Expand(symbol);
 
    const auto precision = response_tree->AppendItem(root, _("Precision"));
    response_tree->AppendItem(precision, std::to_string(result.precision));
+   response_tree->Collapse(precision);
 
    const auto issuer = response_tree->AppendItem(root, _("Issuer"));
    response_tree->AppendItem(issuer, string(object_id_type(result.issuer)));
+   response_tree->Collapse(issuer);
 
    const auto options = response_tree->AppendItem(root, "Options");
-
    const auto max_supply = response_tree->AppendItem(options, _("Max supply"));
    response_tree->AppendItem(max_supply, wxNumberFormatter::ToString(result.options.max_supply.value));
-
    const auto market_fee_percent = response_tree->AppendItem(options, _("Market fee percent"));
    response_tree->AppendItem(market_fee_percent, std::to_string(result.options.market_fee_percent));
-
    const auto max_market_fee = response_tree->AppendItem(options, _("Max market fee"));
    response_tree->AppendItem(max_market_fee, wxNumberFormatter::ToString(result.options.max_market_fee.value));
-
    const auto issuer_permissions = response_tree->AppendItem(options, _("Issuer permissions"));
    response_tree->AppendItem(issuer_permissions, std::to_string(result.options.issuer_permissions));
-
    const auto flags = response_tree->AppendItem(options, _("Flags"));
    response_tree->AppendItem(flags, std::to_string(result.options.flags));
-
    const auto core_exchange_rate = response_tree->AppendItem(options, "Core exchange rate");
    const auto base = response_tree->AppendItem(core_exchange_rate, _("Base"));
    const auto base_amount = response_tree->AppendItem(base, _("Amount"));
@@ -89,6 +87,7 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(quote_amount, wxNumberFormatter::ToString(result.options.core_exchange_rate.quote.amount.value));
    const auto quote_asset_id = response_tree->AppendItem(quote, _("Asset ID"));
    response_tree->AppendItem(quote_asset_id, string(object_id_type(result.options.core_exchange_rate.quote.asset_id)));
+   response_tree->CollapseAllChildren(options);
 
    const auto whitelist_authorities = response_tree->AppendItem(options, "Whitelist authorities");
    response_tree->AppendItem(whitelist_authorities, fc::json::to_string(result.options.whitelist_authorities));
@@ -98,17 +97,21 @@ GetAssetResponse::GetAssetResponse(GWallet* gwallet, wxAny any_response)
    response_tree->AppendItem(whitelist_markets, fc::json::to_string(result.options.whitelist_markets));
    const auto blacklist_markets = response_tree->AppendItem(options, "Blacklist markets");
    response_tree->AppendItem(blacklist_markets, fc::json::to_string(result.options.blacklist_markets));
+   response_tree->CollapseAllChildren(whitelist_authorities);
 
    const auto description = response_tree->AppendItem(options, _("Description"));
    response_tree->AppendItem(description, result.options.description);
+   response_tree->Collapse(description);
 
    const auto extensions = response_tree->AppendItem(options, "Extensions");
    response_tree->AppendItem(extensions, fc::json::to_string(result.options.extensions));
+   response_tree->Collapse(extensions);
 
    const auto dynamic_asset_data_id = response_tree->AppendItem(root, "Dynamic asset data ID");
    response_tree->AppendItem(dynamic_asset_data_id, fc::json::to_string(result.dynamic_asset_data_id));
+   response_tree->Collapse(dynamic_asset_data_id);
 
-   response_tree->ExpandAll();
+   response_tree->Expand(root);
 
    gwallet->panels.p_commands->notebook->AddPage(this, _("Get asset response"), true);
 }
