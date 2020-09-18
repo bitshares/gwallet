@@ -46,6 +46,7 @@ Ubuntu instructions assuming you already have all needed to install bitshares-co
 
 Add wxWidgets to your system:
 
+    sudo apt-get update
     sudo apt-get install libwxgtk3.0-dev
 
 Get the code and build:
