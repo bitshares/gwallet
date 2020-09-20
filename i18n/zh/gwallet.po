@@ -17,7 +17,7 @@ msgstr ""
 
 #: dialogs/importbalance.cpp:31
 msgid "Account balance imported"
-msgstr "帐户已导入"
+msgstr "帐户余额已导入"
 
 #: dialogs/importbalance.cpp:31 dialogs/importkey.cpp:39 gwallet.cpp:657
 #: wizards/registration.cpp:49
@@ -50,11 +50,11 @@ msgstr "输入服务器"
 
 #: gwallet.cpp:90
 msgid "Websocket endpoint"
-msgstr "Websocket端点"
+msgstr "Websocket endpoint"
 
 #: gwallet.cpp:119
 msgid "Please wait, connecting ..."
-msgstr "请稍等，连接......"
+msgstr "请稍等，连接中......"
 
 #: gwallet.cpp:124
 msgid "Problem connecting to:"
@@ -66,11 +66,11 @@ msgstr "请重试或更改服务器。"
 
 #: gwallet.cpp:171
 msgid "Some problem when disconnecting, try again ..."
-msgstr "断开连接时出现一些问题，请再试一次......"
+msgstr "断开连接时出现一些问题，请重试......"
 
 #: gwallet.cpp:173 gwallet.cpp:797
 msgid "Disconnected"
-msgstr "断开的"
+msgstr "已断开"
 
 #: gwallet.cpp:181
 msgid "Enter password"
@@ -78,12 +78,12 @@ msgstr "输入密码"
 
 #: gwallet.cpp:187 gwallet.cpp:746
 msgid "Connected | Locked"
-msgstr "连接的 | 锁定"
+msgstr "已连接 | 已锁定"
 
 #: gwallet.cpp:202
 #, c-format
 msgid "Secure and simple bitshares wallet build with %s"
-msgstr "安全和简单的bitshares钱包构建 %s"
+msgstr "安全简便的bitshares钱包构建 %s"
 
 #: gwallet.cpp:203
 msgid "About G-Wallet"
@@ -91,11 +91,11 @@ msgstr "关于G-Wallet"
 
 #: gwallet.cpp:214
 msgid "Some problem when locking, try again ..."
-msgstr "锁定时有些问题，请再试一次......"
+msgstr "锁定出现问题，请再试一次......"
 
 #: gwallet.cpp:223 panels/wallet.cpp:84
 msgid "Please double click a command from below"
-msgstr "请双击下面的命令"
+msgstr "请双击下面一个命令"
 
 #: gwallet.cpp:228
 msgid "Unlock wallet"
@@ -132,11 +132,11 @@ msgstr "中文"
 
 #: gwallet.cpp:637
 msgid "Spanish"
-msgstr "西班牙语"
+msgstr "Spanish"
 
 #: gwallet.cpp:639
 msgid "English"
-msgstr "英语"
+msgstr "English"
 
 #: gwallet.cpp:640
 msgid "Select language:"
@@ -150,7 +150,7 @@ msgstr "语言"
 msgid ""
 "Language changed, however you need to restart G-Wallet for changes to take "
 "effect"
-msgstr "语言已更改，但您需要重新启动G-Wallet才能使更改生效"
+msgstr "语言已更改，重新启动G-Wallet使更改生效"
 
 #: gwallet.cpp:698
 msgid "No Config"
@@ -158,15 +158,15 @@ msgstr "没有配置"
 
 #: gwallet.cpp:736 gwallet.cpp:740
 msgid "Connected | New"
-msgstr "连接的 | 新"
+msgstr "已连接 | 新"
 
 #: gwallet.cpp:757
 msgid "Connected | Unlocked"
-msgstr "连接的 | 解锁"
+msgstr "已连接 | 已解锁"
 
 #: gwallet.cpp:808 wizards/registration.cpp:73
 msgid "Accounts found"
-msgstr "找到帐户"
+msgstr "已找到帐户"
 
 #: gwallet.cpp:808 wizards/registration.cpp:73
 msgid "Please select an account"
@@ -174,7 +174,7 @@ msgstr "帐户和密钥不能为空"
 
 #: gwallet.cpp:822
 msgid "Assets found"
-msgstr "找到资产"
+msgstr "已找到资产"
 
 #: gwallet.cpp:822
 msgid "Please select an asset"
@@ -186,7 +186,7 @@ msgstr "软件信息"
 
 #: resources/about.xrc:50
 msgid "Client version:"
-msgstr "客户版本："
+msgstr "Client版本："
 
 #: resources/about.xrc:76
 msgid "Graphene revision:"
@@ -194,7 +194,7 @@ msgstr "Graphene 调整 : "
 
 #: resources/about.xrc:102
 msgid "Revision age:"
-msgstr "修订年龄："
+msgstr "修订版本："
 
 #: resources/about.xrc:128
 msgid "FC revision:"
@@ -202,7 +202,7 @@ msgstr "FC 调整 : "
 
 #: resources/about.xrc:154
 msgid "FC revision age:"
-msgstr "FC 修订年龄 : "
+msgstr "FC 修订版本: "
 
 #: resources/about.xrc:180
 msgid "Compile date:"
@@ -210,25 +210,25 @@ msgstr "编译日期："
 
 #: resources/about.xrc:206
 msgid "Boost version:"
-msgstr "Boost 版:"
+msgstr "Boost 版本:"
 
 #: resources/about.xrc:232
 msgid "OpenSSL version:"
-msgstr "OpenSSL 版:"
+msgstr "OpenSSL 版本:"
 
 #: resources/about.xrc:258
 msgid "OS build:"
-msgstr "OS 建立 : "
+msgstr "OS 创建: "
 
 #: resources/borrowasset.xrc:25
 msgid ""
 "This is the first step in shorting an asset.  Call sell_asset() to complete "
 "the short."
-msgstr "这是做空资产的第一步。 调用sell_asset（）来完成短线。"
+msgstr "这是借贷资产的第一步。 请调用sell_asset（）来完成。"
 
 #: resources/borrowasset.xrc:26
 msgid "Borrow an asset or update the debt/collateral ratio for the loan."
-msgstr "借入资产或更新贷款的债务/抵押比率。"
+msgstr "借入资产或更新贷款的债务/抵押率。"
 
 #: resources/borrowasset.xrc:49
 msgid "Borrower name"
@@ -246,7 +246,7 @@ msgstr "借款金额"
 msgid ""
 "The amount of the asset being borrowed.  Make this value negative to pay "
 "back debt."
-msgstr "借入的资产金额。 使这个价值为负值以偿还债务。"
+msgstr "借入的资产数量。 使这个价值为负值以偿还债务。"
 
 #: resources/borrowasset.xrc:154
 msgid "The symbol or id of the asset being borrowed."
@@ -254,7 +254,7 @@ msgstr "借入资产的符号或ID。"
 
 #: resources/borrowasset.xrc:189
 msgid "Amount of collateral"
-msgstr "抵押金额"
+msgstr "抵押数量"
 
 #: resources/borrowasset.xrc:218
 msgid ""
@@ -263,12 +263,12 @@ msgid ""
 "The backing asset is defined in the bitasset_options for the asset being "
 "borrowed."
 msgstr ""
-"要添加到抵押品头寸的支持资产金额。 将此否定权归还一些抵押品。\n"
-"支持资产在bitasset_options中为借用的资产定义。"
+"要添加到抵押头寸的支持资产的数量。 将此设为负值将归还一些抵押品。\n"
+"支持资产在bitasset_options中被借用的资产定义。"
 
 #: resources/borrowasset.xrc:263 resources/cancelorder.xrc:113
 msgid "Check to broadcast the transaction on the network."
-msgstr "检查以在网络上广播该事务。"
+msgstr "检查并在网络上广播该交易。"
 
 #: resources/borrowasset.xrc:264 resources/cancelorder.xrc:114
 #: resources/createaccountwithbrainkey.xrc:331
@@ -310,7 +310,7 @@ msgstr "取消现有订单"
 
 #: resources/cancelorder.xrc:48
 msgid "Order to cancel"
-msgstr "要取消"
+msgstr "取消订单"
 
 #: resources/cancelorder.xrc:78
 msgid " Select order to be cancelled."
@@ -330,21 +330,21 @@ msgstr "创建一个新帐户并将其注册到区块链上。"
 
 #: resources/createaccountwithbrainkey.xrc:60
 msgid "Brain key"
-msgstr "建议的脑键"
+msgstr "脑密钥"
 
 #: resources/createaccountwithbrainkey.xrc:89
 msgid "The brain key used for generating the account's private keys"
-msgstr "用于生成帐户私钥的大脑密钥"
+msgstr "用于生成帐户私钥的脑密钥"
 
 #: resources/createaccountwithbrainkey.xrc:99
 msgid "Get brain key"
-msgstr "获得大脑的关键"
+msgstr "获得脑密钥"
 
 #: resources/createaccountwithbrainkey.xrc:136
 #: resources/getaccounthistory.xrc:60 resources/getaccount.xrc:60
 #: resources/registeraccount.xrc:67
 msgid "Account name"
-msgstr "用户名"
+msgstr "账户名"
 
 #: resources/createaccountwithbrainkey.xrc:165 resources/registeraccount.xrc:96
 msgid ""
@@ -362,12 +362,12 @@ msgstr ""
 #: resources/createaccountwithbrainkey.xrc:201
 #: resources/registeraccount.xrc:262
 msgid "Registrar account"
-msgstr "注册商帐户"
+msgstr "登记员帐户"
 
 #: resources/createaccountwithbrainkey.xrc:230
 #: resources/registeraccount.xrc:291
 msgid "The account which will pay the fee to register the user"
-msgstr "将支付费用以注册用户的帐户"
+msgstr "支付注册费用的帐户"
 
 #: resources/createaccountwithbrainkey.xrc:266
 #: resources/registeraccount.xrc:327
@@ -388,7 +388,7 @@ msgstr ""
 #: resources/registeraccount.xrc:457 resources/sellasset.xrc:370
 #: resources/upgradeaccount.xrc:101
 msgid "Check to broadcast the transaction on the network"
-msgstr "检查以在网络上广播该事务"
+msgstr "检查并在网络上广播该事务"
 
 #: resources/createasset.xrc:24
 msgid "Creates a new user-issued or market-issued asset."
@@ -403,7 +403,7 @@ msgstr "发行者"
 msgid ""
 "The name of the account who will pay the fee and become the issuer of the "
 "new asset.  This can be updated later."
-msgstr "将支付费用并成为新资产发行人的帐户名称。 这可以在以后更新。"
+msgstr "将支付费用并成为新资产发行人的帐户名称。可以在以后更新。"
 
 #: resources/createasset.xrc:113 panels/getasset.cpp:68
 msgid "Symbol"
@@ -415,17 +415,17 @@ msgstr "新资产的股票代码"
 
 #: resources/createasset.xrc:177 panels/getasset.cpp:71
 msgid "Precision"
-msgstr "精确"
+msgstr "精度"
 
 #: resources/createasset.xrc:207
 msgid ""
 "The number of digits of precision to the right of the decimal point, must be "
 "less than or equal to 12"
-msgstr "小数点右侧的精度位数必须小于或等于12"
+msgstr "小数点右侧的精度位数必须小于等于12"
 
 #: resources/createasset.xrc:244
 msgid "Common asset options"
-msgstr "共同资产选择"
+msgstr "通用资产选项"
 
 #: resources/createasset.xrc:273
 msgid ""
@@ -456,7 +456,7 @@ msgid ""
 "\n"
 "This may be null unless the market_issued flag is set in common flags."
 msgstr ""
-"BitAssets特有的选项。\n"
+"BitAssets特定选项。\n"
 "\n"
 "除非在公共标志中设置market_issued标志，否则这可能为null。"
 
@@ -465,7 +465,7 @@ msgstr ""
 #: resources/redeemhtlc.xrc:247 resources/transfer.xrc:321
 #: resources/upgradeaccount.xrc:91
 msgid "Broadcast the transaction on the network"
-msgstr "在网络上广播交易在网络上广播交易"
+msgstr "在网络上广播交易"
 
 #: resources/createasset.xrc:400 resources/createhtlc.xrc:493
 #: resources/extendhtlc.xrc:251 resources/issueasset.xrc:258
@@ -488,25 +488,25 @@ msgstr "预留资金的账户（并支付费用）"
 
 #: resources/createhtlc.xrc:113
 msgid "Destination"
-msgstr "目的地"
+msgstr "目标地址"
 
 #: resources/createhtlc.xrc:142 resources/extendhtlc.xrc:142
 #: resources/redeemhtlc.xrc:142
 msgid "The account that will receive the funds if the preimage is presented"
-msgstr "如果提供了preimage，将收到资金的帐户"
+msgstr "如果账户提交了原像，其将收到资金"
 
 #: resources/createhtlc.xrc:177 resources/issueasset.xrc:117
 #: resources/transfer.xrc:177 panels/getasset.cpp:96 panels/getasset.cpp:101
 msgid "Amount"
-msgstr "量"
+msgstr "数量"
 
 #: resources/createhtlc.xrc:186 panels/wallet.cpp:36 panels/wallet.cpp:59
 msgid "Asset"
-msgstr "财富"
+msgstr "资产"
 
 #: resources/createhtlc.xrc:215
 msgid "The amount of the asset that is to be traded"
-msgstr "要交易的资产金额"
+msgstr "要交易的资产数量"
 
 #: resources/createhtlc.xrc:227
 msgid "The asset that is to be traded"
@@ -522,7 +522,7 @@ msgstr "原像大小以字节为单位"
 
 #: resources/createhtlc.xrc:301
 msgid "The algorithm used to generate the hash from the preimage."
-msgstr "用于从preimage生成散列的算法。"
+msgstr "用于从原像生成hash的算法。"
 
 #: resources/createhtlc.xrc:304
 msgid "RIPEMD160"
@@ -538,19 +538,19 @@ msgstr "SHA256"
 
 #: resources/createhtlc.xrc:316
 msgid "The size of the preimage in bytes"
-msgstr "preimage的大小，以字节为单位"
+msgstr "原像的大小，以字节为单位"
 
 #: resources/createhtlc.xrc:351 resources/redeemhtlc.xrc:177
 msgid "Preimage hash"
-msgstr "Preimage哈希"
+msgstr "原像哈希"
 
 #: resources/createhtlc.xrc:380
 msgid "The hash of the preimage"
-msgstr "preimage的哈希"
+msgstr "原像的哈希"
 
 #: resources/createhtlc.xrc:421
 msgid "Claim period"
-msgstr "索赔期"
+msgstr "有效期限"
 
 #: resources/extendhtlc.xrc:24
 msgid "Increase the timelock on an existing HTLC"
@@ -607,7 +607,7 @@ msgstr "返回有关给定HTLC对象的信息。"
 
 #: resources/getorderbook.xrc:32
 msgid "Return the order book for a given market"
-msgstr "退回给定市场的订单"
+msgstr "获取指定市场的订单"
 
 #: resources/getorderbook.xrc:61
 msgid "Market"
@@ -615,11 +615,11 @@ msgstr "市场"
 
 #: resources/getwitness.xrc:31
 msgid "Returns information about the given witness."
-msgstr "返回有关给定见证人的信息。"
+msgstr "获取指定见证人的信息。"
 
 #: resources/importbalance_dialog.xrc:7
 msgid "Import Balance"
-msgstr "导入密钥"
+msgstr "导入余额"
 
 #: resources/importbalance_dialog.xrc:33 resources/importkey_dialog.xrc:33
 msgid "Account Name"
@@ -639,11 +639,11 @@ msgstr "导入密钥"
 
 #: resources/info.xrc:50
 msgid "Head block number:"
-msgstr "头部编号："
+msgstr "头部区块编号："
 
 #: resources/info.xrc:76
 msgid "Block age:"
-msgstr "封锁年龄："
+msgstr "区块版本："
 
 #: resources/info.xrc:102
 msgid "Next maintenance time:"
@@ -655,19 +655,19 @@ msgstr "参与："
 
 #: resources/info.xrc:154
 msgid "Active witnesses:"
-msgstr "积极的证人："
+msgstr "活跃见证人："
 
 #: resources/info.xrc:163 resources/info.xrc:190 resources/main.xrc:76
 msgid "View"
-msgstr "视图"
+msgstr "查看"
 
 #: resources/info.xrc:181
 msgid "Active committee:"
-msgstr "积极委员会："
+msgstr "活跃理事会成员："
 
 #: resources/info.xrc:208
 msgid "Chain ID:"
-msgstr "链ID："
+msgstr "Chain ID："
 
 #: resources/info.xrc:234
 msgid "Core asset:"
@@ -679,11 +679,11 @@ msgstr "区块链名称："
 
 #: resources/issueasset.xrc:24
 msgid " Issue new shares of an asset."
-msgstr "发行资产的新股份。"
+msgstr "发行一个资产的新股份。"
 
 #: resources/issueasset.xrc:53
 msgid "To account"
-msgstr "要考虑"
+msgstr "给账户"
 
 #: resources/issueasset.xrc:82
 msgid "The name or id of the account to receive the new shares"
@@ -691,7 +691,7 @@ msgstr "接收新股份的帐户的名称或ID"
 
 #: resources/issueasset.xrc:146
 msgid "The amount to issue, in nominal units"
-msgstr "以名义单位发行的金额"
+msgstr "以标称单位发行的数量"
 
 #: resources/issueasset.xrc:156
 msgid "The ticker symbol of the asset to issue"
@@ -699,15 +699,15 @@ msgstr "要发行的资产的股票代码"
 
 #: resources/issueasset.xrc:191 resources/transfer.xrc:254
 msgid "Memo"
-msgstr "备忘录"
+msgstr "备注"
 
 #: resources/issueasset.xrc:221
 msgid "A memo to include in the transaction, readable by the recipient"
-msgstr "包含在交易中的备忘录，可由收件人阅读"
+msgstr "包含在交易中的备注，可由收件人阅读"
 
 #: resources/main.xrc:6 main.cpp:8
 msgid "G-Wallet | Secure Bitshares Wallet"
-msgstr "G-Wallet | 安全Bitshares钱包"
+msgstr "G-Wallet | 安全的Bitshares钱包"
 
 #: resources/main.xrc:12
 msgid "File"
@@ -739,11 +739,11 @@ msgstr "设置"
 
 #: resources/main.xrc:39
 msgid "Quit"
-msgstr "放弃"
+msgstr "退出"
 
 #: resources/main.xrc:46 resources/main.xrc:124
 msgid "Connect"
-msgstr "连"
+msgstr "连接"
 
 #: resources/main.xrc:50 resources/main.xrc:130
 msgid "Disconnect"
@@ -755,11 +755,11 @@ msgstr "设置密码"
 
 #: resources/main.xrc:59 resources/main.xrc:136
 msgid "Lock"
-msgstr "锁"
+msgstr "锁定"
 
 #: resources/main.xrc:63 resources/main.xrc:142
 msgid "Unlock"
-msgstr "开锁"
+msgstr "解锁"
 
 #: resources/main.xrc:67
 msgid "Import key"
@@ -767,7 +767,7 @@ msgstr "导入密钥"
 
 #: resources/main.xrc:71
 msgid "Import balance"
-msgstr "我的平衡"
+msgstr "导入余额"
 
 #: resources/main.xrc:79
 msgid "Welcome"
@@ -779,7 +779,7 @@ msgstr "CLI"
 
 #: resources/main.xrc:109
 msgid "Help"
-msgstr "救命"
+msgstr "帮助"
 
 #: resources/main.xrc:157
 msgid "My accounts"
@@ -799,7 +799,7 @@ msgstr "我的资产"
 
 #: resources/main.xrc:178
 msgid "My balance"
-msgstr "我的平衡"
+msgstr "我的余额"
 
 #: resources/main.xrc:217
 msgid "Welcome to G-Wallet"
@@ -813,7 +813,7 @@ msgstr "版 0.7.0"
 msgid ""
 "Setup a new wallet by following the wizard. Please note you need a created "
 "account and private key."
-msgstr "按照向导设置新钱包。 请注意，您需要创建帐户和私钥。"
+msgstr "按照向导创建新钱包。 请注意，您需要创建帐户和私钥。"
 
 #: resources/main.xrc:295
 msgid ""
@@ -827,11 +827,11 @@ msgstr "如果您的钱包已全部设置，请连接到Bitshares。"
 
 #: resources/redeemhtlc.xrc:24
 msgid "Update a hashed time lock contract"
-msgstr "更新散列时间锁定合同"
+msgstr "更新哈希时间锁定合约"
 
 #: resources/redeemhtlc.xrc:206
 msgid "the preimage that should evaluate to the preimage_hash"
-msgstr "应该评估preimage_hash的preimage"
+msgstr "原像应等效于preimage_hash"
 
 #: resources/registeraccount.xrc:31
 msgid ""
@@ -846,9 +846,9 @@ msgid ""
 msgstr ""
 "此功能用于注册您不拥有私钥的帐户。\n"
 "\n"
-"  作为注册商时，最终用户将生成自己的私钥并向您发送公钥。\n"
+"  作为登记员时，最终用户将生成自己的私钥并向您发送公钥。\n"
 "\n"
-"  注册商将使用此功能代表最终用户注册帐户。"
+"  登记员将使用此功能代表最终用户注册帐户。"
 
 #: resources/registeraccount.xrc:32
 msgid "Registers a third party's account on the blockckain."
@@ -856,19 +856,19 @@ msgstr "在区块链上注册第三方帐户。"
 
 #: resources/registeraccount.xrc:132
 msgid "Owner key"
-msgstr "所有者密钥"
+msgstr "账户密钥"
 
 #: resources/registeraccount.xrc:161
 msgid "The owner key for the new account"
-msgstr "新帐户的所有者密钥"
+msgstr "新帐户的账户密钥"
 
 #: resources/registeraccount.xrc:197
 msgid "Active key"
-msgstr "活动密钥"
+msgstr "资金密钥"
 
 #: resources/registeraccount.xrc:226
 msgid "The active key for the new account"
-msgstr "新帐户的有效密钥"
+msgstr "新帐户的资金密钥"
 
 #: resources/registeraccount.xrc:391
 msgid "Referrer percent"
@@ -917,12 +917,12 @@ msgid ""
 "Next step is to insert your API endpoint and \n"
 "create a wallet password."
 msgstr ""
-"下一步是插入您的API端点和\n"
+"下一步是输入您的API节点和\n"
 "创建钱包密码。"
 
 #: resources/registration_wizard.xrc:128
 msgid "Introduce your API endpoint:"
-msgstr "介绍您的API端点："
+msgstr "介绍您的API节点："
 
 #: resources/registration_wizard.xrc:168
 msgid "Wallet password:"
@@ -938,7 +938,7 @@ msgid ""
 "and have a private key use the Import account option. "
 msgstr ""
 "如果您已在Bitshares拥有帐户\n"
-"并使用私钥使用导入帐户选项。"
+"请使用导入帐户选项导入私钥。"
 
 #: resources/registration_wizard.xrc:224
 msgid ""
@@ -958,7 +958,7 @@ msgid ""
 "account name pair."
 msgstr ""
 "导入帐户 - 需要私钥和\n"
-"帐户名称对。"
+"帐户名称。"
 
 #: resources/registration_wizard.xrc:258
 msgid ""
@@ -999,22 +999,22 @@ msgid ""
 "       \n"
 " Market orders are matched in the order they are included in the block chain."
 msgstr ""
-"购买和销售与石墨烯的操作相同; 如果你想用美元购买BTS，你应该卖BTS美元。\n"
+"购买和销售在石墨烯链上的操作相同; 如果你想用美元购买BTS，你应该卖BTS美元。\n"
 "\n"
-"只要价格至少为min_to_receive / amount_to_sell，区块链将尝试尽可能多地出售"
+"只要价格不低于min_to_receive / amount_to_sell，区块链将尝试尽可能多地出售"
 "symbol_to_sell symbolitoceceive。\n"
 "       \n"
-"除交易费外，市场费用将按出售资产和接收资产的发行人的指定，按交换金额的百分比"
+"除交易费外，市场费用将按出售资产和接收资产的发行人的指定，按交易金额的百分比"
 "计算。\n"
 "       \n"
-"如果销售资产或接收资产是白名单限制，则只有在卖方位于受限资产类型的白名单中时"
+"如果销售资产或接收资产有白名单限制，则只有在卖方位于受限资产类型的白名单中时"
 "才会创建订单。\n"
 "       \n"
 "  市场订单按它们包含在区块链中的顺序进行匹配。"
 
 #: resources/sellasset.xrc:26
 msgid " Place a limit order attempting to sell one asset for another."
-msgstr "下达限价单，试图将一种资产出售给另一种资产。"
+msgstr "委托限价单，试图将一种资产出售以获取另一种资产。"
 
 #: resources/sellasset.xrc:49
 msgid "Seller account"
@@ -1024,15 +1024,15 @@ msgstr "卖家帐户"
 msgid ""
 "The account providing the asset being sold, and which will receive the "
 "proceeds of the sale."
-msgstr "提供资产的账户，并将收到销售收益。"
+msgstr "提供卖出资产的账户，将收到出售收益。"
 
 #: resources/sellasset.xrc:115
 msgid "Amount to sell"
-msgstr "出售金额"
+msgstr "出售数量"
 
 #: resources/sellasset.xrc:144
 msgid "The amount of the asset being sold to sell (in nominal units)."
-msgstr "出售的资产数量（以名义单位计算）。出售的资产数量（以名义单位计算）。"
+msgstr "正在买卖的资产数量（以标称单位计算）。"
 
 #: resources/sellasset.xrc:156
 msgid "The name or id of the asset to sell."
@@ -1040,13 +1040,13 @@ msgstr "要出售的资产的名称或ID。"
 
 #: resources/sellasset.xrc:192
 msgid "Minimum amount to receive"
-msgstr "最低接收金额"
+msgstr "最低接收数量"
 
 #: resources/sellasset.xrc:221
 msgid ""
 "The minimum amount you are willing to receive in return for selling the "
 "entire amount_to_sell."
-msgstr "您出售整个amount_to_sell时愿意收到的最低金额。"
+msgstr "您出售全部amount_to_sell时愿意收到的最低数量。"
 
 #: resources/sellasset.xrc:232
 msgid "The name or id of the asset you wish to receive."
@@ -1062,7 +1062,7 @@ msgid ""
 "order will remain on the order books before it is cancelled and the un-spent "
 "funds are returned to the seller's account."
 msgstr ""
-"如果订单没有立即填写，这是订单在取消之前保留在订单簿上的时间长度，并且未用完"
+"如果订单没有立即成交，这是订单在取消之前保留在订单簿上的时间长度，并且未成交"
 "的资金将返回到卖方的帐户。"
 
 #: resources/sellasset.xrc:306
@@ -1071,7 +1071,7 @@ msgid ""
 "order will remain on the order books before it is cancelled and the un-spent "
 "funds are returned to the seller's account"
 msgstr ""
-"如果订单没有立即填写，这是订单在取消之前保留在订单簿上的时间长度，并且未用完"
+"如果订单没有立即成交，这是订单在取消之前保留在订单簿上的时间长度，并且未成交"
 "的资金将返回到卖方的帐户"
 
 #: resources/sellasset.xrc:340
@@ -1080,12 +1080,12 @@ msgid ""
 "filled immediately; if not checked, an open order will be left on the books "
 "to fill any amount that cannot be filled immediately."
 msgstr ""
-"如果选中，则只有在立即填写的情况下，订单才会包含在区块链中; 如果没有选中，则"
-"会在书上留下未结订单，以填写任何无法立即填写的金额。"
+"如果选中，则只有在立即成交的情况下，订单才会包含在区块链中; 如果没有选中，则"
+"会在订单薄上留下未结订单，以便于继续成交。"
 
 #: resources/sellasset.xrc:341
 msgid "Fill or Kill"
-msgstr "填充或杀死"
+msgstr "成交或取消"
 
 #: resources/setproxy.xrc:25
 msgid ""
@@ -1098,7 +1098,7 @@ msgid ""
 "\n"
 " This setting can be changed at any time."
 msgstr ""
-"如果用户不希望积极参与投票，他们可以选择允许其他帐户投票。\n"
+"如果用户不希望积极参与投票，可以选择其他帐户代理投票。\n"
 "\n"
 "设置投票代理不会从区块链中删除您之前的投票，它们会保留在那里但会被忽略。 如果"
 "您之后取消了您的投票代理，您之前的投票将再次生效。\n"
@@ -1111,7 +1111,7 @@ msgstr "设置帐户的投票代理。"
 
 #: resources/setproxy.xrc:49
 msgid "Account to modify"
-msgstr "帐户修改帐户修改"
+msgstr "要调整的账户"
 
 #: resources/setproxy.xrc:79
 msgid "The name or id of the account to update."
@@ -1154,7 +1154,7 @@ msgstr "语言："
 
 #: resources/settings_dialog.xrc:133
 msgid "Are accounts imported to this wallet?"
-msgstr "帐户是否已导入此钱包？"
+msgstr "帐户导入此钱包？"
 
 #: resources/settings_dialog.xrc:150
 msgid "Clear everything"
@@ -1166,7 +1166,7 @@ msgstr "取消"
 
 #: resources/transfer.xrc:25
 msgid "Transfer asset to another bitshares account"
-msgstr "将资产转移到另一个bitshares帐户"
+msgstr "将资产转账到另一个bitshares帐户"
 
 #: resources/transfer.xrc:48
 msgid "From"
@@ -1183,7 +1183,7 @@ msgstr "至"
 #: resources/transfer.xrc:206
 msgid ""
 "The amount to send (in nominal units -- to send half of a BTS, specify 0.5)"
-msgstr "发送金额（以标称单位 - 发送一半BTS，指定0.5）"
+msgstr "发送数量（以标称单位 - 发送一半BTS，指定0.5）"
 
 #: resources/transfer.xrc:218
 msgid "The symbol or id of the asset to send"
@@ -1196,8 +1196,8 @@ msgid ""
 "than the limit imposed by maximum transaction size, but transaction increase "
 "with transaction size"
 msgstr ""
-"附加到交易的备忘录。 备忘录将在交易中加密，并为接收者可读。 除了最大事务大小"
-"所施加的限制之外没有长度限制，但事务随着事务大小而增加"
+"附加到交易的备注。 备注将在交易中加密，并为接收者可读。 除了最大交易大小"
+"所施加的限制之外没有长度限制，但处理费随着交易大小而增加"
 
 #: resources/upgradeaccount.xrc:31
 msgid "This makes the account holder a 'lifetime member'."
@@ -1205,7 +1205,7 @@ msgstr "这使得帐户持有人成为“终身会员”。"
 
 #: resources/upgradeaccount.xrc:32
 msgid "Upgrades an account to prime status."
-msgstr "将帐户升级为优质状态。"
+msgstr "将帐户升级为首要状态。"
 
 #: resources/upgradeaccount.xrc:61
 msgid "The name of the account to upgrade"
@@ -1218,7 +1218,7 @@ msgstr "请解锁你的钱包"
 #: panels/active_committee.cpp:10
 msgid "Please wait, updating active committee members info ..."
 msgstr ""
-"请稍等，更新活跃的委员会成员信息......请稍等，更新活跃的委员会成员信息......"
+"请稍等，更新活跃的理事会成员信息..."
 
 #: panels/active_committee.cpp:23 panels/active_witnesses.cpp:23
 #: panels/wallet.cpp:45 panels/wallet.cpp:57
@@ -1232,11 +1232,11 @@ msgstr "投票"
 
 #: panels/active_witnesses.cpp:10
 msgid "Please wait, updating active witnesses info ..."
-msgstr "请稍等，更新有效的证人信息..."
+msgstr "请稍等，更新活跃见证人信息..."
 
 #: panels/active_witnesses.cpp:25
 msgid "Last block"
-msgstr "最后一块"
+msgstr "最新区块"
 
 #: panels/borrowasset.cpp:53
 msgid "Confirm Borrow Asset?"
@@ -1264,7 +1264,7 @@ msgstr "参考块前缀"
 
 #: panels/commands.cpp:22
 msgid "Expiration"
-msgstr "呼气"
+msgstr "有效期"
 
 #: panels/commands.cpp:25 panels/wallet.cpp:34
 msgid "Operations"
@@ -1280,19 +1280,19 @@ msgstr "签名"
 
 #: panels/createaccountwithbrainkey.cpp:29 panels/wallet.cpp:153
 msgid "Suggested Brain key"
-msgstr "建议的脑键"
+msgstr "建议的脑密钥"
 
 #: panels/createaccountwithbrainkey.cpp:64 panels/registeraccount.cpp:59
 msgid "Confirm create account?"
-msgstr "确认投票账号的更新？"
+msgstr "确认创建账号？"
 
 #: panels/createaccountwithbrainkey.cpp:87
 msgid "Create account with brain key response"
-msgstr "使用大脑键响应创建帐户"
+msgstr "使用脑密钥创建帐户响应"
 
 #: panels/createasset.cpp:52 panels/transfer.cpp:76
 msgid "Confirm transfer?"
-msgstr "确认转移？"
+msgstr "确认转账？"
 
 #: panels/createasset.cpp:75
 msgid "Create asset response"
@@ -1300,11 +1300,11 @@ msgstr "创建资产响应"
 
 #: panels/createhtlc.cpp:64
 msgid "Confirm HTLC Create?"
-msgstr "确认HTLC创建？"
+msgstr "确认创建HTLC？"
 
 #: panels/createhtlc.cpp:88
 msgid "HTLC Create response"
-msgstr "HTLC创建回复"
+msgstr "HTLC创建响应"
 
 #: panels/extendhtlc.cpp:54
 msgid "Confirm HTLC Extend?"
@@ -1317,7 +1317,7 @@ msgstr "HTLC扩展响应"
 #: panels/getaccount.cpp:37 panels/getasset.cpp:37
 #: panels/getcommitteemember.cpp:38
 msgid "Account is not a committee member"
-msgstr "帐户不是委员会成员"
+msgstr "帐户不是理事会成员"
 
 #: panels/getaccount.cpp:63
 msgid "Account object"
@@ -1329,11 +1329,11 @@ msgstr "会员资格到期日"
 
 #: panels/getaccount.cpp:71
 msgid "Registrar"
-msgstr "注册员"
+msgstr "登记员"
 
 #: panels/getaccount.cpp:74
 msgid "Referrer"
-msgstr "介绍人"
+msgstr "推荐人"
 
 #: panels/getaccount.cpp:77
 msgid "Lifetime referrer"
@@ -1357,27 +1357,27 @@ msgstr "名称"
 
 #: panels/getaccount.cpp:92
 msgid "Owner"
-msgstr "所有者"
+msgstr "账户"
 
 #: panels/getaccount.cpp:93 panels/getaccount.cpp:103
 msgid "Weight threshold"
-msgstr "重量阈值"
+msgstr "阈值"
 
 #: panels/getaccount.cpp:95 panels/getaccount.cpp:105
 msgid "Account authorities"
-msgstr "帐户管理机构"
+msgstr "帐户"
 
 #: panels/getaccount.cpp:97 panels/getaccount.cpp:107
 msgid "Key authorities"
-msgstr "主要当局"
+msgstr "密钥"
 
 #: panels/getaccount.cpp:99 panels/getaccount.cpp:109
 msgid "Address authorities"
-msgstr "地址当局"
+msgstr "地址"
 
 #: panels/getaccount.cpp:102
 msgid "Active"
-msgstr "活性"
+msgstr "资金"
 
 #: panels/getaccount.cpp:112
 msgid "Options"
@@ -1385,15 +1385,15 @@ msgstr "选项"
 
 #: panels/getaccount.cpp:113
 msgid "Memo key"
-msgstr "备忘录密钥"
+msgstr "备注密钥"
 
 #: panels/getaccount.cpp:117
 msgid "Number of witness"
-msgstr "证人人数"
+msgstr "见证人人数"
 
 #: panels/getaccount.cpp:119
 msgid "Number of committee"
-msgstr "委员会数量"
+msgstr "理事会数量"
 
 #: panels/getaccount.cpp:126
 msgid "Statistics"
@@ -1401,27 +1401,27 @@ msgstr "统计"
 
 #: panels/getaccount.cpp:129
 msgid "Whitelisting accounts"
-msgstr "白名单帐户"
+msgstr "白名单"
 
 #: panels/getaccount.cpp:132
 msgid "Blacklisting accounts"
-msgstr "将帐户列入黑名单"
+msgstr "黑名单"
 
 #: panels/getaccount.cpp:135
 msgid "Whitelisted accounts"
-msgstr "白名单帐户"
+msgstr "被列入白名单帐户"
 
 #: panels/getaccount.cpp:138
 msgid "Blacklisted accounts"
-msgstr "黑名单账号"
+msgstr "被列入黑名单账户"
 
 #: panels/getaccount.cpp:141
 msgid "Owner special authority"
-msgstr "所有者特权"
+msgstr "账户特殊权限"
 
 #: panels/getaccount.cpp:144
 msgid "Active special authority"
-msgstr "积极的特殊权威"
+msgstr "资金特殊权限"
 
 #: panels/getaccount.cpp:147
 msgid "Top n control flags"
@@ -1429,7 +1429,7 @@ msgstr "前n个控制标志"
 
 #: panels/getaccount.cpp:152
 msgid "Get account response"
-msgstr "获取帐户回复"
+msgstr "获取帐户响应"
 
 #: panels/getaccounthistory.cpp:41
 msgid "Account not found"
@@ -1441,7 +1441,7 @@ msgstr "日期"
 
 #: panels/getaccounthistory.cpp:68
 msgid "Block"
-msgstr "块"
+msgstr "区块"
 
 #: panels/getaccounthistory.cpp:69
 msgid "Text"
@@ -1449,7 +1449,7 @@ msgstr "文本"
 
 #: panels/getaccounthistory.cpp:95
 msgid "Account history response"
-msgstr "帐户历史回复"
+msgstr "帐户历史响应"
 
 #: panels/getasset.cpp:63
 msgid "Asset object"
@@ -1469,11 +1469,11 @@ msgstr "最高市场费"
 
 #: panels/getasset.cpp:88
 msgid "Issuer permissions"
-msgstr "颁发者权限"
+msgstr "发行者权限"
 
 #: panels/getasset.cpp:91
 msgid "Flags"
-msgstr "旗"
+msgstr "标志"
 
 #: panels/getasset.cpp:95 panels/getorderbook.cpp:68
 msgid "Base"
@@ -1493,15 +1493,15 @@ msgstr "描述"
 
 #: panels/getasset.cpp:126
 msgid "Get asset response"
-msgstr "获得资产回复"
+msgstr "获得资产响应"
 
 #: panels/getcommitteemember.cpp:61
 msgid "Committee member object"
-msgstr "委员会成员对象"
+msgstr "理事会成员对象"
 
 #: panels/getcommitteemember.cpp:66
 msgid "Committee member account"
-msgstr "委员会成员帐户"
+msgstr "理事会成员帐户"
 
 #: panels/getcommitteemember.cpp:69
 msgid "Vote ID"
@@ -1514,7 +1514,7 @@ msgstr "总票数"
 #: panels/getcommitteemember.cpp:80 panels/getwitness.cpp:94
 #: panels/upgradeaccount.cpp:65
 msgid "Committee member response"
-msgstr "委员会成员回应"
+msgstr "理事会成员回应"
 
 #: panels/gethtlc.cpp:38
 msgid "HTLC ID not found"
@@ -1526,7 +1526,7 @@ msgstr "HTLC对象"
 
 #: panels/gethtlc.cpp:91
 msgid "HTLC response"
-msgstr "HTLC的回应"
+msgstr "HTLC 回应"
 
 #: panels/getorderbook.cpp:41
 msgid "Invalid market"
@@ -1534,11 +1534,11 @@ msgstr "市场无效"
 
 #: panels/getorderbook.cpp:66
 msgid "Price"
-msgstr "价钱"
+msgstr "价格"
 
 #: panels/getorderbook.cpp:101
 msgid "Order book "
-msgstr "订单 :"
+msgstr "订单薄 "
 
 #: panels/getorderbook.cpp:101
 msgid " response"
@@ -1546,19 +1546,19 @@ msgstr " 响应"
 
 #: panels/getwitness.cpp:37
 msgid "Account is not a witness"
-msgstr "帐户不是证人"
+msgstr "帐户不是见证人"
 
 #: panels/getwitness.cpp:60
 msgid "Witness object"
-msgstr "见证对象"
+msgstr "见证人对象"
 
 #: panels/getwitness.cpp:65
 msgid "Witness account"
-msgstr "证人帐户"
+msgstr "见证人帐户"
 
 #: panels/getwitness.cpp:68
 msgid "Last slot"
-msgstr "最后一个插槽"
+msgstr "最新插槽"
 
 #: panels/getwitness.cpp:71
 msgid "Signing key"
@@ -1566,39 +1566,39 @@ msgstr "签名密钥"
 
 #: panels/getwitness.cpp:74
 msgid "Payment vesting balance"
-msgstr "付款归属余额"
+msgstr "报酬解冻余额"
 
 #: panels/getwitness.cpp:86
 msgid "Total missed"
-msgstr "总错过了"
+msgstr "总丢失"
 
 #: panels/getwitness.cpp:89
 msgid "Last confirmed block number"
-msgstr "最后确认的块号"
+msgstr "最新确认的区块号"
 
 #: panels/info.cpp:32 panels/wallet.cpp:61
 msgid "Active witnesses"
-msgstr "积极的证人"
+msgstr "活跃的见证人"
 
 #: panels/info.cpp:38 panels/wallet.cpp:62
 msgid "Active committee"
-msgstr "积极委员会"
+msgstr "活跃的理事会"
 
 #: panels/issueasset.cpp:57
 msgid "Confirm issue asset?"
-msgstr "确认问题资产？"
+msgstr "确认发行资产？"
 
 #: panels/issueasset.cpp:80
 msgid "Issue asset response"
-msgstr "发布资产回复"
+msgstr "发布资产响应"
 
 #: panels/redeemhtlc.cpp:53
 msgid "Confirm HTLC Redeem?"
-msgstr "确认HTLC兑换？"
+msgstr "确认HTLC赎回？"
 
 #: panels/redeemhtlc.cpp:76
 msgid "HTLC Redeem response"
-msgstr "HTLC兑换回复"
+msgstr "HTLC赎回响应"
 
 #: panels/registeraccount.cpp:58
 msgid "Please double check and confirm operation below"
@@ -1634,7 +1634,7 @@ msgstr "设置代理响应"
 
 #: panels/transfer.cpp:99
 msgid "Transfer response"
-msgstr "转移回复"
+msgstr "转账响应"
 
 #: panels/wallet.cpp:37 panels/wallet.cpp:66
 msgid "Create"
@@ -1642,19 +1642,19 @@ msgstr "创建"
 
 #: panels/wallet.cpp:38
 msgid "Issue"
-msgstr "问题"
+msgstr "发行"
 
 #: panels/wallet.cpp:39 panels/wallet.cpp:99
 msgid "Transfer"
-msgstr "传递"
+msgstr "转账"
 
 #: panels/wallet.cpp:40
 msgid "Sell"
-msgstr "卖"
+msgstr "卖出"
 
 #: panels/wallet.cpp:41
 msgid "Borrow"
-msgstr "借"
+msgstr "借入"
 
 #: panels/wallet.cpp:42 panels/wallet.cpp:105
 msgid "Cancel order"
@@ -1662,11 +1662,11 @@ msgstr "取消订单"
 
 #: panels/wallet.cpp:46
 msgid "Register"
-msgstr "寄存器"
+msgstr "注册"
 
 #: panels/wallet.cpp:47
 msgid "Create with brain key"
-msgstr "用脑键创建"
+msgstr "用脑密钥创建"
 
 #: panels/wallet.cpp:48
 msgid "Upgrade"
@@ -1678,11 +1678,11 @@ msgstr "设置代理"
 
 #: panels/wallet.cpp:50
 msgid "Suggest brain key"
-msgstr "建议的脑键"
+msgstr "建议的脑密钥"
 
 #: panels/wallet.cpp:52
 msgid "Getters"
-msgstr "吸气剂"
+msgstr "Getters"
 
 #: panels/wallet.cpp:54 panels/wallet.cpp:119
 msgid "Info"
@@ -1690,7 +1690,7 @@ msgstr "信息"
 
 #: panels/wallet.cpp:55
 msgid "Committee member"
-msgstr "委员会成员"
+msgstr "理事会成员"
 
 #: panels/wallet.cpp:56
 msgid "Witness"
@@ -1702,7 +1702,7 @@ msgstr "帐户历史记录"
 
 #: panels/wallet.cpp:60
 msgid "Order book"
-msgstr "订单"
+msgstr "订单薄"
 
 #: panels/wallet.cpp:63 panels/wallet.cpp:65
 msgid "HTLC"
@@ -1714,7 +1714,7 @@ msgstr "赎回"
 
 #: panels/wallet.cpp:68
 msgid "Extend"
-msgstr "延伸"
+msgstr "扩展"
 
 #: panels/wallet.cpp:101
 msgid "Sell asset"
@@ -1726,31 +1726,31 @@ msgstr "借入资产"
 
 #: panels/wallet.cpp:111
 msgid "Get committee member"
-msgstr "委员会成员"
+msgstr "获取理事会成员"
 
 #: panels/wallet.cpp:113
 msgid "Get account history"
-msgstr "帐户历史记录"
+msgstr "获取帐户历史记录"
 
 #: panels/wallet.cpp:115
 msgid "Get order book"
-msgstr "订单"
+msgstr "获取订单薄"
 
 #: panels/wallet.cpp:121
 msgid "Get active witnesses"
-msgstr "积极见证"
+msgstr "获取活跃见证人"
 
 #: panels/wallet.cpp:123
 msgid "Get active committee"
-msgstr "积极参与委员会"
+msgstr "获取活跃理事会成员"
 
 #: panels/wallet.cpp:125
 msgid "Upgrade account"
-msgstr "卖家帐户"
+msgstr "更新帐户"
 
 #: panels/wallet.cpp:127
 msgid "Create account with brain key"
-msgstr "帐户历史记录"
+msgstr "使用脑密钥创建账户"
 
 #: panels/wallet.cpp:129
 msgid "Register account"
@@ -1762,7 +1762,7 @@ msgstr "创建资产"
 
 #: panels/wallet.cpp:133
 msgid "Get witness"
-msgstr "见证"
+msgstr "获取见证人"
 
 #: panels/wallet.cpp:135
 msgid "Get account"
@@ -1770,7 +1770,7 @@ msgstr "获取帐户"
 
 #: panels/wallet.cpp:137
 msgid "Get asset"
-msgstr "获得资产"
+msgstr "获取资产"
 
 #: panels/wallet.cpp:139
 msgid "Issue asset"
@@ -1782,7 +1782,7 @@ msgstr "创建HTLC"
 
 #: panels/wallet.cpp:143
 msgid "Redeem HTLC"
-msgstr "兑换HTLC"
+msgstr "赎回HTLC"
 
 #: panels/wallet.cpp:145
 msgid "Extend HTLC"
@@ -1808,36 +1808,36 @@ msgstr "未连接"
 msgid ""
 "Wallet file exists, please close the welcome wizard and use File->Open from "
 "menu to use it."
-msgstr "存在钱包文件，请关闭欢迎向导并使用文件 - >打开菜单进行操作。"
+msgstr "钱包文件存在，请关闭欢迎向导并使用文件 - >打开菜单进行使用。"
 
 #: wizards/registration.cpp:101
 msgid "Password and confirmation are not the same"
-msgstr "密码和确认不一样"
+msgstr "密码和确认密码不一致"
 
 #: wizards/registration.cpp:109
 msgid "Password or confirmation can not be empty"
-msgstr "密码或确认不能为空"
+msgstr "密码或确认密码不能为空"
 
 #: wizards/registration.cpp:153
 msgid "Please wait, setting up everything ..."
-msgstr "请稍等，设置一切......"
+msgstr "请稍等，正在设置......"
 
 #: wizards/registration.cpp:160
 msgid "Account can't be empty"
-msgstr "帐户不能为空"
+msgstr "帐户名不能为空"
 
 #: wizards/registration.cpp:177
 msgid "Private key can't be empty"
 msgstr "私钥不能为空"
 
 #~ msgid "Active witnsses"
-#~ msgstr "积极的证人"
+#~ msgstr "活跃的见证人"
 
 #~ msgid "Please wait, getting account history ..."
-#~ msgstr "请稍等，获取帐户历史记录..."
+#~ msgstr "请稍等，获取帐户历史记录中..."
 
 #~ msgid "Some problem connecting"
 #~ msgstr "连接有些问题"
 
 #~ msgid "Upgrade Account"
-#~ msgstr "所有者帐户"
+#~ msgstr "更新账户"
